@@ -4,7 +4,11 @@ There are a few basic things to know before we get started.
 
 ## Interactive mode
 
-Python is an interpreted language, which means that you don't need to compile to run your code. A common way to use Python is in _interactive mode_, which allows you to interact with the Python interpreter in a console session. The way you start it depends on the version of Python you have installed; a typical way is to run ```py```:
+Python is an interpreted language, which means that you don't need to compile to run your code. A common way to use Python is in _interactive mode_, which allows you to interact with the Python interpreter in a console session.
+
+>In this section and in much of the tutorial, examples will assume we're working in an interactive mode console session.
+
+The way you start interactive mode depends on the version of Python you have installed, or whether you're working in a console window or an IDE. A typical way to start it in a console window is to run ```py```:
 
 ```foo
 > py
@@ -26,8 +30,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 When you type a statement in interactive mode and press ```enter```, it is immediately interpreted and the result (if any) is displayed:
 
 ```foo
->>> 42
-42
+>>> "Hello, world!"
+'Hello, world!'
 ```
 
 Note that the line with the result does not have the ">>>" prompt.
@@ -38,7 +42,7 @@ If you start entering a statement and want to clear that without entering, use t
 
 ### The "\_" variable
 
-In interactive mode, the result of the last statement is stored in a special variable, "\_". You can use that in the next statement.
+In interactive mode, the result of the last statement is stored in a special variable, ```_```. You can use that in the next statement.
 
 ```foo
 >>> 6 + 2
@@ -47,7 +51,7 @@ In interactive mode, the result of the last statement is stored in a special var
 9
 ```
 
-Note that the "\_" variable is available in interactive mode, not in modules (.py script files).
+Note that the ```_``` variable is available in interactive mode, not in modules (.py script files).
 
 ### Multi-line statements
 
@@ -62,11 +66,11 @@ If you try pressing ```enter` while in this state, it will start a new line but 
 
 ```foo
 >>> print(
->>>
+...
 ...
 ```
 
-You can press ```Ctrl-C``` to enter a keyboard interrupt and get out of this state:
+If you want to get out of this state, you can press ```Ctrl-C``` to enter a keyboard interrupt:
 
 ```foo
 >>> print(
@@ -84,7 +88,7 @@ Of course, you can also complete the statement and enter it.
 >>>
 ```
 
-## Single-line comments
+## Comments
 
 Single-line comments are entered using "#".
 
@@ -101,6 +105,25 @@ The comment runs to the end of the line. Python doesn't support inline comments,
     6 /* a number */ + 2
        ^
 SyntaxError: invalid syntax
+```
+
+Multi-line comments aren't really relevant for interactive mode, though you'll want to use them sometimes when writing Python modules. Multi-line strings that aren't otherwise used in Python statements can be added as comments.
+
+```python
+# my_module.py
+
+""" This is a multiline comment that talks about an English et cetera,
+    et cetera with brass candle-holders—I said etcetera etcetera
+    because it saved me saying the full sentence which was a certain
+    English rosewood upright piano with brass candle-holders. That's
+    why I said etcetera etcetera, etcetera etcetera. Thought you might
+    like to know. But what does this have to do with the module? Well,
+    the module counts et ceteras that are found in 1950s radio comedy
+    shows.
+"""
+
+    count = 0
+    # et cetera
 ```
 
 ## A very quick intro to ```print()```

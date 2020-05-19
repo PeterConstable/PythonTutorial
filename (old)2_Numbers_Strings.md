@@ -1,10 +1,10 @@
 # Intro to Basic Types: Numbers and Strings
 
-Python has several built-in types. We'll start by looking at numeric types and strings, and basic operations on those types. We'll also 
+Python has several built-in types. We'll start by looking at numeric types and strings, and basic operations on those types. We'll also
 
 Python also has several built-in functions. We'll introduce a few of these that are especially relevant for numbers and strings, as well as the ```type()``` function that will help us understand types in Python.
 
-Examples will assume we're working in an interactive console session.
+We'll end with a brief look at one of the deeper aspects of Python related to objects and types.
 
 ## A quick intro to ```type()```
 
@@ -249,7 +249,7 @@ The integer division operator also accepts float operands and return a whole-int
 Similarly, the modulo operator accepts float operands and will return a float. When non-integral values are used, though, some rounding errors may be introduced.
 
 ```foo
->>> 5.3 % 2
+>>> 5.3 % 2  # expecting 1.3
 1.2999999999999998
 ```
 
@@ -445,7 +445,7 @@ Multi-line string literals are also supported. These are entered by enclosing in
 'eggs\nand\nspam'
 ```
 
->Note the multi-line prompt, "...", indicating that the interpreter is awaiting additional lines to complete the statement. 
+>Note the multi-line prompt, "...", indicating that the interpreter is awaiting additional lines to complete the statement.
 
 The evaluated result is presented on a single line, with the new-line shown as an escape sequence, "\n". But if a multi-line string is passed to the ```print()``` function, the output will be displayed on multiple lines, without escape sequences.
 
@@ -590,7 +590,7 @@ When using the ```print()``` function, there are other ways to integrate numbers
 
 ## A little more insight on objects and types from ```type()```
 
-We'll end this introduction to basic types to peek a bit "under the hood" into objects and types in Python. As mentioned earlier, _everything_ in Python is an object with some class type. We can use the ```type()``` function to expose a bit more of this.
+We'll end this introduction to basic types to peek a bit "under the hood" into objects and types in Python. As mentioned earlier, _everything_ in Python is an object with some class type. (It's objects all the way down!) We can use the ```type()``` function to expose a bit more of this.
 
 On screen, we see the result of the ```type()``` function as a string but, in fact, the ```type()``` function returns an object of another type. We can use the interactive mode "\_" variable to help see that:
 
@@ -601,7 +601,7 @@ On screen, we see the result of the ```type()``` function as a string but, in fa
 <class 'type'>
 ```
 
-Even built-in functions have their own type:
+Even built-in functions are objects that have their own type:
 
 ```foo
 >>> type(print)
