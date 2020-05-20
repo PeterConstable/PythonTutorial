@@ -2,6 +2,8 @@
 
 In this lesson, we'll start out by quickly covering some basics of working with numbers.
 
+## Integer and floating values
+
 You can enter a number literal as a statement, and the Python interpreter will evaluate it:
 
 ```foo
@@ -25,6 +27,13 @@ You can also enter numeric expressions for Python to evaluate:
 48
 >>> 6 - 42
 -36
+```
+
+Any function that can take a number as an argument can also take a numeric expression. The expression will be evaluated, and then the result will be passed to the function.
+
+```foo
+>>> print(4 + 2)
+6
 ```
 
 Python has two basic numeric types that are frequently used: ```int```, for integers, and ```float```, for real numbers (in the math sense—integers, rationals or irrationals). (There's a third basic numeric type, ```complex```; we'll skip that for now.) A number literal without any decimal point is an ```int```; but a literal that has a decimal point is a ```float```. You can enter a ```float``` literal without any decimal digits, but the evaluated results shown in interactive mode will always have at least one decimal digit.
@@ -236,6 +245,53 @@ One other common numeric operation is to get an absolute value. Python has a bui
 >>> abs(13 - x)
 29
 ```
+
+## Complex numbers
+
+Python has a third, basic numeric type, ```complex```. In math, the basic idea of complex numbers comes from inventing _imaginary_ numbers that are the square roots of negative numbers. Complex numbers have real and imaginary components, and are particularly useful in certain areas of science and engineering. We'll just give a quick overview.
+
+In complex literals, the imaginary component is represented using a suffix "j" or "J"; for example, "4+2j".
+
+```foo
+>>> 4+2j
+(4+2j)
+>>> type(4+2j)
+<class 'complex'>
+```
+
+Note that the imaginary component must always have a decimal digit before the "j" suffix, even for imaginary unit of 1. The real component is optional.
+
+```foo
+>>> 4+2j * 3J
+(-2+0j)
+```
+
+When writing a complex literal, surrounding parentheses are optional, but results in interactive mode will always have parenthesis.
+
+The magnitude for the real and imaginary components do not need to be integer values; either can be a real value.
+
+```foo
+>>> 1.414 - 3.14j
+(1.414-3.14j)
+```
+
+Numeric expressions that include a complex operand as well as numeric functions with complex arguments will generally return a complex value. For example:
+
+```foo
+>>> 1j ** 2
+(-1+0j)
+```
+
+One notable exception is the ```abs()``` function: when a complex number is passed as an argument, it returns the _magnitude_ as a float.
+
+```foo
+>>> abs(1j)
+1.0
+```
+
+## More details on numeric types
+
+For more details on numeric types, see the relevant Python documentation, [Numeric Types — int, float, complex](https://docs.python.org/3.8/library/stdtypes.html#typesnumeric). For precedence order of operators, see [6.17 Operator precedence](https://docs.python.org/3.8/reference/expressions.html#operator-summary).
 
 ## Next up
 

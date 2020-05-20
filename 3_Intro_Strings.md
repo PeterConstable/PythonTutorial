@@ -2,6 +2,10 @@
 
 In the previous lesson, we explored working with numeric literals and variables. In this lesson, we'll do the same for strings.
 
+Some types in Python are _sequence types_, which means that they contain a sequence of elements. Strings are one of the sequence types. We'll learn about some useful ways you can interact with the elements within a sequence, as well as the built-in ```len()``` function that can be used with sequences.
+
+## String basics
+
 Strings in Python have the type ```str```. You can enter a string literal as a statement, and the Python interpreter will evaluate it. String literals must be enclosed in double or single quotation marks ("..." or '...').
 
 ```foo
@@ -151,16 +155,27 @@ Python also supports a second kind of string concatenation operator: the ```\*``
 
 ## Strings as character sequences
 
-The ```str``` type is a _sequence type_. What this means is that it is implemented as a sequence of elements—characters—and supports certain operations for manipulating the individual elements.
+As mentioned above, ```str``` is a sequence type: strings contain a sequence of zero or more character elements. There are various ways you can interact with the character elements of a string. (These mechanisms can also be used with other sequence types we'll learn about later.)
 
-For example, one common operation is to inspect a single character within the string. You indicate the desired character using a zero-based index (0 for the first character, 1 for the next character, etc.). The indexed character will be returns as a single-character string. This is done as in the following example:
+One common thing you'll need to do is to find out about the length of a string. To do that, we use the ```len()``` function.
+
+```foo
+>>> len("spam")
+4
+>>> len(her_name)
+15
+>>> len("")
+0
+```
+
+Another common operation is to inspect a single character within the string. You indicate the desired character using a zero-based index (0 for the first character, 1 for the next character, etc.). The indexed character will be returned as a single-character string. This is done as in the following example:
 
 ```foo
 >>> her_name[3]
 'z'
 ```
 
-You can also extract a sub-string, or _slice_, by providing the starting and ending indices:
+You can also extract a sub-string, or _slice_, by specifying a range using the starting and ending indices:
 
 ```foo
 >>> her_name[0:5]
@@ -178,12 +193,39 @@ This may take a little getting used to. One thing that's handy, though, is that 
 'Eliza'
 ```
 
+Usually you'll want the ending position to be after the starting position. If it's the same as or before the starting position, that implies a length of zero, and you'll get the empty string.
+
+```foo
+>>> her_name[5:3]
+''
+```
+
+So, if you unexpectedly get an empty string returned, check your indices!
+
 Another thing you can do with the sequence range specification is to indicate a range indexed from the end of the string. You do this by using negative index values: -1 means the position before the last character, -2 means the position before the second-last character, and so on. Here's an example:
 
 ```foo
 >>> her_name[-6 : -2]
 'litt'
 ```
+
+You can combine positive and negative indices in the range specification.
+
+```foo
+>>> her_name[-5: 13]
+'itt'
+```
+
+Doing that with integer literals in your code is probably not a good idea as it's less obvious what is intended or what the result will be. But it may be useful if you have code logic that calculates start and end positions for the range.
+
+Keep in mind that an ending position before the starting position will result in an empty string. That also applies when indexing from the end with negative indices.
+
+```foo
+>>> her_name[-5 : -7]
+''
+```
+
+If both indices are positive or both indices are negative, the a generalization that holds is that you'll get an empty string _if the ending index is less than or equal to the starting index_. If you mix positive and negative indices, however, that doesn't work.
 
 If you want to get a sub-string that starts at the beginning of a string, you can indicate 0 as the starting position. But an even easier way is just to leave out the first index: that means to start at the beginning:
 
@@ -199,16 +241,14 @@ Similarly, if you leave out the second index, that indicates that the ending pos
 'ittle'
 ```
 
-Note: if the specified starting position is _after_ the specified ending position, an empty string will be returned.
+Leaving out the ending index is the same as specifying ```len(_expression_)``` as the ending index.
 
 ```foo
->>> her_name[-5 : -7]
-''
+>>> her_name[-5: len(her_name)]
+'ittle'
 ```
 
-So, if you unexpectedly get an empty string returned, check your indices!
-
-There's one more thing you can do with these sequence range specification, though you'll probably use this less often: add a third number indicating a _step_ amount—how many characters in the string to advance after each extracted character. For example, the following requests ever other character from the first 8 characters in the string:
+There's one more thing you can do with these sequence range specification, though you'll probably use this less often: add a third number indicating a _step_ amount—how many characters in the string to advance after each extracted character. For example, the following requests _every other_ character from the first 8 characters in the string:
 
 ```foo
 >>> her_name[0:8:2]
@@ -258,4 +298,4 @@ Here's a closing thought for this lesson:
 closing_thought = "There's l" + 8 * 'o' + 'ts more still to learn about working with strings."
 ```
 
-We'll explore more about strings in a later lesson, after we check out some other useful bits of Python. In the next lesson, we'll look at another basic type, ```bool```, and conditional expressions. Then we'll be ready to take our first real steps at programming.
+We'll explore more about strings in a later lesson, after we check out some other useful bits of Python. In the next lesson, we'll look at another basic type, ```bool```, and expressions that evaluate to boolean values. Then we'll be ready to take our first real steps at programming.

@@ -244,6 +244,20 @@ We've been talking about ```int``` literals. What about ```floats```? Hex, binar
 87234786.29
 ```
 
+Up to now, we've seen examples of floats represented normal, decimal representation. There is another representation that's also used for float literals, the exponent form:
+
+```foo
+>>> 2.34e5
+234000.0
+```
+
+The number after "e" is an exponent applied to a base of 10, and that is multiplied times the number before "e". For very large float values, results in interactive mode will use the exponent representation with a single-digit mantissa.
+
+```foo
+>>> 1234567890123456789.
+1.2345678901234568e+18
+```
+
 ## Strings as Unicode character sequences
 
 In lesson 3, we learned that Python strings are sequences of characters. Going into more detail, strings in Python 3.x are sequences of _Unicode_ characters. A string variable can include any Unicode character. Likewise, string literals can include any Unicode character, if supported by the console or editor you're using.
@@ -313,6 +327,24 @@ Note that ```int()``` truncates the ```float``` value:
 -4
 ```
 
+Integer and float values can be converted to complex using the ```complex()``` constructor function.
+
+```foo
+>>> complex(2)
+(2+0j)
+>>> complex(4.3)
+(4.3+0j)
+```
+
+However, complex values cannot be converted to integer or float.
+
+```foo
+>>> float(4+2j)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't convert complex to float
+```
+
 When working with strings, we may want to concatenate a number into a string. But Python doesn't allow an ```int``` or ```float``` to be concatenated onto a string.
 
 ```foo
@@ -323,7 +355,7 @@ Traceback (most recent call last):
 TypeError: can only concatenate str (not "int") to str
 ```
 
-But we can use the built-in ```str()``` constructor function to convert numbers into strings:
+But we can use the built-in ```str()``` constructor function to convert numbers into strings. This works for any of the numeric types:
 
 ```foo
 >>> x = 42
@@ -331,7 +363,17 @@ But we can use the built-in ```str()``` constructor function to convert numbers 
 'final count: 42'
 ```
 
-Any of the built-in numeric types can be converted to a string in this way.
+```foo
+>>> "Patient temp: " + str(37.9)
+'Patient temp: 37.9'
+```
+
+```foo
+>>> "This is complex: " + str(2+3j)
+'This is complex: (2+3j)'
+```
+
+>Note: Integrating numbers into strings, or _string formatting_, is a bigger topic, and there are other ways to do that with more and better options. We'll save that for a later topic.
 
 We can use ```int()``` and ```float()``` to convert strings to numbers, so long as the strings are string expressions of decimal numbers:
 
