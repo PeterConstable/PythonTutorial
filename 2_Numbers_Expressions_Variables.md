@@ -237,4 +237,6 @@ One other common numeric operation is to get an absolute value. Python has a bui
 29
 ```
 
-There's more to learn about numbers, and about variables. But we'll hold off to introduce some other useful things first.
+## Next up
+
+There's more to learn about numbers, and about variables. But we'll hold off to introduce some other useful things first. In the next lesson, we take a first look at strings.

@@ -1,14 +1,14 @@
-# More about Numbers and Variable Assignment
+# More about Numbers, Strings and Variables
 
-In lesson 2, we introduced the basics of working with numbers, expressions and variables: how to express numbers as literals, assign them to variables, and create numeric expressions using various operators. And in lesson 3 we got introduced to strings. In this lesson, we'll go into more detail into each of these areas:
+In lesson 2, we introduced the basics of working with numbers, expressions and variables: how to express numbers as literals, assign them to variables, and create numeric expressions using various operators. And in lesson 3 we got introduced to strings. In this lesson, we'll go into more detail on each of those topics.
 
-* [Variable assignment and compound assignment operators](#variable-assignment-and-compound-assignment-operators)
+* [Using compound assignment operators](#using-compound-assignment-operators)
 * [Range and precision of ```int``` and ```float```](#range-and-precision-of-```int```-and-```float```)
 * [Different formats for numeric literals](#different-formats-for-numeric-literals)
 * [Strings as Unicode character sequences](#strings-as-unicode-character-sequences)
 * [Converting between number and string types](#converting-between-number-and-string-types)
 
-## Variable assignment and compound assigment operators
+## Using compound assigment operators
 
 We've already seen the familiar assignment operator, ```=```, for assigning values to variables.
 
@@ -52,7 +52,7 @@ The other numeric operators also have corresponding compount assignment operator
 2.0
 ```
 
->Note: some languages support ```=+``` and ```=-``` as well as ```+=``` and ```-=```, with slightly different effects in loop conditions. In Python, ```=+``` and ```=-``` are meaningul, but they're not compound assignment operators! They're simply the assignment operator ```=``` with the following ```+``` and ```-``` interpreted as prefixes to the following number. For example,
+>Note: some languages support ```=+``` and ```=-``` as well as ```+=``` and ```-=```, with slightly different effects in looping conditions. In Python, ```=+``` and ```=-``` are meaningul, but they're not compound assignment operators! They're simply the assignment operator ```=``` with the following ```+``` and ```-``` interpreted as prefixes to the following number. For example,
 >
 >```foo
 >>>> x =- 5
@@ -103,9 +103,16 @@ Because of the precision limitation, rounding errors will occur, especially with
 3.9999999999999996
 ```
 
->To learn more about precision of ```float``` and how to find out details for your system, see the Python documentation for [sys.float_info](https://docs.python.org/3.8/library/sys.html#sys.float_info).
+There's a way you can get details about the supported precision of ```float``` on your system, but it involves using certain features we haven't explored yet (importing a module, ```sys```, that's included with your Python installation but not loaded by default). If you want to find out more, see the Python documentation for [sys.float_info](https://docs.python.org/3.8/library/sys.html#sys.float_info). Here's an example of what the detailed info looks like:
 
-The ```float``` type in Python supports values for positive and negative infinity. These are obtained passing certain strings to the ```float()``` function:
+```foo
+>>> sys.float_info
+sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)
+```
+
+To get an idea of how this compares to floating value types in other languages, this is comparable to the [range for ```double``` in the Microsoft C++ compiler](https://docs.microsoft.com/en-us/cpp/cpp/data-type-ranges?view=vs-2019).
+
+The ```float``` type in Python supports values for positive and negative infinity. These are obtained by passing certain strings to the ```float()``` function:
 
 ```foo
 >>> x = float('inf')
@@ -116,7 +123,7 @@ inf
 -inf
 ```
 
-Either the short or long strings, 'inf' or 'infinity' can be used. Also, case doesn't matter.
+Either the short or long strings, 'inf' or 'infinity', can be used. Also, case doesn't matter.
 
 ```foo
 >>> y = float('-inFiNitY')
@@ -142,7 +149,17 @@ nan
 nan
 ```
 
-Because ```int```s aren't bounded, these concepts don't apply. (Happy counting, Buzz Lightyear; let us know when you're done.)
+You can obtain the ```nan``` value directly as follows:
+
+```foo
+>>> x = float('nan')
+>>> x
+nan
+```
+
+>Note: ```nan``` is not the same as 0, null or ```None```.
+
+Because ```int```s aren't bounded, these concepts don't apply. (Happy counting galaxies, Buzz Lightyear! Let us know when you're done; you'll probably be able to find us at Milliways.)
 
 ## Different formats for numeric literals
 
@@ -228,6 +245,47 @@ We've been talking about ```int``` literals. What about ```floats```? Hex, binar
 ```
 
 ## Strings as Unicode character sequences
+
+In lesson 3, we learned that Python strings are sequences of characters. Going into more detail, strings in Python 3.x are sequences of _Unicode_ characters. A string variable can include any Unicode character. Likewise, string literals can include any Unicode character, if supported by the console or editor you're using.
+
+But even if they're not supported by the console or editor, any Unicode character can be written in a string literal as an escape sequence with the prefix "\u" or "\U".
+
+```foo
+>>> "convert $ to \u20ac"
+'convert $ to €'
+```
+
+The "\\u" prefix is used for Unicode characters from U+0000 to U+FFFF, and exactly four hex digits must be provided: \\uxxxx. The "\\U" prefix can be used for any Unicode characters from U+0000 to U+10FFFF, and exactly eight hex digits must be provided: \\Uxxxxxxxx.
+
+```foo
+>>> '\U0001f603'
+'😃'
+```
+
+>If you learned about Unicode in the past, you might have heard about _surrogate pairs_: two code units in the range 0xDC00 to 0xDFFF that are combined to represent Unicode characters U+10000 and above. Forget about surrogate pairs! To specify a character from U+10000 or above in an escape sequece, you must specify the Unicode code point directly with an eight-digit \\U sequence.
+
+Python has useful built-in functions to go between a Unicode character and the integer value for its code point. The ```ord()``` function takes any single Unicode character and returns its code point as an ```int```.
+
+```foo
+>>> ord('€')
+8364
+```
+
+>As always numeric results in interactive mode are always is presented in decimal. But Unicode code points are normally cited in hex. You can use the ```hex()``` function to get a hex string representation:
+>
+>```foo
+>>>> hex(ord('€'))
+>'0x20ac'
+>```
+
+The ```chr()``` function is the inverse of ```ord()```: it takes a number and returns a string with the Unicode character for that code point.
+
+```foo
+>>> chr(8364)
+'€'
+```
+
+>Note: The ```ord()``` function only takes a single character, not a sequence of multiple characters. Similarly, the ```chr()``` function only takes a single numeric value.
 
 ## Converting between number and string types
 
@@ -322,3 +380,7 @@ You can even mix and match digits from different scripts—though this isn't rec
 >>> int("4٢")
 42
 ```
+
+Next up
+
+You may be wondering, _Have we finally learned everything we need to know about numbers, strings and variables?_ Need you ask? There are still lessons to come exploring the Math module, and the re module for working with regular expressions. But first, there are other useful and more general things to learn. In the next lesson, we'll learn about other basic types for sequences and collections.
