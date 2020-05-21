@@ -1,14 +1,16 @@
-# More about Numbers, Strings and Variables
+# More about Assignment, Numbers and Strings
 
 In lesson 2, we introduced the basics of working with numbers, expressions and variables: how to express numbers as literals, assign them to variables, and create numeric expressions using various operators. And in lesson 3 we got introduced to strings. In this lesson, we'll go into more detail on each of those topics.
 
+* [Multiple assignment](#multiple-assignment)
 * [Using compound assignment operators](#using-compound-assignment-operators)
 * [Range and precision of ```int``` and ```float```](#range-and-precision-of-```int```-and-```float```)
 * [Different formats for numeric literals](#different-formats-for-numeric-literals)
 * [Strings as Unicode character sequences](#strings-as-unicode-character-sequences)
 * [Converting between number and string types](#converting-between-number-and-string-types)
+* [What's next](#what's-next)
 
-## Using compound assigment operators
+## Multiple assignment
 
 We've already seen the familiar assignment operator, ```=```, for assigning values to variables.
 
@@ -16,6 +18,37 @@ We've already seen the familiar assignment operator, ```=```, for assigning valu
 >>> x = 42
 >>> y = "hey, there!"
 ```
+
+Something that's very handy in Python is that you can assign values to multiple variables in a single statement.
+
+```foo
+>>> x, y = 42, "hey, there!"
+>>> x
+42
+>>> y
+'hey, there!'
+```
+
+You simply list two or more variables on the left, separated by commas, and then the same number of values on the right, also separated by commas. There must be the same number of variables on the left as there are values on the right, otherwise you'll get an error.
+
+```foo
+>>> x, y = 2, 3, 4
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: too many values to unpack (expected 2)
+```
+
+The examples above have literals as values, but you can also use expressions or functions.
+
+```foo
+>>> x, y = 3 * 19, len("spam")
+>>> x
+57
+>>> y
+4
+```
+
+## Using compound assigment operators
 
 Like several other languages, Python supports compound (or _in-place_) assigment operators that evaluate an expression and assign the result. For example:
 
@@ -159,7 +192,7 @@ nan
 
 >Note: ```nan``` is not the same as 0, null or ```None```.
 
-Because ```int```s aren't bounded, these concepts don't apply. (Happy counting galaxies, Buzz Lightyear! Let us know when you're done; you'll probably be able to find us at Milliways.)
+Because ```int```s aren't bounded, these concepts don't apply. (Happy counting galaxies, Buzz Lightyear! When you're done, come join us at Milliways.)
 
 ## Different formats for numeric literals
 
@@ -285,7 +318,7 @@ Python has useful built-in functions to go between a Unicode character and the i
 8364
 ```
 
->As always numeric results in interactive mode are always is presented in decimal. But Unicode code points are normally cited in hex. You can use the ```hex()``` function to get a hex string representation:
+>As always, numeric results in interactive mode are presented in decimal. But Unicode code points are normally cited in hex. You can use the ```hex()``` function to get a hex string representation:
 >
 >```foo
 >>>> hex(ord('€'))
@@ -303,7 +336,7 @@ The ```chr()``` function is the inverse of ```ord()```: it takes a number and re
 
 ## Converting between number and string types
 
-In lesson 2, we learned about two basic numeric types, ```int``` and ```float```. We also saw that numeric expressions that have a ```float``` as one of the operands always result in a ```float```. But sometimes, you may need to get an ```int``` variable for a subsequent step. Each of the basic built-in types has a corresponding constructor function that can be used to convert between types.
+In lesson 2, we learned about the basic numeric types, ```int```, ```float``` and ```complex```. We also saw that numeric expressions that have a ```float``` as one of the operands always result in a ```float```. But sometimes, you may need to get an ```int``` variable for a subsequent step. Each of the basic built-in types has a corresponding constructor function that can be used to convert between types.
 
 The following examples show an ```int``` literal being converted to a ```float``` value using the ```float()``` constructor fuction; and ```float``` being converted to ```int``` using the ```int()``` constructor function:
 
@@ -345,7 +378,7 @@ Traceback (most recent call last):
 TypeError: can't convert complex to float
 ```
 
-When working with strings, we may want to concatenate a number into a string. But Python doesn't allow an ```int``` or ```float``` to be concatenated onto a string.
+When working with strings, we may want to concatenate a number into a string. But Python doesn't allow an ```int```, ```float``` or ```complex``` to be concatenated onto a string.
 
 ```foo
 >>> x = 42
@@ -373,7 +406,7 @@ But we can use the built-in ```str()``` constructor function to convert numbers 
 'This is complex: (2+3j)'
 ```
 
->Note: Integrating numbers into strings, or _string formatting_, is a bigger topic, and there are other ways to do that with more and better options. We'll save that for a later topic.
+>Note: Integrating numbers into strings, or _string formatting_, is a bigger topic, and there are other ways to do that with more and better options. We'll save that for a later lesson.
 
 We can use ```int()``` and ```float()``` to convert strings to numbers, so long as the strings are string expressions of decimal numbers:
 
@@ -402,7 +435,16 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: '22 birds'
 ```
 
-Earlier, we saw that integer literals can be expressed in hex, binary or octal as well as in decimal. When using ```int()```, the number string can only be in decimal form. The "\_" grouping delimiter can be used, however:
+Earlier, we saw that integer literals can be expressed in hex, binary or octal as well as in decimal. When using ```int()``` to convert from a string, however, the number string can only be in decimal form.
+
+```foo
+>>> int("0x42")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '0x42'
+```
+
+The "\_" grouping delimiter can be included in the string:
 
 ```foo
 >>> int("12_345_678")
@@ -423,6 +465,6 @@ You can even mix and match digits from different scripts—though this isn't rec
 42
 ```
 
-Next up
+## What's next
 
-You may be wondering, _Have we finally learned everything we need to know about numbers, strings and variables?_ Need you ask? There are still lessons to come exploring the Math module, and the re module for working with regular expressions. But first, there are other useful and more general things to learn. In the next lesson, we'll learn about other basic types for sequences and collections.
+There's more we could cover on numbers and strings, but it's time for something else. In the next lesson, we'll learn about another booleans and logical expressions.

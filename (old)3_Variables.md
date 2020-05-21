@@ -1,89 +1,8 @@
 # Intro to Variables
 
-In the previous section, we introduced numeric and string values, but only showed them used as literals. That's fine if you want to use interactive mode as a basic calculator. But for anything more (or even a decent calculator), you'll want to use variables.
-
-In this lesson, we'll go over some basics about working with variables, as well as some deeper things regarding variables that are important to understand.
-
-Along the way, we'll introduce some addtional built-in functions, ```id()``` and ```isinstance()```.
-
-We'll end with a preview of some more advanced ways in which variables can interact with the deeply object-oriented nature of Python.
-
-## The basics: assigning values to variables
-
-If you've used any other programming language, variables may seem straight forward: just assign a value to a variable expression, and then use that variable again later.
-
-```foo
->>> x = "Hello!"
->>> print(x)
-Hello!
-```
-
-Here we see the familiar assignment operator ```=``` that's used to assign a value to a named variable.
-
-In the next lesson, we'll learn about comparison operators and their use in program control. We won't go into that yet except to say that ```=``` is _not_ an equality comparison operator. As in many other languages, the Python equality operator is ```==```. But we're getting ahead of ourselves; back to assignment.
-
-### Compound assignment operators
-
-Like several other languages, Python supports compound (or _in-place_) assigment operators that evaluate an expression and assign the result. For example:
-
-```foo
->>> x = 6
->>> x += 5
->>> print(x)
-11
-```
-
-In the second statement, ```+=``` is used to combine two steps into one. First, the expression ```x + 5``` is evaluated; then, the result is assigned back to ```x```. It's convenient shorthand for ```x = x + 5```.
-
-The other numeric operators also have corresponding compount assignment operators. Follow along this sequence of statements:
-
-```foo
->>> x = 4
->>> x -= 1
->>> x
-3
->>> x *= 2
->>> x
-6
->>> x **= 2
->>> x
-36
->>> x //= 4
->>> x
-9
->>> x %= 5
->>> x
-4
->>> x /= 2
->>> x
-2.0
-```
-
->Note: some languages support ```=+``` and ```=-``` as well as ```+=``` and ```-=```, with slightly different effects in loop conditions. In Python, ```=+``` and ```=-``` are meaningul, but they're not compound assignment operators! They're simply the assignment operator ```=``` with the following ```+``` and ```-``` interpreted as prefixes to the following number. For example,
->
->```foo
->>>> x =- 5
->```
->
->means exactly the same thing as
->
->```foo
->>>> x = -5
-
-In string operations, ```+=``` can be used as a compound concatenation-assignment operator.
-
-```foo
->>> x = "boo"
->>> x += "hoo"
->>> x
-'boohoo'
-```
-
-OK, if you've worked with other programming languages, everything so far is probably familiar. Let's get into some less obvious stuff.
-
 ## Variables, types, and underlying objects
 
-As mentioned in the previous section, everything in Python is an object and has a class type. That also applies variables, in a Pythonic way. Variables always have a type, but you don't declare the type of variables in advance: the type of a variable is determined dynamically when a value is assigned to it.
+As mentioned in the previous section, everything in Python is an object and has a class type. That also applies to variables, but in a Pythonic way. Variables always have a type, but you don't declare the type of variables in advance: the type of a variable is determined dynamically when a value is assigned to it.
 
 Let's start with a new interactive mode session and try to use a varible that hasn't yet been assigned—an error will occur:
 
@@ -135,7 +54,7 @@ However, Python does dynamic typing, and a new assignment can result in a variab
 <class 'str'>
 ```
 
-Now, there are some subtleties going on here, and it will be helpful to understand them.
+There are some subtleties going on here, and it will be helpful to understand them.
 
 In other languages, you might think of a variable such as ```x``` as a slot that takes a value, and a type declaration determines what type of values can go into that slot.
 
@@ -263,7 +182,7 @@ It was certainly a reasonable question to ask. Later, we'll learn about other se
 
 ## Variables can be invaluable!
 
-In this last section, we'll get a bit more advance. Okay, there's an intended pun in the heading. We've said that variables are names given to objects. And from other object-oriented programming we're familiar with the idea of objects being _values_ of different kinds: numbers, strings, animals, vehicles and the other usual suspects from OOP tutorials. But we've said that in Python _everything_ is an object. So, can we use variables for things that aren't typical kinds of values? Yes, we can!
+In this last section, we'll get a bit more advanced. Okay, there's an intended pun in the heading. We've said that variables are names given to objects. And from other object-oriented programming we're familiar with the idea of objects being _values_ of different kinds: numbers, strings, animals, vehicles and the other usual suspects from OOP tutorials. But we've said that in Python _everything_ is an object. So, can we use variables for things that aren't typical kinds of values? Yes, we can!
 
 Let's take types as an example. We've seen that the ```type()``` function returns the type of objects (or objects referred to by a variable) that are passed to it. When the result of ```type()``` is displayed in interactive mode, we see a string. But as we saw in the previous lesson, the result isn't a string; it's an object of the ```type``` type. We can see this by passing the result of a call to ```type()``` back into itself.
 
@@ -302,7 +221,7 @@ Once we have assigned a ```type``` object to a variable, we can use that variabl
 <class 'int'>
 ```
 
-Again, you might be thinking, _Sure, it can be used; but how can it be **useful**?_ Granted, these have been toy examples. But there's a good chance you'll eventually have a need for it with your own custom types. We haven't covered functions or program-control statements yet, but here's a preview illustrating a practical use of a variable, ```kind```, that gets ```type``` objects assigned to it:
+Again, you might be thinking, _Sure, it can be used; but how can it be **useful**?_ Granted, these have been toy examples. But there's a good chance you'll eventually have a need for it with your own custom types. We haven't covered functions or flow control statements yet, but here's a preview illustrating a practical use of a variable, ```kind```, that gets ```type``` objects assigned to it:
 
 ```python
 def speak(kind):

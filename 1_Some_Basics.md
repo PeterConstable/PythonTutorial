@@ -2,6 +2,10 @@
 
 There are a few basic things to know before we get started.
 
+* [Interactive mode](#interactive-mode)
+* [Comments](#comments)
+* [A very quick intro to ```print()```](#a-very-quick-intro-to-```print()```)
+
 ## Interactive mode
 
 Python is an interpreted language, which means that you don't need to compile to run your code. A common way to use Python is in _interactive mode_, which allows you to interact with the Python interpreter in a console session.
@@ -35,8 +39,6 @@ When you type a statement in interactive mode and press ```enter```, it is immed
 ```
 
 Note that the line with the result does not have the ">>>" prompt.
-
-Interactive mode retains some history. You can use up or down arrow keys to find statements that were entered earlier.
 
 If you start entering a statement and want to clear that without entering, use the ```Esc``` key.
 
@@ -87,6 +89,41 @@ Of course, you can also complete the statement and enter it.
 6
 >>>
 ```
+
+### History
+
+Interactive mode retains some history. You can use up or down arrow keys to find statements that were entered earlier, allowing you to repeat a statement without re-typing it. When you retrieve a statement from the history, you'll be able to make changes before entering; that will add the revised statement at the end of the history, but the earlier statement will still be in the history in its original form.
+
+With multi-line statements, the entire statement might be treated as a complete unit the history, or as separate lines. It will depend on your console or IDE. If handled as a unit, then the entire statement will appear at once as you arrow-key through the history. To make changes, press left arrow to enter edit mode; then you'll be able to use up and down arrow keys to get to other lines without scrolling in the history.
+
+### Errors
+
+If you enter a statement that has a syntax error or that generates a runtime error, the interpreter will present an error statement.
+
+```foo
+>>> 6 = x
+  File "<stdin>", line 1
+SyntaxError: cannot assign to literal
+```
+
+It will show what the specific error is and provide a call stack to help see where in code the error occurred. This may generate several lines. In the following example, functions ```foo``` and ```bar``` are defined, with the implementation of ```bar``` making a call to ```foo```. Then ```bar(6)``` is entered, but inside ```foo``` that results in an error.
+
+```foo
+>>> def foo(val):
+...     print(len(val))
+...
+>>> def bar(val):
+...     foo(val)
+...
+>>> bar(6)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in bar
+  File "<stdin>", line 2, in foo
+TypeError: object of type 'int' has no len()
+```
+
+The call traceback shows the execution flow, revealing that the error occurred at line 2 in ```foo```.
 
 ## Comments
 
@@ -142,4 +179,4 @@ You can provide multiple arguments, and ```print``` will add spaces between them
 6 9 42
 ```
 
-Naturally, there's lots more to learn about ```print()```, but that's a later topic. This is enough to get us started.
+Naturally, there's lots more to learn about ```print()```, but this is enough to get us started.

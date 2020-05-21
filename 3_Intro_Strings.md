@@ -4,6 +4,12 @@ In the previous lesson, we explored working with numeric literals and variables.
 
 Some types in Python are _sequence types_, which means that they contain a sequence of elements. Strings are one of the sequence types. We'll learn about some useful ways you can interact with the elements within a sequence, as well as the built-in ```len()``` function that can be used with sequences.
 
+* [String basics](#string-basics)
+* [String concatenation](#string-concatenation)
+* [Strings as character sequences](#strings-as-character-sequences)
+* [Strings are immutable](#strings-are-immutable)
+* [What's next](#what's-next)
+
 ## String basics
 
 Strings in Python have the type ```str```. You can enter a string literal as a statement, and the Python interpreter will evaluate it. String literals must be enclosed in double or single quotation marks ("..." or '...').
@@ -290,7 +296,7 @@ Suppose we want to change the spelling to the way Professor Higgins would insist
 'Henry Higgins'
 ```
 
-## Next up
+## What's next
 
 Here's a closing thought for this lesson:
 
@@ -298,4 +304,4 @@ Here's a closing thought for this lesson:
 closing_thought = "There's l" + 8 * 'o' + 'ts more still to learn about working with strings."
 ```
 
-We'll explore more about strings in a later lesson, after we check out some other useful bits of Python. In the next lesson, we'll look at another basic type, ```bool```, and expressions that evaluate to boolean values. Then we'll be ready to take our first real steps at programming.
+So far, we've introduced numbers, strings and assigning those values to variables. There are a few more things to know about each of those that you're going to find useful. We'll cover those in the next lesson before moving on to other topics.

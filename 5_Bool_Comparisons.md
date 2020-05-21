@@ -1,12 +1,21 @@
 # Booleans, Comparisons and Logical Expressions
 
-Almost any program you create will need to have logic for program control, or _branching_: do certain things in one situation, but different things in other situation. To get to that, we need to learn about comparison and logical expressions, and about another basic type, ```bool```.
+Almost any program you create will need to have logic for program flow control, such as _branching_ (do certain things given one condition, but different things in other conditions). To get to that, we need to learn about comparison and logical expressions, and about another basic type, ```bool```.
 
 In this lesson, we'll go over all of those things. We'll introduce several additional operators used in comparison and logical expressions. We'll also cover a special built-in object, ```None```, and a special built-in function, ```isinstance()```, both of which are relevant for logical expressions.
 
 As we continue to learn about types, it will be helpful to learn about another built-in function, ```type()``` that we can use to disover the type of any object. We'll also introduce the built-in ```id()```, which tells us about identity of objects.
 
-Let's start by looking at ```type()```.
+* [A quick intro to ```type()```](#a-quick-intro-to-```type()```)
+* [Booleans—the ```bool``` type](#booleans—the-```bool```-type)
+* [Comparison expressions](#comparison-expressions)
+* [Membership](#membership)
+* [Logical expressions](#logical-expressions)
+* [A quick intro to ```id()```](#a-quick-intro-to-```id()```)
+* [Identity comparison](#identity-comparison)
+* [```None```](#```None```)
+* [```isinstance()```](#```isinstance()```)
+* [What's next](#what's-next)
 
 ## A quick intro to ```type()```
 
@@ -61,7 +70,7 @@ We can also check the type of expressions. When an expressions is passed as an a
 
 No surprises so far.
 
-## The ```bool``` type
+## Booleans—the ```bool``` type
 
 You're probably familiar with boolean values: _true_, or _false_. In Python, the ```bool``` type supports two such values, and there are special constant symbols to represent them: ```True``` and ```False```. Let's look at these using the ```type()``` function.
 
@@ -89,7 +98,7 @@ Something to be aware of is that ```bool``` is a sub-class of ```int```. So, ```
 
 Probably not that useful, but something to be aware of.
 
-What is more useful is to know that pretty much any object can be implicitly converted to a boolean if it's used in a place where a ```bool``` is expected. As a conditional expression in a program control statement, for instance. We'll come back to that in the next lesson. For now, the thing to learn is that any object can be converted to a ```bool```. The built-in ```bool()``` function can be used to do that explicitly. Let's explore some examples.
+What is more useful is to know that pretty much any object can be implicitly converted to a boolean if it's used in a place where a ```bool``` is expected. As a conditional expression in a flow control statement, for instance. We'll come back to that in the next lesson. For now, the thing to learn is that any object can be converted to a ```bool```. The built-in ```bool()``` function can be used to do that explicitly. Let's explore some examples.
 
 ```foo
 >>> bool(42)
@@ -203,11 +212,9 @@ TypeError: '>' not supported between instances of 'int' and 'str'
 
 ## Membership
 
-We learned earlier that strings are sequences of characters, and so can contain multiple characters. In that sense, you can think of them as _like_ a set. So, a question that can arise is whether a particular character is contained in the string—is it a member in the string's set?
+We learned earlier that strings are sequences of characters, and so can contain multiple characters. In that sense, you can think of them as _like_ a set. So, a question that can arise is whether a particular character is contained in—is a member of—the string?
 
->Note: ```set``` is a different type in Python, and ```str``` is not a sub-class of ```set```. We're using "set" here in an informal sense, not the ```set``` type. We'll learn about ```set``` and other container-like types in a later lesson.
-
-Python provides an operator that can be used to determine whether a character is contained in a string (or, more generally, whether an object is contained in a container-like object).
+Python provides an operator that can be used to determine whether a character is contained in a string.
 
 |Operator|Meaning|Example expression|
 |--------|-------|-------|
@@ -220,7 +227,7 @@ Here's an example:
 True
 ```
 
-There's more to learn about the ```in``` operator, and some other important ways that it can be used. We'll get to that in later lessons. For now, we'll stick to this simple usage of comparing a single character with a string to get a boolean result.
+More generally, the ```in``` operator can be used with any container-like types to determine whether an object is contained in a container-like object. There are also some other important ways that it can be used. We'll cover more in later lessons. For now, we'll stick to this simple usage of determining if a single character is contained in a string.
 
 ## Logical expressions
 
@@ -443,7 +450,7 @@ True
 
 In some situations, we can also let Python do an implicit conversion to ```False```, though that isn't the same as testing if something is ```None``` since there are other things (not many, but some) that could also convert implicitly to ```False```. If you need to check if something is ```None```, it's best to do an explicit identity comparison using ```is None``` or ```is not None```.
 
-## A quick intro to ```isinstance()```
+## ```isinstance()```
 
 Sometimes you might want to determine if a variable has a particular type. The built-in ```isinstance()``` function is designed to do just that. It's similar to ```type()``` in that it can be used to tell us about the type of an object or variable. But it takes two arguments, an object and a type, and returns ```True``` or ```False```. That makes it handy for using in logical expressions.
 
@@ -502,6 +509,6 @@ def my_func(val):
         # do appropriate stuff
 ```
 
-## Next up
+## What's next
 
-In this lesson, we've started to show examples with custom functions and program-control logic. There's more to learn about the things we've introduced so far—numbers, variables and what not. But let's go for a bit more breadth before more depth. So, the next lesson will introduce conditional statements used for program control and get us started on defining function.
+In this lesson, we've started to show examples with custom functions and flow control logic. There's more to learn about the things we've introduced so far—numbers, variables and what not. But let's go for a bit more breadth before more depth. So, the next lesson will introduce conditional statements used for flow control and get us started on defining function.

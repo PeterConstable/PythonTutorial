@@ -2,6 +2,10 @@
 
 In this lesson, we'll start out by quickly covering some basics of working with numbers.
 
+* [Integer and floating values](#integer-and-floating-values)
+* [Complex numbers](#complex-numbers)
+* [What's next](#what's-next)
+
 ## Integer and floating values
 
 You can enter a number literal as a statement, and the Python interpreter will evaluate it:
@@ -36,7 +40,9 @@ Any function that can take a number as an argument can also take a numeric expre
 6
 ```
 
-Python has two basic numeric types that are frequently used: ```int```, for integers, and ```float```, for real numbers (in the math sense—integers, rationals or irrationals). (There's a third basic numeric type, ```complex```; we'll skip that for now.) A number literal without any decimal point is an ```int```; but a literal that has a decimal point is a ```float```. You can enter a ```float``` literal without any decimal digits, but the evaluated results shown in interactive mode will always have at least one decimal digit.
+Python has two basic numeric types that are frequently used: ```int```, for integers, and ```float```, for real numbers (in the math sense—integers, rationals or irrationals). There's a third basic numeric type, ```complex```, that we'll cover briefly at the end of this lesson.
+
+A number literal without any decimal point is an ```int```; but a literal that has a decimal point is a ```float```. You can enter a ```float``` literal without any decimal digits, but the evaluated results shown in interactive mode will always have at least one decimal digit.
 
 ```foo
 >>> 42.
@@ -79,6 +85,8 @@ If a different order of evaluation is needed, you can include parentheses to ind
 >>> (3 + 4) * 2  # expression in parens takes precedence over multiplication
 14
 ```
+
+>For complete details on precedence order of operators, see [6.17 Operator precedence](https://docs.python.org/3.8/reference/expressions.html#operator-summary).
 
 When an addition, subtraction or multiplication expression has two ```int``` operands, the result is an ```int```.
 
@@ -289,10 +297,6 @@ One notable exception is the ```abs()``` function: when a complex number is pass
 1.0
 ```
 
-## More details on numeric types
-
-For more details on numeric types, see the relevant Python documentation, [Numeric Types — int, float, complex](https://docs.python.org/3.8/library/stdtypes.html#typesnumeric). For precedence order of operators, see [6.17 Operator precedence](https://docs.python.org/3.8/reference/expressions.html#operator-summary).
-
-## Next up
+## What's next
 
 There's more to learn about numbers, and about variables. But we'll hold off to introduce some other useful things first. In the next lesson, we take a first look at strings.
