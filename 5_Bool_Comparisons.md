@@ -1,21 +1,22 @@
 # Booleans, Comparisons and Logical Expressions
 
+[sof]
 Almost any program you create will need to have logic for program flow control, such as _branching_ (do certain things given one condition, but different things in other conditions). To get to that, we need to learn about comparison and logical expressions, and about another basic type, ```bool```.
 
 In this lesson, we'll go over all of those things. We'll introduce several additional operators used in comparison and logical expressions. We'll also cover a special built-in object, ```None```, and a special built-in function, ```isinstance()```, both of which are relevant for logical expressions.
 
 As we continue to learn about types, it will be helpful to learn about another built-in function, ```type()``` that we can use to disover the type of any object. We'll also introduce the built-in ```id()```, which tells us about identity of objects.
 
-* [A quick intro to ```type()```](#a-quick-intro-to-```type()```)
-* [Booleans—the ```bool``` type](#booleans—the-```bool```-type)
+* [A quick intro to ```type()```](#a-quick-intro-to-type
+* [Booleans—the ```bool``` type](#booleans—the-bool-type)
 * [Comparison expressions](#comparison-expressions)
 * [Membership](#membership)
 * [Logical expressions](#logical-expressions)
-* [A quick intro to ```id()```](#a-quick-intro-to-```id()```)
+* [A quick intro to ```id()```](#a-quick-intro-to-id)
 * [Identity comparison](#identity-comparison)
-* [```None```](#```None```)
-* [```isinstance()```](#```isinstance()```)
-* [What's next](#what's-next)
+* [```None```](#none)
+* [```isinstance()```](#isinstance)
+* [What's next](#whats-next)
 
 ## A quick intro to ```type()```
 
@@ -511,4 +512,4 @@ def my_func(val):
 
 ## What's next
 
-In this lesson, we've started to show examples with custom functions and flow control logic. There's more to learn about the things we've introduced so far—numbers, variables and what not. But let's go for a bit more breadth before more depth. So, the next lesson will introduce conditional statements used for flow control and get us started on defining function.
+In this lesson, we've started to show examples with custom functions and flow control logic. There's more to learn about the things we've introduced so far—numbers, variables and what not. But let's go for a bit more breadth before more depth. So, the [next lesson](6_Intro_Functions_Flow_Control.md#sof) will get us started on defining function and introduce statements for flow control.

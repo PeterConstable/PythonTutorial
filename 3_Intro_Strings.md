@@ -9,7 +9,7 @@ Some types in Python are _sequence types_, which means that they contain a seque
 * [String concatenation](#string-concatenation)
 * [Strings as character sequences](#strings-as-character-sequences)
 * [Strings are immutable](#strings-are-immutable)
-* [What's next](#what's-next)
+* [What's next](#whats-next)
 
 ## String basics
 
@@ -305,4 +305,4 @@ Here's a closing thought for this lesson:
 closing_thought = "There's l" + 8 * 'o' + 'ts more still to learn about working with strings."
 ```
 
-So far, we've introduced numbers, strings and assigning those values to variables. There are a few more things to know about each of those that you're going to find useful. We'll cover those in the next lesson before moving on to other topics.
+So far, we've introduced numbers, strings and assigning those values to variables. There are a few more things to know about each of those that you're going to find useful. We'll cover those in the [next lesson](4_More_Assignment_Numbers_Strings.md#sof) before moving on to other topics.

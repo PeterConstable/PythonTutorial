@@ -1,14 +1,15 @@
 # More about Assignment, Numbers and Strings
 
+[sof]
 In lesson 2, we introduced the basics of working with numbers, expressions and variables: how to express numbers as literals, assign them to variables, and create numeric expressions using various operators. And in lesson 3 we got introduced to strings. In this lesson, we'll go into more detail on each of those topics.
 
 * [Multiple assignment](#multiple-assignment)
 * [Using compound assignment operators](#using-compound-assignment-operators)
-* [Range and precision of ```int``` and ```float```](#range-and-precision-of-```int```-and-```float```)
+* [Range and precision of ```int``` and ```float```](#range-and-precision-of-int-and-float)
 * [Different formats for numeric literals](#different-formats-for-numeric-literals)
 * [Strings as Unicode character sequences](#strings-as-unicode-character-sequences)
 * [Converting between number and string types](#converting-between-number-and-string-types)
-* [What's next](#what's-next)
+* [What's next](#whats-next)
 
 ## Multiple assignment
 
@@ -467,4 +468,4 @@ You can even mix and match digits from different scripts—though this isn't rec
 
 ## What's next
 
-There's more we could cover on numbers and strings, but it's time for something else. In the next lesson, we'll learn about another booleans and logical expressions.
+There's more we could cover on numbers and strings, but it's time for something else. In the [next lesson](5_Bool_Comparisons.md#sof), we'll learn about another booleans and logical expressions.

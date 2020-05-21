@@ -1,5 +1,6 @@
 # Intro to Functions and Flow Control Statements
 
+[sof]
 Functions and flow control statements are key tools in Python that you'll use a lot. This lesson provide an initial introduction to get you started using them. There are many details we'll save for later.
 
 Python has three familiar flow control statements found in many languages: ```if```, ```while``` and ```for```. The ```if``` and ```while``` statements are similar to the corresponding statements in other languages. But the ```for``` statement in Python is somewhat different; we'll come back to it in lesson 8.
@@ -11,10 +12,10 @@ Up to now we've assumed you're trying things out in interactive mode. The mechan
 * [Overview](#overview)
 * [Indentation](#indentation)
 * [Functions](#functions)
-* [The ```pass``` statement](#the-```pass```-statement)
-* [The ```if``` statement](#the-```if```-statement)
-* [The ```while``` statement](#the-```while```-statement)
-* [What's next](#what's-next)
+* [The ```pass``` statement](#the-pass-statement)
+* [The ```if``` statement](#the-if-statement)
+* [The ```while``` statement](#the-while-statement)
+* [What's next](#whats-next)
 
 ## Overview
 
@@ -357,4 +358,4 @@ Note that the ```else``` block gets executed: ```continue``` never causes that t
 
 ## What's next
 
-There's one more flow control statement we need to look at, the ```for``` statement. It's always used with sequences. So, in the next lesson, we'll learn more about sequence types, then we'll cover ```for``` in the lesson after that.
+There's one more flow control statement we need to look at, the ```for``` statement. It's always used with sequences. So, in the [next lesson](7_List_Tuple_Range.md#sof), we'll learn more about sequence types, then we'll cover ```for``` in the lesson after that.
