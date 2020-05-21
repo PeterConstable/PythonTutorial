@@ -4,7 +4,7 @@ There are a few basic things to know before we get started.
 
 * [Interactive mode](#interactive-mode)
 * [Comments](#comments)
-* [A very quick intro to ```print()```](#a-very-quick-intro-to-```print()```)
+* [A very brief intro to ```print()```](#a-very-quick-intro-to-print)
 
 ## Interactive mode
 
