@@ -1,10 +1,12 @@
 # Some Basics
 
+[sof]
 There are a few basic things to know before we get started.
 
 * [Interactive mode](#interactive-mode)
 * [Comments](#comments)
-* [A very brief intro to ```print()```](#a-very-quick-intro-to-print)
+* [A very brief intro to ```print()```](#a-very-brief-intro-to-print)
+* [What's next](#whats-next)
 
 ## Interactive mode
 
@@ -163,7 +165,7 @@ Multi-line comments aren't really relevant for interactive mode, though you'll w
     # et cetera
 ```
 
-## A very quick intro to ```print()```
+## A very brief intro to ```print()```
 
 The built-in ```print()``` function (surprise!) prints things to console output. (You can also send output elsewhere, but that's for later.) For example:
 
@@ -180,3 +182,7 @@ You can provide multiple arguments, and ```print``` will add spaces between them
 ```
 
 Naturally, there's lots more to learn about ```print()```, but this is enough to get us started.
+
+## What's next
+
+In the [next lesson](.\2_Numbers_Expressions_Variables.md#sof), we'll start learning about working with numbers.
