@@ -185,4 +185,4 @@ Naturally, there's lots more to learn about ```print()```, but this is enough to
 
 ## What's next
 
-In the [next lesson](.\2_Numbers_Expressions_Variables.md#sof), we'll start learning about working with numbers.
+In the [next lesson](2_Numbers_Expressions_Variables.md#sof), we'll start learning about working with numbers.
