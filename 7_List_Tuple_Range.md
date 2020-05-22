@@ -1,4 +1,4 @@
-# Lists, Tuples and Ranges
+# Sequence Types: Lists, Tuples and Ranges
 
 [sof]
 We've learned about several basic types in Python: numbers, booleans and strings. There was one important way that strings differed from the others: strings are a container-like type, and specifically a _sequence type_. In this lesson, we'll learn about some other sequence types, ```list```, ```tuple``` and ```range```.
@@ -271,6 +271,8 @@ So, summarizing:
 * conversion _from_ ```range``` _to_ ```list``` or ```tuple``` is possible and _may sometimes_ be useful
 * other conversions between ```str```, ```range```, ```list```, ```tuple``` are either not possible or rarely useful
 
+>Note: Later in this lesson we will learn about a way that _is useful_ for getting a string from a list or tuple of characters/strings.
+
 ## Conversion to ```bool```
 
 While talking about conversions, we should cover conversions to ```bool```. Recall from [lesson 5](5_Bool_Comparisons.md#booleans—the-bool-type) that any object can be explicitly converted to a boolean value using the ```bool()``` function, or converted implicitly if used in a context where a ```bool``` is expected. And in [lesson 6](6_Intro_Functions_Flow_Control.md#objects-as-if-conditions) we saw that applied by using objects alone as conditions in ```if``` statements. This works for sequence objects as well.
@@ -303,11 +305,166 @@ false
 
 ## Common sequence operations
 
-_[under construction]_
+In [lesson 3](3_Intro_Strings.md#strings-as-character-sequences), we learned about several ways to work with sequence elements in strings. All of those can be used with any sequence type. In the next sub-section, we'll review those.
+
+### ```len()```, indexing and slices
+
+We'll review operations we learned about earlier use the following in examples:
+
+```foo
+>>> her_name = "Eliza Doolittle"
+>>> my_list = ["eggs", "jam", "tea", "raisins"]
+```
+
+Use ```len()``` to get the count of elements in a sequence:
+
+```foo
+>>> len(her_name)
+15
+>>> len(my_list)
+3
+```
+
+Use index notations (base 0) to refer to individual elements in the sequence:
+
+```foo
+>>> her_name[3]
+'z'
+>>> my_list[3]
+'raisins'
+```
+
+Use _start_ and _end_ indices to get a slice from the sequence:
+
+```foo
+>>> her_name[0:5]
+'Eliza'
+>>> my_list[1:3]
+['jam', 'tea']
+```
+
+You can include a _step_ in the range specification for a slice:
+
+```foo
+>>> her_name[0:8:2]
+'EiaD'
+>>> my_list[0:3:2]
+['eggs', 'tea']
+```
+
+>Remember: indices in the sequence range specifications show above and ```range()``` parameters work the same way.
+
+Use negative indices to index from the end of the sequence:
+
+```foo
+>>> her_name[-6 : -2]
+'litt'
+>>> my_list[-3:-1]
+['jam', 'tea']
+```
+
+You can omit _start_ and will get a slice from the beginning of the sequence:
+
+```foo
+>>> her_name[ : 8]
+'Eliza Do'
+>>> my_list[:3]
+['eggs', 'jam', 'tea']
+```
+
+You can omit _end_ and will get a slice that goes to the end of the sequence:
+
+```foo
+>>> her_name[-5 : ]
+'ittle'
+>>> my_list[1:]
+['jam', 'tea', 'raisins']
+```
+
+### Concatenation
+
+We also learned about concatenation of strings. You can also concatenate lists or tuples:
+
+```foo
+>>> ["dog", 3] + [2.0, 3-2j]
+['dog', 3, 2.0, (3-2j)]
+```
+
+```foo
+>>> (3, "cat", 42, 'x') + (3.14,)
+(3, 'cat', 42, 'x', 3.14)
+```
+
+Note that you can only concatenate sequences of the same type. You can't concatenate a list and tuple, for example. (But you can easily convert a list operand to a tuple and then concatenate the tuples, or vice versa.)
+
+You can also use ```*``` concatenation to repeat a list or tuple sequence:
+
+```foo
+>>> ["spam"] * 5
+['spam', 'spam', 'spam', 'spam', 'spam']
+>>> 4 * (1,2)
+(1, 2, 1, 2, 1, 2, 1, 2)
+```
+
+You can't concatenate ranges, but you can convert ranges using ```list()``` or ```tuple()``` and then concatenate using either of those types.
+
+>Note: When concatenating immutable sequence types, a new object is always created. If you build up a string or tuple sequence with many repeated concatenations, that could have a noticeable performance impact. For ```str``` or ```tuple``` objects, you can avoid that using a list. We'll return to this later in this lesson.
+
+### Membership
+
+In [lesson 5](5_Bool_Comparisons.md#membership), we introduced the ```in``` comparison operator for checking if a given character was contained in a string. We can use ```in``` to test for membership with any sequence type.
+
+```foo
+>>> 'o' in her_name
+True
+>>> "tea" in my_list
+True
+>>> [1,2] in ([1,2], 9, [3,5]) # tuple of objects
+True
+>>> 5 in range(8)
+True
+```
+
+### Counting occurrences
+
+The built-in sequence types have a ```.count()``` method that can be used to count the number of occurrences of something within a sequence.
+
+```foo
+>>> her_name.count('o')
+2
+>>> my_list.count(42)
+0
+>>> ((3,8) * 4).count(3)
+4
+>>> range(8).count(8)
+0
+```
+
+>Note: make sure not to confuse ```.count()``` and ```len()```!
+
+### Finding items
+
+... _[under construction]_
+
+### Aritmetic functions
+
+There are some other sequence operation we didn't discuss for strings. If you have a list or tuple of numbers (```int``` or ```float```, but not ```complex```), then you can use the built-in ```max()``` and ```min()``` functions to get the largest or smallest number. And you can use the ```sum()``` function to add all the numbers in the sequence:
+
+```foo
+>>> x = [2, 9, 4.8, 18, 7.0]
+>>> max(x)
+18
+>>> min(x)
+2
+>>> sum(x)
+40.8
+```
+
+With these functions, all of the elements in the sequence must be either ```int``` or ```float```; if there's an object of any other type, you'll get an error.
 
 ## Lists are mutable
 
-_[under construction]_
+... _[under construction]_
 
 ## Tuples as returned values
 

@@ -1,4 +1,4 @@
-# More about Assignment, Numbers and Strings
+# More About Assignment, Numbers and Strings
 
 [sof]
 In lesson 2, we introduced the basics of working with numbers, expressions and variables: how to express numbers as literals, assign them to variables, and create numeric expressions using various operators. And in lesson 3 we got introduced to strings. In this lesson, we'll go into more detail on each of those topics.
