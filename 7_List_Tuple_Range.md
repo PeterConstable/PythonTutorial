@@ -613,7 +613,43 @@ For most built-in immutable types, operations like concatenation and slicing tha
 
 >Later, when we learn about byte sequence types, we'll introduce the ```memoryview``` type, which can be used for immutable data while also supporting getting slices without copying.
 
-Lists, however, are mutable. Because of that, more operations can be done without copying. For example, when conconcatenating a list onto another list, the left-hand operand is updated without creating a new object.
+Lists, however, are mutable. Because of that, certain operations that result in copying for other types can be done on a list without copying. List concatenation is a particular operation for which this is true. We'll explore that further in a moment.
+
+Slicing always results in a copy, even for a list, and even when specifying a range that includes the entire list. We can see this by doing an identity comparison of a list variable with such a slice on itself.
+
+```foo
+>>> x = [1,2,3]
+>>> x is x[:]
+False
+```
+
+The slice resulted in a copy. Let's check another way by assigning the slice to a new variable and then comparing IDs.
+
+```foo
+>>> x = [1,2,3]
+>>> id(x)
+2544697278784
+>>>
+>>> y = x
+>>> id(y)  # will be the same
+2544697278784
+>>>
+>>> y = x[:]  # new copy
+>>> id(y)
+2544697280576
+```
+
+We also saw earlier that ```list()``` will create a new copy.
+
+```foo
+>>> y = list(y)  # another new copy
+>>> id(y)
+2544697280704
+```
+
+In certain situations, you may need to change a copy of a list while also retaining the original list. You can use either method above to get a copy.
+
+Concatenation of lists is an important operation that doesn't involve copying. When conconcatenating a list onto another list, the left-hand operand is updated without creating a new object.
 
 Let's compare concatenation of strings versus concatenation of lists. We'll use the ```id()``` function to check if we end up with the same object or a new object. First, strings:
 
