@@ -2,6 +2,8 @@
 
 This is a Python 3 Tutorial (or, at least, the beginnings of one).
 
+Some programming knowledge and experience is assumed—it's not an _intro to programming_ course. Familiarity with typical programming concepts is assumed; for instance, it's assumed you know what variables and ```for``` statements are, but not necessarily how to use them (or use them well) in Python. But deep background and experience with other programming languages isn't assumed. This is geared toward someone with novice or intermediate skill in some other languages.
+
 Topics are presented in an order that attempts to build up knowledge in useful chunks. Some things in Python (or any language) have lots of details, but you don't need to learn them all at once to get started doing something useful.
 
 You might come looking for a specific detail because you need that for whatever project you're using to learn on, and not be able to find it in earlier chapters. Sorry, this isn't a reference manual. Maybe eventually an index might get added that could help. In the meantime, check the official [Python documentation](https://docs.python.org/3.8/index.html), or try asking on [stack**overflow**](https://stackoverflow.com/).
@@ -18,7 +20,7 @@ You might come looking for a specific detail because you need that for whatever 
 * [Flow Control Using ```for```](8_For.md#sof)
 * ... (more to come)
 
-## Why another Python tutorial?
+## Background: _Why another Python tutorial?_
 
 Good question. It was started mainly as a personal learning tool. I find that writing about something helps me clarify my thoughts. And trying to teach something _well_ requires me to know it and be able to communicate it. In order to explain it to someone else, I have to explain it to myself first.
 

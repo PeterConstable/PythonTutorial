@@ -5,18 +5,19 @@ We've learned about several basic types in Python: numbers, booleans and strings
 
 There are several operations that can be performed on any sequence type. We'll introduce each type first, and the go over the common operations.
 
+There are also other operations that are specific to strings, or specific to lists and other mutable sequence types; we'll save those topics for later lessons.
+
 * [Lists](#lists)
 * [Tuples](#tuples)
 * [Ranges](#ranges)
 * [Common sequence operations](#common-sequence-operations)
-* [Lists are mutable](#lists-are-mutable)
 * [Converting between sequence types](#converting-between-sequence-types)
 * [Tuples as returned values](#tuples-as-returned-values)
 * [What's next](#whats-next)
 
 ## Lists
 
-A ```list``` is a mutable sequence—an ordered set—of objects. The objects can be of any type, and can mix different types. Lists are represented using square brackets, ```[...]```, with zero or more elements delimited with commas.
+A ```list``` is a mutable sequence (or _ordered set_) of objects. The objects can be of any type, and can be a mix different types. Lists are represented using square brackets, ```[...]```, with zero or more elements delimited by commas.
 
 ```foo
 >>> [1, 29, 13]
@@ -34,6 +35,19 @@ True
 When learning about strings, we were introduced to the ```len()``` function. It can be used with lists, or any container-like type, to get the number of elements.
 
 ```foo
+>>> len(x)
+2
+```
+
+Lists can contain any type of object, including another list or any other container-like object. In the following example, ```x``` is a list that contains a string followed by another list.
+
+```foo
+>>> y = "cats"
+>>> z = [1,2,3]
+>>> x = [y, z]
+>>>
+>>> x
+['cats', [1, 2, 3]]
 >>> len(x)
 2
 ```
@@ -57,11 +71,19 @@ The ```list()``` constructor function can also be used to create a list object f
 False
 ```
 
-Unlike strings, list objects are mutable—that is, the elements of a list sequence can be changed without needing to create a new list object. We'll return to this below, after discussing common sequence operations.
+Unlike strings, list objects are mutable—that is, the elements of a list sequence can be changed without needing to create a new list object. For example:
+
+```foo
+>>> x[0] = 42
+>>> x
+[42, 'spam']
+```
+
+There are a number of ways that list objects can be changed—adding, removing or changing sequence elements. We'll leave most details to a later lesson. One thing we'll cover later in this lesson that involves updating a list sequence is concatenation.
 
 ## Tuples
 
-A ```tuple``` is an immutable sequence of objects. As with a list, a tuple can have zero or more objects of any type, including a mixture of different types. Tuples are represented using parentheses, ```(...)```, with commas separating the elements.
+A ```tuple``` is an immutable sequence of objects. As with a list, a tuple can have zero or more objects of any type, including a mix of different types. Tuples are represented using parentheses, ```(...)```, with commas separating the elements.
 
 ```foo
 >>> (1, 29, 13)
@@ -149,6 +171,8 @@ In this example, ```x``` and ```y``` have the same numbers as elements; but they
 [0, 1, 2, 3]
 ```
 
+>For the duration of this lesson, when we want to show the sequence contained in a range object, we'll convert to a list as a convenient way to get a better representation of the contained sequence.
+
 To construct a range, the ```range()``` can take one, two or three parameters. We've seen examples for ```range()``` taking one parameter, which indicates the _end_ or _length_ of the range: the range sequence will begin at 0 and end _one before_ the _end_ value.
 
 (This is simlar to the range specifications we saw to get a slice from a string: ```mystring[:5]``` will have 5 elements starting at index 0 and ending _before_ index 5.)
@@ -218,6 +242,7 @@ In discussing ranges, we've made use of the ```list()``` function to convert ran
 ```foo
 >>> list((1,2,3))
 [1, 2, 3]
+>>>
 >>> tuple([1,2,3])
 (1, 2, 3)
 ```
@@ -230,8 +255,10 @@ We've seen that a range can be converted to a list; it can also be converted to 
 
 ```foo
 >>> x = range(3, 8)
+>>>
 >>> list(x)
 [3, 4, 5, 6, 7]
+>>>
 >>> tuple(x)
 (3, 4, 5, 6, 7)
 ```
@@ -245,6 +272,7 @@ We've mentioned that ```str``` is also a sequence type. You can convert a string
 ```foo
 >>> list("spam")
 ['s', 'p', 'a', 'm']
+>>>
 >>> tuple("spam")
 ('s', 'p', 'a', 'm')
 ```
@@ -402,6 +430,7 @@ You can also use ```*``` concatenation to repeat a list or tuple sequence:
 ```foo
 >>> ["spam"] * 5
 ['spam', 'spam', 'spam', 'spam', 'spam']
+>>>
 >>> 4 * (1,2)
 (1, 2, 1, 2, 1, 2, 1, 2)
 ```
@@ -444,11 +473,114 @@ The built-in sequence types have a ```.count()``` method that can be used to cou
 
 ### Finding items
 
-... _[under construction]_
+The built-in sequence types have a ```.index()``` method that can be used to locate an element within a sequence. You give the element you're searching for as an argument, and (if contained) it returns the index for the first occurence of that element in the sequence.
+
+```foo
+>>> her_name.index('o')
+7
+>>> my_list.index("tea")
+2
+>>> (2, 13, 5, 42, 5, 68).index(5)
+2
+>>> range(8, 15).index(11)
+3
+```
+
+You can include a second argument to indicate a starting index to search from:
+
+```foo
+>>> her_name.index('l')
+1
+>>> her_name.index('l', 2)
+9
+>>> (2,13,5,42,5,68).index(5, 3)
+4
+```
+
+You can also include both _start_ and _stop_ indices to limit the range within the sequence over which to search.
+
+```foo
+>>> her_name.index('l', 11, 15)
+13
+```
+
+As with other range specifications, the element at the _stop_ index is excluded from the range.
+
+Using ```.index()``` with two indices is nearly the same as getting a slice and then searching within that slice. An important difference, though, is that the one will give you an index from the start of the entire string, while the other will give an index from the start of the slice.
+
+```foo
+>>> her_name[11:15].index('l')
+2
+```
+
+As with other range specifications, you can use negative indices to indicate positions from the end of the sequence. The index returned will still be for the first occurrence _from the start_ of the sequence.
+
+```foo
+>>> her_name.index('l', -6, -2)
+9
+```
+
+Some sequence types—but not all—also have a ```.rindex()``` method that searches from the _end_ of the sequence. The index returned is still an index from the start of the sequence, but it will be for the _last_ occurrence within that sequence. The ```.rindex()``` method isn't available for lists, tuples or ranges, but it is available for strings.
+
+```foo
+>>> her_name.rindex('l')
+13
+>>> her_name.rindex('l', 1, 6)
+1
+```
+
+Note that, if the object you're searching for isn't contained in the sequence (or sequence range), ```.index()``` or ```.rindex()``` will raise an error.
+
+```foo
+>>> (2,13,5,42,5,68).index(9)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: tuple.index(x): x not in tuple
+```
+
+```foo
+>>> her_name.index('l', 2, 9)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+```
+
+In a later lesson, we'll learn about the ```try``` statement that could be used to handle an anticipated error like this. For now, one thing we can do is to check first to see if the object is contained before trying to get its index.
+
+```foo
+>>> if 'l' in her_name[2: 9]:
+...     print("index is:", her_name.index('l', 2, 9))
+... else:
+...     print("not found")
+...
+not found
+```
+
+For strings, there's another option available. Some sequence types—but not all—also have a ```.find()``` method you can use instead that doesn't raise an error in this situation. Instead, it returns -1 if the item isn't found. This isn't supported for lists, tuples or ranges, but it is supported for strings.
+
+```foo
+>>> her_name.find('l', 2, 9)
+-1
+```
+
+You may still need to add logic to handle the situation, but this may be more convenient than other approaches.
+
+The examples up to now have been searching for a single element, not a sub-sequence of elements. For strings, the ```.find()``` and ```.index()``` methods allow you to search for substrings as well as individual characters.
+
+```foo
+>>> her_name.index("li")
+1
+>>> her_name.index("le")
+13
+```
+
+This isn't available for lists, tuples or ranges, however.
+
+If you're working with strings a lot, you'll probably want to make use of regular expressions to search for substring patterns. We'll save more string-specific stuff for a later lesson.
 
 ### Aritmetic functions
 
-There are some other sequence operation we didn't discuss for strings. If you have a list or tuple of numbers (```int``` or ```float```, but not ```complex```), then you can use the built-in ```max()``` and ```min()``` functions to get the largest or smallest number. And you can use the ```sum()``` function to add all the numbers in the sequence:
+If you have a list or tuple of numbers (```int``` or ```float```, but not ```complex```), then you can use the built-in ```max()``` and ```min()``` functions to get the largest or smallest number. And you can use the ```sum()``` function to add all the numbers in the sequence:
 
 ```foo
 >>> x = [2, 9, 4.8, 18, 7.0]
@@ -462,9 +594,89 @@ There are some other sequence operation we didn't discuss for strings. If you ha
 
 With these functions, all of the elements in the sequence must be either ```int``` or ```float```; if there's an object of any other type, you'll get an error.
 
-## Lists are mutable
+You can also use these functions with a range object. For example, you can easily add integers from 1 to 99 as follows:
 
-... _[under construction]_
+```foo
+>>> sum(range(1, 100))
+4950
+```
+
+These functions don't work with strings, however.
+
+### Immutable types and copying
+
+Operations that result in copying objects can have performance impacts, so it's good to be aware when copying will occur. All of the sequence operations we've gone over in this section do not involve changing the sequence contained in a sequence object. Even so, some of them do result in copying and new memory allocation.
+
+Some of the operations we've covered, such as using ```len()``` or ```.index()```, don't return a sequence object. Obviously, these don't result in copying or creating a new sequence object.
+
+For most built-in immutable types, operations like concatenation and slicing that do return a sequence object do result in copying and creating new objects. Note, in particular, that this is true for strings and tuples.
+
+>Later, when we learn about byte sequence types, we'll introduce the ```memoryview``` type, which can be used for immutable data while also supporting getting slices without copying.
+
+Lists, however, are mutable. Because of that, more operations can be done without copying. For example, when conconcatenating a list onto another list, the left-hand operand is updated without creating a new object.
+
+Let's compare concatenation of strings versus concatenation of lists. We'll use the ```id()``` function to check if we end up with the same object or a new object. First, strings:
+
+```foo
+>>> x = 'a'
+>>> id(x)
+2544667222448
+>>>
+>>> x += 'b'
+>>> x
+'ab'
+>>> id(x)
+2544697280304
+```
+
+After concatenation, we end up with a new string object. Now, lists:
+
+```foo
+>>> x = [1,2]
+>>> id(x)
+2544696974528
+>>>
+>>> x += [3,4]
+>>> x
+[1, 2, 3, 4]
+>>> id(x)
+2544696974528
+```
+
+After concatenation, we still have the same list object.
+
+As noted earlier, if you build up a string or tuple through many repeated concatenation, that can have noticeable performance impacts. For tuples, you can avoid any perf impact simply by using a list instead. If you really need to end up with a tuple, then you can wait until the final sequence is assembled and then convert the list to a tuple.
+
+To build up a string from many string fragments in a memory-efficient way, you can assemble the pieces in order as a list, and then create the final string from that list. Now, earlier we saw that converting a list to a string using ```str()``` didn't provide the kind of result we'd want.
+
+```foo
+>>> str(['ugly', 'string'])
+"['ugly', 'string']"
+```
+
+However, the ```str.join()``` method provides a way to do what we want: it joins the fragments together in the way we'd want. To use it, you use it on a delimiting string that will be used to separate all of the string elements in the sequence. In this example, ```" "``` is used.
+
+```foo
+>>> " ".join(['good', 'string'])
+'good string'
+```
+
+The separator string could be any string, including an empty string.
+
+```foo
+>>> x = ""
+>>> y = ["Eli", "za D", "ool", "ittle"]
+>>> x.join(y)
+'Eliza Doolittle'
+```
+
+### Other sequence operations
+
+For several immutable types, including tuples and ranges, nearly all of the avaialble sequence operations have been covered. The only thing we haven't covered is the ```hash()``` function, which you may need to know about when defining your own custom types; that will be in a later lesson.
+
+```str``` in another immutable type, and has a number of additional, string-specific methods. We'll save those for another lesson that goes into more detail on working with strings.
+
+Because ```list``` is a mutable sequence type, there are several other operations to know about. Those will also be relevant for the mutable byte sequence type, ```bytearray```. We'll cover mutating operations for these types in a later lesson.
 
 ## Tuples as returned values
 
