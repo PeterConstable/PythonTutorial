@@ -246,6 +246,46 @@ In some situations, one of the possible conditions might not require any action.
         pass
 ```
 
+### Objects as ```if``` conditions
+
+In [lesson 5](5_Bool_Comparisons.md#booleans—the-bool-type), we learned that objects can be converted to boolean values, ```True``` or ```False```. This can be done explicitly using the ```bool()``` function, but also can happen implicitly if an object is used in a context when a boolean value is expected. In particular, an object on its own can be used as a conditional expression in an ```if``` or ```elif``` statement.
+
+This is illustrated in the following example:
+
+```python
+>>> def my_func(val):
+...     if val:
+...         print("true")
+...     else:
+...         print("false")
+... 
+>>> my_func(42)
+true
+>>> my_func("")
+false
+>>> my_func(None)
+false
+```
+
+The parameter variable ```val``` is used on its own as a condition. Arguments that are passed in will be coverted implicitly to ```True``` or ```False```. As we learned in lesson 5, very few objects convert to ```False```; empty strings and ```None``` happen to be two that do.
+
+We can also have conditions involving logical expressions with objects as operands:
+
+```python
+>>> def my_func(val1, val2):
+...     if val1 and val2:
+...         print("true")
+...     else:
+...         print("false")
+...
+>>> my_func(42, 0)
+false
+>>> my_func(42, 10)
+true
+>>> my_func(42, "figs")
+true
+```
+
 ## The ```while``` statement
 
 While statements are supported in many languages for creating loops—repeating some sequence of steps while some condition remains true. The ```while``` statement in Python is similar to other languages, but with an optional ```else```. It's structured as follows:
@@ -358,4 +398,4 @@ Note that the ```else``` block gets executed: ```continue``` never causes that t
 
 ## What's next
 
-There's one more flow control statement we need to look at, the ```for``` statement. It's always used with sequences. So, in the [next lesson](7_List_Tuple_Range.md#sof), we'll learn more about sequence types, then we'll cover ```for``` in the lesson after that.
+There's one more flow control statement we need to look at, the ```for``` statement. It's always used with sequences or other container-like types. So, in the [next lesson](7_List_Tuple_Range.md#sof), we'll learn more about sequence types, then we'll cover ```for``` in the lesson after that.

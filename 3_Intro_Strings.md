@@ -158,7 +158,12 @@ Python also supports a second kind of string concatenation operator: the ```\*``
 'really really really really long'
 ```
 
->Note that the number must be the first operand, with the string to be repeated as the second operand. The other way around will produce an error.
+You can write the integer and string operands in either order: both work the same way.
+
+```foo
+>>> "It was l" + 'o' * 8 + "ng"
+'It was loooooooong'
+```
 
 ## Strings as character sequences
 

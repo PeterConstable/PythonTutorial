@@ -7,7 +7,7 @@ In this lesson, we'll go over all of those things. We'll introduce several addit
 
 As we continue to learn about types, it will be helpful to learn about another built-in function, ```type()``` that we can use to disover the type of any object. We'll also introduce the built-in ```id()```, which tells us about identity of objects.
 
-* [A quick intro to ```type()```](#a-quick-intro-to-type
+* [A quick intro to ```type()```](#a-quick-intro-to-type)
 * [Booleans—the ```bool``` type](#booleans—the-bool-type)
 * [Comparison expressions](#comparison-expressions)
 * [Membership](#membership)
