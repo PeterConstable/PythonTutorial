@@ -1,6 +1,6 @@
 # Working with Numbers, Expressions and Variables
 
-[sof]
+[sof]:/sof
 In this lesson, we'll start out by quickly covering some basics of working with numbers.
 
 * [Integer and floating values](#integer-and-floating-values)

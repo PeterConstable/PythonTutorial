@@ -1,6 +1,6 @@
 # Sequence Types: Lists, Tuples and Ranges
 
-[sof]
+[sof]:/sof
 We've learned about several basic types in Python: numbers, booleans and strings. There was one important way that strings differed from the others: strings are a container-like type, and specifically a _sequence type_. In this lesson, we'll learn about some other sequence types, ```list```, ```tuple``` and ```range```.
 
 There are several operations that can be performed on any sequence type. We'll introduce each type first, and the go over the common operations.

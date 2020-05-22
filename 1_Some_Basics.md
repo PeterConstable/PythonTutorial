@@ -1,6 +1,6 @@
 # Some Basics
 
-[sof]
+[sof]:/sof
 There are a few basic things to know before we get started.
 
 * [Interactive mode](#interactive-mode)

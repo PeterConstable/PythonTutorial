@@ -1,6 +1,6 @@
 # Intro to Functions and Flow Control Statements
 
-[sof]
+[sof]:/sof
 Functions and flow control statements are key tools in Python that you'll use a lot. This lesson provide an initial introduction to get you started using them. There are many details we'll save for later.
 
 Python has three familiar flow control statements found in many languages: ```if```, ```while``` and ```for```. The ```if``` and ```while``` statements are similar to the corresponding statements in other languages. But the ```for``` statement in Python is somewhat different; we'll come back to it in lesson 8.

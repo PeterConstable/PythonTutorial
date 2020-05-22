@@ -1,6 +1,6 @@
 # Booleans, Comparisons and Logical Expressions
 
-[sof]
+[sof]:/sof
 Almost any program you create will need to have logic for program flow control, such as _branching_ (do certain things given one condition, but different things in other conditions). To get to that, we need to learn about comparison and logical expressions, and about another basic type, ```bool```.
 
 In this lesson, we'll go over all of those things. We'll introduce several additional operators used in comparison and logical expressions. We'll also cover a special built-in object, ```None```, and a special built-in function, ```isinstance()```, both of which are relevant for logical expressions.

@@ -1,6 +1,6 @@
 # Introduction to Strings
 
-[sof]
+[sof]:/sof
 In the previous lesson, we explored working with numeric literals and variables. In this lesson, we'll do the same for strings.
 
 Some types in Python are _sequence types_, which means that they contain a sequence of elements. Strings are one of the sequence types. We'll learn about some useful ways you can interact with the elements within a sequence, as well as the built-in ```len()``` function that can be used with sequences.

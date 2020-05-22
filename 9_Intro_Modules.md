@@ -1,3 +1,3 @@
 # Intro to Modules
 
-[sof]
+[sof]:/sof
