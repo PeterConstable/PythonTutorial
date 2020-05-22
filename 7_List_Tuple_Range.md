@@ -10,8 +10,8 @@ There are also other operations that are specific to strings, or specific to lis
 * [Lists](#lists)
 * [Tuples](#tuples)
 * [Ranges](#ranges)
-* [Common sequence operations](#common-sequence-operations)
 * [Converting between sequence types](#converting-between-sequence-types)
+* [Common sequence operations](#common-sequence-operations)
 * [Tuples as returned values](#tuples-as-returned-values)
 * [What's next](#whats-next)
 
@@ -578,7 +578,7 @@ This isn't available for lists, tuples or ranges, however.
 
 If you're working with strings a lot, you'll probably want to make use of regular expressions to search for substring patterns. We'll save more string-specific stuff for a later lesson.
 
-### Aritmetic functions
+### Arithmetic functions
 
 If you have a list or tuple of numbers (```int``` or ```float```, but not ```complex```), then you can use the built-in ```max()``` and ```min()``` functions to get the largest or smallest number. And you can use the ```sum()``` function to add all the numbers in the sequence:
 
