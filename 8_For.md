@@ -294,4 +294,69 @@ Note that the ```else``` block gets executed: ```continue``` never causes that t
 
 ## Using multiple element variables
 
+Earlier we looked at using nested loops to interate over a list of lists. In some situations, you may have a list of sequences of some size, and want to operate all of the elements in those sequences together in the same loop, not one-by-one in separate loops. Consider this example:
+
+```foo
+>>> a = [(1, 'cat'), (2, 'toad'), (3, 'mouse')]
+>>>
+>>> for x in a:
+...     print("item", x[0], 'is a', x[1])
+...
+item 1 is a cat
+item 2 is a toad
+item 3 is a mouse
+```
+
+The elements in list ```a``` are tuples. In the ```for``` statement, each tuple element gets assigned to ```x```. Then within the loop, we index into the tuple to access elements as needed. A different way we could have done things is to use a multiple assignment statement within the loop to assign the tuple elements to different variables.
+
+```foo
+>>> a = [(1, 'cat'), (2, 'toad'), (3, 'mouse')]
+>>>
+>>> for x in a:
+...     t1, t2 = x  # multiple variable assignment
+...
+...     print("got item", t1)
+...     print("it's a", t2, "\n")
+...
+got item 1
+it's a cat
+
+got item 2
+it's a toad
+
+got item 3
+it's a mouse
+
+```
+
+But notice we've used a spare variable, ```x```, just as a means to get to assign the tuple elements to ```t1``` and ```t2```.
+
+In Python, we can avoid that extra variable and do the multiple assignment directly in the ```for``` statement.
+
+```foo
+>>> a = [(1, 'cat'), (2, 'toad'), (3, 'mouse')]
+>>>
+>>> for t1, t2 in a:
+...     print("got item", t1)
+...     print("it's a", t2, "\n")
+...
+got item 1
+it's a cat
+
+got item 2
+it's a toad
+
+got item 3
+it's a mouse
+
+```
+
+On each iteration of the loop, a tuple element is obtained from ```a``` and the elements are assigned to the tuple of variables ```t1, t2```.
+
+Our example has used a list of tuple elements, but any sequence type could be used.
+
+**Note, however:** the number of variables and the length of each sequence object within the top-level sequence must always be the same. Otherwise, you'll get an error.
+
 ## What's next
+
+At this point, we've learned about a number of useful parts of Python. We're now ready to put some of these pieces together in a small program. We'll do just that in the [next lesson](9_Sample_Program.md#sof).

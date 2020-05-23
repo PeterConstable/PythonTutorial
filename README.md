@@ -18,6 +18,7 @@ You might come looking for a specific detail because you need that for whatever 
 * [Intro to Functions and Flow Control Statements](6_Intro_Functions_Flow_Control.md#sof)
 * [Sequence Types: Lists, Tuples and Ranges](7_List_Tuple_Range.md#sof)
 * [Flow Control Using ```for```](8_For.md#sof)
+* [Our First Program](9_Sample_Program.md#sof)
 * ... (more to come)
 
 ## Background: _Why another Python tutorial?_

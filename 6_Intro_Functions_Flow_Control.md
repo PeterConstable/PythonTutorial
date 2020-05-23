@@ -3,9 +3,11 @@
 [sof]:/sof
 Functions and flow control statements are key tools in Python that you'll use a lot. This lesson provide an initial introduction to get you started using them. There are many details we'll save for later.
 
-Python has three familiar flow control statements found in many languages: ```if```, ```while``` and ```for```. The ```if``` and ```while``` statements are similar to the corresponding statements in other languages. But the ```for``` statement in Python is somewhat different; we'll come back to it in lesson 8.
+Python has three familiar flow control statements found in many languages: ```if```, ```while``` and ```for```. The ```if``` and ```while``` statements are similar to the corresponding statements in other languages. But the ```for``` statement in Python is somewhat different; we'll come back to it in [lesson 8](8_For.md#sof).
 
-Python doesn't have ```switch``` statement as in C and many other languages; the same functionality can be implemented using ```if```. Later, we'll see other techniques that can also be used.
+Since we'll be covering the ```if``` flow control statement, this will also be a good time to introduce the ternary ```if```...```else``` operator construct, which is like a compact ```if``` block that's uses a single statement to return a value based on some condition.
+
+Python doesn't have ```switch``` statement as in C and many other languages; the same functionality can be implemented using ```if```. In later lessons, we'll see other techniques that can also be used.
 
 Up to now we've assumed you're trying things out in interactive mode. The mechanisms we'll be working with require writing several statements in order on multiple lines. That's possible in interactive mode, but not always easy. So, we'll keep examples in this lesson simple. After we've introduced modules in a later lesson, it will be easier to start working on longer statement sequences.
 
@@ -14,6 +16,7 @@ Up to now we've assumed you're trying things out in interactive mode. The mechan
 * [Functions](#functions)
 * [The ```pass``` statement](#the-pass-statement)
 * [The ```if``` statement](#the-if-statement)
+* [The ternary ```if```... ```else``` operator](#the-ternary-if-else-operator)
 * [The ```while``` statement](#the-while-statement)
 * [What's next](#whats-next)
 
@@ -284,6 +287,48 @@ false
 true
 >>> my_func(42, "figs")
 true
+```
+
+## The ternary ```if```... ```else``` operator
+
+We'll temporarily digress from flow-control statements to cover the ternary ```if```... ```else``` operator. This is similar to the ```if``` flow control statement in that a condition is evaluated to choose different options. In this case, though, a single statement is used to return a value based on the condition.
+
+You may have learned about a similar ternary operator in another language. For example:
+
+```cs
+    x > 0 ? 1 : -1
+```
+
+This evaluates a condition, ```x > 0```, and returns 1 if the condition is true, or -1 if the condition is false. In Python, this would be written as follows:
+
+```python
+    1 if x > 0 else -1
+```
+
+Note that the order of the pieces are different.
+
+```python
+    <result_if_true> if <condition> else <result_if_false>
+```
+
+If you're coming from a different language, the different order may take a little getting used to.
+
+Here's an example of a function that uses the ternary operator construct to clamp a value to within a certain range:
+
+```foo
+>>> def clamp(val):
+...     max = 10
+...     # clamp to range -max to +max
+...
+...     if abs(val) > max:
+...         return max if val > 0 else -max
+...     else:
+...         return val
+...
+>>> clamp(8)
+8
+>>> clamp(-16)
+-10
 ```
 
 ## The ```while``` statement

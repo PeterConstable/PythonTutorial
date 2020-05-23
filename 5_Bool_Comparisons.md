@@ -7,6 +7,8 @@ In this lesson, we'll go over all of those things. We'll introduce several addit
 
 As we continue to learn about types, it will be helpful to learn about another built-in function, ```type()``` that we can use to disover the type of any object. We'll also introduce the built-in ```id()```, which tells us about identity of objects.
 
+Discussions of comparison operators for other languages often cover a _ternary_ operator construct that evaluates a condition and returns a value in a single statement. This isn't limited to boolean results and is more like a compact ```if```...```else```. We'll cover it in the next lesson.
+
 * [A quick intro to ```type()```](#a-quick-intro-to-type)
 * [Booleans—the ```bool``` type](#booleans—the-bool-type)
 * [Comparison expressions](#comparison-expressions)
