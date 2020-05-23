@@ -258,7 +258,7 @@ This is illustrated in the following example:
 ...         print("true")
 ...     else:
 ...         print("false")
-... 
+...
 >>> my_func(42)
 true
 >>> my_func("")
@@ -344,6 +344,20 @@ But in this example, the loop block never executes:
 ...
 6
 ```
+
+You might notice that the previous example didn't really require use of an ```else``` statement: the following ```print()``` statement could have been raised out of the ```while``` construct as the next top-level statement:
+
+```foo
+>>> i = 10
+>>> while (i < 5):
+...     i += 1
+...     print(i)
+... print(6)
+...
+6
+```
+
+There's a signficant difference if a ```break``` statement is used within the loop, however. We'll cover that next.
 
 ### ```break```
 

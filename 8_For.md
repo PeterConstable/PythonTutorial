@@ -23,7 +23,7 @@ In other programming languages, ```for``` statements are frequently used in a pa
     }
 ```
 
-There are certainly other ways ```for``` could be used in those languages, but probably the vast majority of uses look like that: index over some numeric range, _start_, _start + 1_, ... and access items from some sequence collection.
+There are certainly other ways ```for``` could be used in those languages, but probably the majority of uses look like that: index over some numeric range, _start_, _start + 1_, ... and access items from some sequence collection.
 
 Note that the same thing could also be done easily using a ```while``` loop.
 
@@ -114,7 +114,7 @@ A ```for``` loop must have a non-empty execution block; otherwise, you'll get an
 
 In some situations, you may need to step through a list but then make changes to it without the loop. In any programming language, doing this kind of thing is bug prone and can be tricky to get right. In particular, as you step through a sequence, if you add or remove an item, then your counter gets out of sync with the sequence contents.
 
-In Python, the sequence in the ```for``` statement is evaluated only once, before the first iteration. If an element is added within the loop, the runtime can get end up operating on the same element repeatedly. Or if an element is removed, then a following element in the sequence may be skipped.
+In Python, the sequence reference in the ```for``` statement is evaluated only once, before the first iteration. But it's identifying the sequence object at that point, not all the elements in the sequence. The implementation is stepping through elements by position. So, if the elements change while a loop is executed, the implementation know what position it's at, but not that the elements are changing. If an element is added within the loop, the runtime can get end up operating on the same element repeatedly. Or if an element is removed, then a following element in the sequence may be skipped.
 
 Consider this example:
 
@@ -128,7 +128,7 @@ Consider this example:
 [2, 4]
 ```
 
-On the first iteration, ```1``` is removed. At that point, the current position within the sequence is pointing at the following element, ```2```. The, for the second iteration, the runtime advances to the next element, which is ```3```. So, ```2``` gets skipped.
+On the first iteration, ```1``` is removed. Right at that point, the current position within the sequence is pointing at the following element, ```2```. Then, for the next iteration, the runtime advances to the next element, which is ```3```. So, ```2``` gets skipped.
 
 To avoid these kinds of problems, use a copy of the sequence in the ```for``` statement.
 
@@ -141,6 +141,10 @@ To avoid these kinds of problems, use a copy of the sequence in the ```for``` st
 >>> print(my_list)
 []
 ```
+
+>_Q: Why did that work?_
+>
+> The ```.remove()``` method takes an _object reference_, not a _position_ in the sequence. But the runtime implementation of ```for``` is stepping through elements by position. In the original case, after ```1``` was removed, the objects referred to at each position changed. But in the second case, removing ```1``` from my_list doesn't affect the object references at each position of the copy. So the loop will execute once for all five elements. In each pass, ```.remove()``` will get an object reference and will look for that object within ```my_list```, regardless of what position it's in at that point.
 
 ## Nested loops
 
@@ -201,7 +205,92 @@ t
 
 ## ```for```... ```else```
 
+In Python, a ```for``` statement can have a following ```else```. The ```else``` block is executed after the ```for``` loop has completed.
+
+```foo
+>>> for x in [1,2,3]:
+...     print(x)
+... else:
+...     print("done!")
+...
+1
+2
+3
+done!
+```
+
+If it turns out the sequence in the ```for``` statement is empty, the ```else``` block will still be executed.
+
+```foo
+>>> a = ""
+>>> for x in a:
+...     print(x)
+... else:
+...     print("done!")
+...
+done!
+```
+
+You might notice that the previous example could have been implemented without using ```else``` by raising the following ```print()``` statement out of the ```for``` construct as the next top-level statement.
+
+```foo
+>>> a = ""
+>>> for x in a:
+...     print(x)
+... print("done!")
+...
+done!
+```
+
+There's a signficant difference if a ```break``` statement is used within the loop, however. We'll cover that next.
+
 ## ```break``` and ```continue```
+
+In the [previous lesson](6_Intro_Functions_Flow_Control.md#the-while-statement), we saw that a ```while``` loop can include ```break``` or ```continue``` statements to alter the flow. These can also be used in ```for``` loops.
+
+A ```break``` statement can be used within the ```for``` loop to exit early out of the loop if some condition is met. Any statements within the execution block that come after ```break``` are skipped. If there is an ```else``` block, that will also be skipped.
+
+In the next example, the ```for``` statement is set up to loop over a long sequence of numbers. But within the loop, a condition is used to ```break``` out of the loop early.
+
+```foo
+>>> for x in range(1000):
+...     if x == 3:
+...         break
+...     else:
+...         print(x)
+... else:
+...     print("done!")
+...
+0
+1
+2
+```
+
+Note that the ```else``` block was not executed.
+
+Within the loop, ```continue``` can be used to skip the remainder of the loop _for that iteration_. Flow will return to the top of the loop and continue with the next sequence element (if there is one).
+
+The following example loops over a range and prints each number, but skip any number that is a multiple of 3.
+
+```foo
+>>> for x in range(10):
+...     if x % 3 == 0:
+...         continue
+...     else:
+...         print(x)
+... else:
+...     print("done!")
+...
+1
+2
+4
+5
+7
+8
+done!
+```
+
+Note that the ```else``` block gets executed: ```continue``` never causes that to be skipped.
 
 ## Using multiple element variables
 
