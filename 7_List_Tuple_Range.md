@@ -10,6 +10,7 @@ There are also other operations that are specific to strings, or specific to lis
 * [Lists](#lists)
 * [Tuples](#tuples)
 * [Ranges](#ranges)
+* [Multiple assignment of sequence elements](#multiple-assignment-of-sequence-elements)
 * [Converting between sequence types](#converting-between-sequence-types)
 * [Common sequence operations](#common-sequence-operations)
 * [Tuples as returned values](#tuples-as-returned-values)
@@ -118,18 +119,6 @@ Tuples can be constructed in a few different ways. We've seen examples above usi
 <class 'tuple'>
 ```
 
-In [lesson 4](4_More_Assignment_Numbers_Strings.md#multiple-assignment), we learned how to assign values to multiple variables in a single statement.
-
-```foo
->>> x, y = 42, "hey, there!"
->>> x
-42
->>> y
-'hey, there!'
-```
-
-We can see now that the mechanism involved is to assign a tuple of values, ```42, "hey, there!"```, to a tuple of variables, ```x, y```.
-
 Singleton tuples need some special consideration. If you simply write a single value inside parentheses or on it's own, it will be interpreted as that object, not as a tuple containing that object.
 
 ```foo
@@ -232,6 +221,66 @@ Up to now, the range examples have all had sequences that are increasing. We can
 ```
 
 Note that _step_ must not be 0; if it's 0, you'll get an error.
+
+## Multiple assignment of sequence elements
+
+In [lesson 4](4_More_Assignment_Numbers_Strings.md#multiple-assignment), we learned how to assign values to multiple variables in a single statement.
+
+```foo
+>>> x, y = 42, "hey, there!"
+>>> x
+42
+>>> y
+'hey, there!'
+```
+
+We mentioned above that tuples can be written as items separated by commas without any surrounding parentheses. With that in mind, we can see now that the mechanism involved in the multiple-assignment example is to assign a tuple of values, ```42, "hey, there!"```, to a tuple of variables, ```x, y```.
+
+Note, though, that we haven't assigned the tuple of variables to a named tuple variable. So, we can refer to variables ```x``` and ```y```, but we don't have any variable that refers to the tuple ```(x, y)```. (But we can always assign such a variable later, or just write ```(x, y)```.)
+
+Now, in the example above, the operand on the right was a tuple. The tuple elements were written out in the statement as literals, but we could also have used a tuple variable.
+
+```foo
+>>> t = (42, "hey, there!")
+>>> x, y = t
+>>>
+>>> x
+42
+>>> y
+'hey, there!'
+```
+
+The right-hand assignment operand could also be a list.
+
+```foo
+>>> my_list = [3.14, "pies"]
+>>> x, y = my_list
+>>>
+>>> x
+3.14
+>>> y
+'pies'
+```
+
+This also works with any other sequence types, including strings or ranges.
+
+```foo
+>>> x, y = "ab"
+>>> x
+'a'
+>>> y
+'b'
+```
+
+```foo
+>>> x,y = range(2)
+>>> x
+0
+>>> y
+1
+```
+
+**Note!** When assigning sequence elements to a tuple of variables, the number of variables must be the same as the number of sequence elements. Otherwise, you'll get an error.
 
 ## Converting between sequence types
 
