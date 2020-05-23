@@ -3,6 +3,14 @@
 [sof]:/sof
 In [lesson 6](6_Intro_Functions_Flow_Control.md#sof) we learned about ways to control execution flow using ```if``` and ```while``` statements. In this lesson, we'll cover Python's ```for``` statement.
 
+* [```for``` is for sequences](#for-is-for-sequences)
+* [Changing a sequence within the loop](#changing-a-sequence-within-the-loop)
+* [Nested loops](#nested-loops)
+* [```for```... ```else```](#for-else)
+* [```break``` and ```continue```](#break-and-continue)
+* [Using multiple element variables](#using-multiple-element-variables)
+* [What's next](#whats-next)
+
 ## ```for``` is for sequences
 
 In other programming languages, ```for``` statements are frequently used in a pattern something like this:
@@ -140,6 +148,7 @@ A common situation is to have a list of lists (or other type of sequence). You m
 
 ```foo
 >>> my_list = [[1,2], "cat", (3,4)]
+>>>
 >>> for x in my_list:
 ...     for y in x:
 ...         print(y)
@@ -159,6 +168,7 @@ You can nest ```for``` loops as many levels deep as you need. But watch that you
 
 ```foo
 >>> my_list = ["dog", 42]
+>>>
 >>> for x in my_list:
 ...     for y in x:
 ...         print(y)
@@ -175,6 +185,7 @@ To handle that situation, we can add logic to check whether an element is a sequ
 
 ```foo
 >>> my_list = ["cat", 42]
+>>>
 >>> for x in my_list:
 ...     if isinstance(x, (list, tuple, str)):
 ...         for y in x:
@@ -192,6 +203,6 @@ t
 
 ## ```break``` and ```continue```
 
-## Using multiple variables
+## Using multiple element variables
 
 ## What's next
