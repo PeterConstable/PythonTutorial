@@ -154,7 +154,7 @@ We're ready to design how we'll organize data for a drawing. From the top level:
 * A drawing will be a sequence of graphic-element groups.
 * Each group will be a sequence of graphic primitive specifications.
 
-For each of these, we could use a list or a tuple. We'll use a list for a drawing, and tuples for each group.
+For each of these, we could use either a list or a tuple. Our program doesn't need to edit the sequences, so tuples would make sense. But for a little diversity in this sample, we'll use lists for both.
 
 In designing the definition of ```draw_element()```, we already determined what would be required for each graphic primitive specification:
 
