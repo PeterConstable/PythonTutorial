@@ -39,11 +39,11 @@ def draw_element(position, kind, spec):
     # set position
     x, y = position  # assign tuple elements
     set_drawing_position(x, y)
-
+    
     if kind == "rect":
         l, w = spec  # assign tuple elements
         draw_rect(l, w)
-        
+    
     elif kind == "circle":
         draw_circle(spec)
 
