@@ -13,6 +13,7 @@ There are also other operations that are specific to strings, or specific to lis
 * [Multiple assignment of sequence elements](#multiple-assignment-of-sequence-elements)
 * [Converting between sequence types](#converting-between-sequence-types)
 * [Common sequence operations](#common-sequence-operations)
+* [Mutating list operations](#mutating-list-operations)
 * [Tuples as returned values](#tuples-as-returned-values)
 * [What's next](#whats-next)
 
@@ -140,7 +141,7 @@ If you need something to be interpreted as a singleton tuple, then you need to a
 
 ## Ranges
 
-The ```range``` type is a special sequence type. Range objects are sequences of integers. They are immutable (elements can't be changed) and can only be constructed using the ```range()``` constructor function. For example, ```range(5)``` returns a range with a sequence of five numbers, 0 to 4.
+The ```range``` type is a special sequence type. Range objects produce sequences of integers. They are immutable (elements can't be changed) and can only be constructed using the ```range()``` constructor function. For example, ```range(5)``` returns a range with a sequence of five numbers, 0 to 4.
 
 Ranges behave like lists in many ways, but not in every way. One difference is in how they're represented as a result.
 
@@ -221,6 +222,22 @@ Up to now, the range examples have all had sequences that are increasing. We can
 ```
 
 Note that _step_ must not be 0; if it's 0, you'll get an error.
+
+## A brief intro to iterables
+
+Later in this lesson, we'll need to mention objects that are _iterables_. An iterable object is capable of producing a sequence. It can be a sequence itself, in the sense of containing elements; but it might not be. To qualify as an iterable, it just needs to be able to _provide a sequence_ when used in contexts that expect a sequence.
+
+The ```str```, ```list``` and ```tuple``` types are iterable types that are also sequences.
+
+On the other hand, a ```range``` is not actually a sequence: it doesn't contain elements. But it is an iterable and can produce a sequence. This accounts for why it behaves like a sequence in some contexts but not in others, such as how a range object is represented as a result:
+
+```foo
+>>> y = range(4)
+>>> y
+range(0, 4)
+```
+
+For now, this covers what we need to know about iterables. We'll explore iterables in more detail in a later lesson.
 
 ## Multiple assignment of sequence elements
 
@@ -569,7 +586,7 @@ As with other range specifications, you can use negative indices to indicate pos
 9
 ```
 
-Some sequence types—but not all—also have a ```.rindex()``` method that searches from the _end_ of the sequence. The index returned is still an index from the start of the sequence, but it will be for the _last_ occurrence within that sequence. The ```.rindex()``` method isn't available for lists, tuples or ranges, but it is available for strings.
+Some sequence types—but not all—also have an ```.rindex()``` method that searches from the _end_ of the sequence. The index returned is still an index from the start of the sequence, but it will be for the _last_ occurrence within that sequence. The ```.rindex()``` method isn't available for lists, tuples or ranges, but it is available for strings.
 
 ```foo
 >>> her_name.rindex('l')
@@ -755,26 +772,133 @@ The separator string could be any string, including an empty string.
 'Eliza Doolittle'
 ```
 
-### Other sequence operations
+### Other immutable sequence operations
 
 For several immutable types, including tuples and ranges, nearly all of the avaialble sequence operations have been covered. The only thing we haven't covered is the ```hash()``` function, which you may need to know about when defining your own custom types; that will be in a later lesson.
 
 ```str``` in another immutable type, and has a number of additional, string-specific methods. We'll save those for another lesson that goes into more detail on working with strings.
 
-Because ```list``` is a mutable sequence type, there are several other operations to know about. These are also relevant for the mutable byte sequence type, ```bytearray```; we'll wait to go over all the mutating operations for these types in a later lesson. For now, we'll just consider a two: changing an element, and adding an element at the end.
+## Mutating list operations
+
+Because ```list``` is a mutable sequence type, there are several other operations to know about.
+
+>These operations are also relevant for the mutable byte sequence type, ```bytearray```, which we'll cover in later lesson.
+
+### Changing list elements
 
 To change an element in a list, you can simply refer to it by index and assign a new value:
 
 ```python
->>> my_list = [2, 4, 7, 8, 10, 12]  # define the list
+>>> my_list = [2, 4, 7, 8, 10, 12]
 >>>
->>> my_list[2] = 6  # change an element in the list
+>>> my_list[2] = 6  # change a single element in the list
 >>>
 >>> my_list
 [2, 4, 6, 8, 10, 12]
 ```
 
-To add an element at the end of a list, use the ```.append()``` method, passing the new object as the argument.
+You can change multiple elements by assigning to a slice.
+
+```python
+>>> my_list[1:3] = [5, 7]
+>>>
+>>> my_list
+[2, 5, 7, 8, 10, 12]
+```
+
+The length of the slice and the length of the sequence being assigned can be different.
+
+```python
+>>> my_list[1:3] = [4]
+>>>
+>>> my_list
+[2, 4, 8, 10, 12]
+```
+
+This will change the number of elements in the list.
+
+Note that, when assigning to a slice in this way, you must assign a sequence object, not a single number; that will raise an error.
+
+```python
+>>> my_list[1:3] = 4
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only assign an iterable
+```
+
+The new items being assigned can come from any iterable object.
+
+```python
+>>> my_list = [2, 10, 12]
+>>> my_list[0:1] = range(2, 10, 2)
+>>>
+>>> my_list
+[2, 4, 6, 8, 10, 12]
+```
+
+Note that, if you assign a string to a slice, the string will be treated like a sequence of characters:
+
+```python
+>>> my_list = [2, 4, 6, 8, 10, 12]
+>>> my_list[1:3] = "cat"
+>>>
+>>> my_list
+[2, 'c', 'a', 't', 8, 10, 12]
+```
+
+If you want the string to be treated like an atomic object, you must create a list containing the string and assign that.
+
+```python
+>>> my_list = [2, 4, 6, 8, 10, 12]
+>>> my_list[1:3] = ["cat"]
+>>>
+>>> my_list
+[2, 'cat', 8, 10, 12]
+```
+
+If you want to replace a single element with a sequence of elements, you must specify the element as a slice:
+
+```python
+>>> my_list = [2, 6, 8, 10, 12]
+>>> my_list[1:2] = [4, 6]
+>>>
+>>> my_list
+[2, 4, 6, 8, 10, 12]
+```
+
+If you don't use a slice, then you'll replace the object at the specified index with the sequence object _as an atomic object_.
+
+```python
+>>> my_list = [2, 6, 8, 10, 12]
+>>> my_list[1] = [4, 6]
+>>>
+>>> my_list
+[2, [4, 6], 8, 10, 12]
+```
+
+When assigning to a slice, you aren't limited to consecutive elements. You can specify a slice with a step value other than 1:
+
+```python
+>>> my_list = [0,0,0,0,0,0]
+>>> my_list[1:6:2] = [1,2,3]
+>>>
+>>> my_list
+[0, 1, 0, 2, 0, 3]
+```
+
+Note, however, that the number of elements in the slice and the number of elements being assigned must be the same; otherwise, you'll get an error.
+
+```python
+>>> my_list = [0,0,0,0,0,0]
+>>> my_list[1:6:2] = [1,2]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: attempt to assign sequence of size 2 to extended slice of size 3
+```
+
+### Adding to the end of a list
+
+To add a single element at the end of a list, use the ```.append()``` method, passing the new object as the argument.
 
 ```python
 >>> my_list.append(14)
@@ -782,6 +906,346 @@ To add an element at the end of a list, use the ```.append()``` method, passing 
 >>> my_list
 [2, 4, 6, 8, 10, 12, 14]
 ```
+
+You can also create a new list with the additional object and concatenate that to the existing list.
+
+```python
+>>> my_list += [16]
+>>>
+>>> my_list
+[2, 4, 6, 8, 10, 12, 14, 16]
+```
+
+This is less efficient, however, since it involves creating a new, temporary list object.
+
+You can't add an item at the end by trying to assign a value at an index one past the last index: you'll get an out of range error.
+
+```python
+>>> my_list[len(my_list)] = 18
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+```
+
+On the other hand, you can add to the end of the list by assign a new list to _a slice range_ starting at the end.
+
+```python
+>>> my_list[len(my_list):] = [18]
+>>> my_list
+[2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+This is equivalent to using the ```.extend()``` method, which is more readable:
+
+```python
+>>> my_list.extend([20, 22])
+>>>
+>>> my_list
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22]
+```
+
+The ```.extend()``` method can take any iterable object. For example:
+
+```python
+>>> my_list.extend(range(24, 28, 2))
+>>>
+>>> my_list
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26]
+```
+
+### Adding items at a specific position in the list
+
+You can add a single item at any position in a list using the ```.insert()``` method. It requires two arguments: a position index, and the object to be inserted.
+
+```python
+>>> my_list = ["cat", "dog", "spam"]
+>>> my_list.insert(2, "eggs")
+>>>
+>>> my_list
+['cat', 'dog', 'eggs', 'spam']
+```
+
+Note that the item is inserted _before_ the item that was originally at that position.
+
+The same operation can be achieved by assigning to a slice ```[i:i]``` for some index ```i```.
+
+```python
+>>> my_list = [2, 6, 8, 10]
+>>> my_list[1:1] = [4]
+>>>
+>>> my_list
+[2, 4, 6, 8, 10]
+```
+
+The ```.insert()``` method can only insert a single element. If you try passing in a sequence or iterable object, that will be inserted as an atomic element.
+
+```python
+>>> my_list = [2, 8, 10]
+>>> my_list.insert(1, [4, 6])
+>>>
+>>> my_list
+[2, [4, 6], 8, 10]
+```
+
+```python
+>>> my_list = [2, 8, 10]
+>>> my_list.insert(1, range(4,8,2))
+>>> my_list
+[2, range(4, 8, 2), 8, 10]
+```
+
+To insert multiple elements, assign a sequence to an ```[i:i]``` range.
+
+```python
+>>> my_list = [2, 8, 10]
+>>> my_list[1:1] = [4, 6]
+>>>
+>>> my_list
+[2, 4, 6, 8, 10]
+```
+
+Note that if the slice range has different start and stop values, you'll replace rather than insert.
+
+```python
+>>> my_list = [2, 8, 10]
+>>> my_list[1:2] = [4, 6]
+>>>
+>>> my_list
+[2, 4, 6, 10]
+```
+
+### Removing items
+
+There are various ways to remove items from a list. First, you can use ```.pop()``` (without any argument) to remove the last item from the list.
+
+```python
+>>> my_list = ["bacon", "eggs", "toast"]
+>>> my_list.pop()
+'toast'
+```
+
+Note that the "popped" item is returned. (You can ignore the returned value, of course.)
+
+To remove an item with a particular value, use the ```.remove()``` method.
+
+```python
+>>> my_list = [1, 42, 2, 3, 42, 4]
+>>> my_list.remove(42)
+>>>
+>>> my_list
+[1, 2, 3, 42, 4]
+```
+
+This removes the first object in the list with that value. Note that compares object _values_, not object _identity_. For example, let's assign objects with the same value to two different variables. We'll use ```id()``` to confirm they are distinct objects.
+
+```python
+>>> x = [1,2]
+>>> y = [1,2]
+>>> id(x)
+52114344
+>>> id(y)
+52143048
+```
+
+Next, we'll create a list that includes these objects. And we'll use ```id()``` again to confirm that the objects in the list are the same as ```x``` and ```y```, but distinct from one another.
+
+```python
+>>> z = [1, x, 2, y, 3]
+>>> z
+[1, [1, 2], 2, [1, 2], 3]
+>>>
+>>> id(x)
+52114344
+>>> id(z[1])
+52114344
+>>>
+>>> id(y)
+52143048
+>>> id(z[3])
+52143048
+```
+
+Finally, we'll invoke the ```.remove()``` method, passing ```y``` as the argument. Note that object ```y``` comes later in the list than ```x```.
+
+```python
+>>> z.remove(y)
+>>> z
+[1, 2, [1, 2], 3]
+```
+
+Note that ```x``` was removed, not ```y```. We can use ```id()``` to confirm that the remaining object is, indeed, ```y```:
+
+```python
+>>> id(y)
+52143048
+>>> id(z[2])
+52143048
+```
+
+So, ```.remove()``` removes the first item with the same value, not the identical object.
+
+If the list doesn't contain any element with same value, an error will occur.
+
+```python
+>>> my_list = [1, 2, 3]
+>>> my_list.remove(42)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+```
+
+You can avoid an error by checking first whether the item is in the list.
+
+```python
+>>> my_list = [1, 2, 3]
+>>> if 42 in my_list:
+...     my_list.remove(42)
+...
+>>>
+```
+
+You can remove the item at a specific position by using ```.pop()``` with an index argument.
+
+```python
+>>> my_list = [1, 2, 3]
+>>> my_list.pop(1)
+2
+```
+
+As we saw earlier, the "popped" item is returned.
+
+Note that assigning ```None``` at a position is not the same as removing the item at that position: ```None``` is an object, so assigning ```None``` is like assigning any other value.
+
+```python
+>>> my_list = [1, 2, 3]
+>>> my_list[1] = None
+>>>
+>>> my_list
+[1, None, 3]
+>>> len(my_list)
+3
+```
+
+You can also remove an item using the ```del``` statement with an index reference to the item to be removed.
+
+```python
+>>> my_list = [1, 2, 3]
+>>> del my_list[1]
+>>>
+>>> my_list
+[1, 3]
+```
+
+Whereas ```.pop()``` can only remove one item, you can remove multiple items with ```del``` by specifying a slice.
+
+```python
+>>> my_list = [1, 2, 3, 4, 5, 6, 7, 8]
+>>> del my_list[1:5:2]
+>>> my_list
+[1, 3, 5, 6, 7, 8]
+```
+
+>Note: if you don't specify an index or range, ```del``` will delete the entire list.
+>
+>```python
+>>>> my_list = [1, 2, 3]
+>>>> del my_list
+>>>> my_list
+>Traceback (most recent call last):
+>  File "<stdin>", line 1, in <module>
+>NameError: name 'my_list' is not defined
+>```
+
+Finally, you can remove all items from a list using ```.clear()```.
+
+```python
+>>> my_list = [1, 2, 3]
+>>> my_list.clear()
+>>>
+>>> my_list
+[]
+>>> len(my_list)
+0
+```
+
+This is the same as using ```del``` for the range ```[:]``` (the entire list).
+
+### Other list operations
+
+Because a list is an ordered sequence, it can potentially be re-ordered. The ```.reverse()``` method will reverse the order of all items in the list.
+
+```python
+>>> my_list = [1, 2, 3, 4, 5]
+>>> my_list.reverse()
+>>>
+>>> my_list
+[5, 4, 3, 2, 1]
+```
+
+The ```.sort()``` method will sort items in the list.
+
+```python
+>>> my_list = [5, 42, 17, 6, 12]
+>>> my_list.sort()
+>>>
+>>> my_list
+[5, 6, 12, 17, 42]
+```
+
+>Note: The ```.sort()``` method is available for ```list```, but isn't available for all mutable sequence types.
+
+You can sort in descending order by adding ```reverse=True``` as an argument.
+
+```python
+>>> my_list = [5, 42, 17, 6, 12]
+>>> my_list.sort(reverse=True)
+>>>
+>>> my_list
+[42, 17, 12, 6, 5]
+```
+
+>Note: the ```reverse``` argument must be specified using the ```reverse``` keyword.
+
+The items in the ```.sort()``` examples have been numbers, but other types that support a ```<``` comparison can also be sorted.
+
+```python
+>>> my_list = ['juice', 'toast', 'spam', 'eggs']
+>>> my_list.sort()
+>>>
+>>> my_list
+['eggs', 'juice', 'spam', 'toast']
+```
+
+**Note:** As mentioned in [lesson 5](5_Bool_Comparisons.md#comparison-expressions), string comparison is complex. When using ```.sort()``` on a list of strings as in the previous example, sort will compare strings like comparing lists of the numeric values of Unicode code points. Thus, uppercase letters will sort differently than the corresponding lowercase letters.
+
+```python
+>>> my_list = ['juice', 'toast', 'Spam', 'eggs']
+>>> my_list.sort()
+>>> my_list
+['Spam', 'eggs', 'juice', 'toast']
+```
+
+The ```.sort()``` method can take a ```key``` argument that is a single-parameter function that can provide a comparison key for each item. For example, the ```str``` type has a static method that does a lowercase mapping of the string; that can be used to fold case differences:
+
+```python
+>>> my_list.sort(key=str.lower)
+>>> my_list
+['eggs', 'juice', 'Spam', 'toast']
+```
+
+But, again, string comparison is complex, particularly when different languages are involved. Tread carefully!
+
+Also note that ```.sort()``` can only work when ```<``` comparison works between all pairs of items in the list. If a list contains a mix of types, an error may be raised.
+
+```python
+>>> my_list = ['cat', 42, 17, 'abc']
+>>> my_list.sort()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: '<' not supported between instances of 'int' and 'str'
+```
+
+Even if all items in the list are of the same type, sort will not be supported if objects of that type can't be compared using ```<```. (For example, a list of dictionaries can't be sorted.)
 
 ## Tuples as returned values
 
