@@ -20,7 +20,7 @@ You might come looking for a specific detail because you need that for whatever 
 * [Flow Control Using ```for```](8_For.md#sof)
 * [Our First Program](9_Sample_Program.md#sof)
 * ... (more to come)
-* [List Comprehensions(n_List_Comprehensions.md#sof)]
+* [List Comprehensions](n_List_Comprehensions.md#sof)
 * ...
 
 ## Background: _Why another Python tutorial?_
