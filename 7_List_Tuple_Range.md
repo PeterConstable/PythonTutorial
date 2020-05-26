@@ -761,7 +761,27 @@ For several immutable types, including tuples and ranges, nearly all of the avai
 
 ```str``` in another immutable type, and has a number of additional, string-specific methods. We'll save those for another lesson that goes into more detail on working with strings.
 
-Because ```list``` is a mutable sequence type, there are several other operations to know about. Those will also be relevant for the mutable byte sequence type, ```bytearray```. We'll cover mutating operations for these types in a later lesson.
+Because ```list``` is a mutable sequence type, there are several other operations to know about. These are also relevant for the mutable byte sequence type, ```bytearray```; we'll wait to go over all the mutating operations for these types in a later lesson. For now, we'll just consider a two: changing an element, and adding an element at the end.
+
+To change an element in a list, you can simply refer to it by index and assign a new value:
+
+```python
+>>> my_list = [2, 4, 7, 8, 10, 12]  # define the list
+>>>
+>>> my_list[2] = 6  # change an element in the list
+>>>
+>>> my_list
+[2, 4, 6, 8, 10, 12]
+```
+
+To add an element at the end of a list, use the ```.append()``` method, passing the new object as the argument.
+
+```python
+>>> my_list.append(14)
+>>>
+>>> my_list
+[2, 4, 6, 8, 10, 12, 14]
+```
 
 ## Tuples as returned values
 
