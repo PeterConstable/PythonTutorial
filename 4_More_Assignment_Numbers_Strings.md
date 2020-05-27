@@ -436,7 +436,7 @@ When doing a _left shift_ operation, you can match the fixed-width assumptions o
 True
 ```
 
-When using a _bitwise complement_ operation, you can match the fixed-width assumptions of another language by the result of the _bitwise complement_ as a mask to ```2**N - 1``` (where ```N``` is the assumed bit width).
+When using a _bitwise complement_ operation, you can match the fixed-width assumptions of another language by applying the result of the _bitwise complement_ as a mask to ```2**N - 1``` (where ```N``` is the assumed bit width).
 
 ```python
 >>> x = 4
