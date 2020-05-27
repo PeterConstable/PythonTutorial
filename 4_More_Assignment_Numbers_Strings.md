@@ -306,7 +306,17 @@ In addition to arithmetic operators seen earlier, Python has a typical set of bi
 |```>>```|right shift          |```x >> 3```|
 |```~``` |complement / invert  |```~x```    |
 
-Note that bitwise operations are only meaningful and supported for integers (```int```).
+There are also corresponding compound assignment operators for all but the bitwise complement.
+
+|Operator |Example expression|Equivalent expression|
+|---------|------------------|---------------------|
+|```|=``` |```x |= y```      |```x = x | y```      |
+|```&=``` |```x &= y```      |```x = x & y```      |
+|```^=``` |```x ^= y```      |```x = x ^ y```      |
+|```<<=```|```x <<= y```     |```x = x << y```     |
+|```>>=```|```x >>= y```     |```x = x >> y```     |
+
+Note that bitwise operations are only meaningful and supported for integers (```int```). Also, for shift operations, the second operand cannot be negative.
 
 As in other languages, _bitwise or_, _and_ or _exclusive or_ set individual bits in a result value by comparing the corresponding bits in two operands:
 
@@ -321,7 +331,7 @@ _Right shift_ causes binary digits to be shifted right by a specified number of 
 '0b1011'
 ```
 
-Right shift is equivalent to floor division by powers of 2. As existing digits shift right, 0 digits are inserted on the left; least-significant digits are simply dropped.
+_Right shift_ is equivalent to floor division by powers of 2. As existing digits shift right, 0 digits are inserted on the left; least-significant digits are simply dropped.
 
 _Left shift_ causes binary digits to be shifted left by a specified number of digits. For example:
 
@@ -330,9 +340,114 @@ _Left shift_ causes binary digits to be shifted left by a specified number of di
 '0b101101000000'
 ```
 
-Left shift is equivalent to multiplication by powers of 2. As existing digits shift left, 0 digits are inserted on the right. Because integers in Python are unbounded, there are an infinite number of binary digits available, so digits on the left are never truncated or wrapped.
+_Left shift_ is equivalent to multiplication by powers of 2. As existing digits shift left, 0 digits are inserted on the right. Because integers in Python are unbounded, there are an infinite number of binary digits available, so digits on the left are never truncated or wrapped. This is a difference in behaviour compared to many other languages; we'll return to this below.
 
-Here we start seeing important differences between bitwise operations in Python versus other programming languages. In most languages, integer data types have specific, limited bit widths, which affects how binary operations will work. For example, compare results of the same operation in C# versus Python:
+Conceptually, the _bitwise complement_ operator ```~``` performs a _bitwise NOT_:
+
+* bitwise complement (_conceptually_): 1 if bit is 0, else 0
+
+In practice, ```~``` works this way in Python _so long as you don't inspect actual bit patterns or try to compare with binary or hex literals_. (That is a difference in behaviour compared to many other languages; we'll return to this difference below.) In most situations, that is not an issue.
+
+A typical usage for bitwise operations is to manipulate bits in a flags bitfield. For example, consider the following flag definitions:
+
+```python
+flag_INSTALLABLE = 0b0010
+flag_RESTRICTED  = 0b0100
+flag_EDITABLE    = 0b1000
+mask_PERMISSIONS = 0b1111
+```
+
+To filter a value to just these flags, you'd use _bitwise and_ with the mask:
+
+```python
+    permissions_flags = my_flags & mask_PERMISSIONS
+```
+
+To check whether a given flag is set, you'd use _bitwise and_ with the flag constant:
+
+```python
+    if my_flags & flag_RESTRICTED == flag_RESTRICTED:
+        # restricted flag is set; take appropriate actions
+        ...
+```
+
+To set a particular flag, you'd use _bitwise or_ with the flag constant:
+
+```python
+    # set the restricted flag
+    my_flags |= flag_RESTRICTED
+```
+
+To clear the _restricted flag_, you'd use bitwise and together with bitwise complement:
+
+```python
+    # clear the restricted flag
+    my_flags &= ~flag_RESTRICTED
+```
+
+### Matching fixed bit-width assumptions of other languages
+
+In most languages, integer data types have specific, limited bit widths, which affects how binary operations will work. But in Python, integers are not bound in bit width. This can lead to some differences in behaviour in certain situations, particularly when _left shift_ or _bitwise complement_ operations are involved.
+
+For instance, in C, you could compare the result of a _left shift_ with a literal, as in the following:
+
+```c
+UInt16 x = 0b1011_1100;
+UInt16 y = (UInt16)(x << 12);
+if (y == 0xc000) // true
+```
+
+But you can't do the same directly in Python:
+
+```python
+>>> x = 0b1011_1100
+>>> y = x << 12
+>>> y == 0xc000
+False
+```
+
+In C, the comparison assumes a limited bit width, with the _left shift_ causing high-order bits to be dropped. But in Python, those bits are not dropped.
+
+Similarly, in C, you could compare the result of a _bitwise complement_ operation with a literal, as in the following:
+
+```c
+byte x = 4;
+byte y = (byte)~x;
+if (y == 0xfb) // true
+```
+
+But you can't do that directly in Python:
+
+```python
+>>> x = 4
+>>> y = ~x
+>>> y == 0xfb
+False
+```
+
+In Python, if you need to closely match bit-width assumptions in other languages, you may need to add logic that provides fixed-bit-width assumptions.
+
+When doing a _left shift_ operation, you can match the fixed-width assumptions of another language by applying ```2**N - 1``` as a mask to the result of the shift operation (where ```N``` is the assumed bit width).
+
+```python
+>>> x = 0b1011_1100
+>>> y = (x << 12) & 0xffff
+>>> y == 0xc000
+True
+```
+
+When using a _bitwise complement_ operation, you can match the fixed-width assumptions of another language by the result of the _bitwise complement_ as a mask to ```2**N - 1``` (where ```N``` is the assumed bit width).
+
+```python
+>>> x = 4
+>>> y = ~x & 0xff
+>>> y == 0xfb
+True
+```
+
+### Background: bit patterns in Python versus other languages
+
+In most languages, integer data types have specific, limited bit widths, which affects how binary operations will work. For example, compare results of the same operation in C# versus Python:
 
 C#:
 
