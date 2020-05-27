@@ -445,176 +445,64 @@ When using a _bitwise complement_ operation, you can match the fixed-width assum
 True
 ```
 
-### Background: bit patterns in Python versus other languages
+### Representation of negative integers in Python versus other languages
 
-In most languages, integer data types have specific, limited bit widths, which affects how binary operations will work. For example, compare results of the same operation in C# versus Python:
+When integer data types in other languages have specific, limited bit widths, negative integer values are typically represented using [two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) representation. In this representation, the value -1 has all bits set, -2 has all but the last bit set, and so on.
+
+Signed 8-bit integers:
+
+|Decimal value|Binary two's complement<br>representation|
+|:-:|:-:|
+| -1  | 1111 1111 |
+| -2  | 1111 1110 |
+| -3  | 1111 1101 |
+| -4  | 1111 1100 |
+| ... | ...       |
+|-125 | 1000 0011 |
+|-126 | 1000 0010 |
+|-127 | 1000 0001 |
+|-128 | 1000 0000 |
+
+Because of this, the _bitwise complement_ operation is equivalent to computing ```-(n + 1)```, for an integer data type of a particular bit width.
+
+For unbounded negative integers, the two's complement representation can't be assumed in practice, as it would require an infinite number of bits.
+
+This is another form of the issue described above. We saw that results of _left shift_ or _bitwise complement_ operations could not be compared with literal values that involved fixed-bit-width assumptions unless accommodation to those assumptions were made. The same is true for comparing negative integers with literals that assume some fixed-width representation.
+
+For example, the following comparison can be made in C#:
+
+```cs
+int x = -2;
+if unchecked(x == (int)0xffff_fffe)  // true
+```
+
+In Python, to make a similar comparison of a negative value ```x``` to a literal, add ```x``` to ```2**N```, where ```N``` is the assumed bit width.
+
+```python
+>>> x = -2
+>>> (x + 2**32) == 0xffff_fffe
+True
+```
+
+Also, when the ```bin()``` function is used to convert a negative number to a binary string representation, do not expect to see the two's complement representation as you would get for similar operations in other languages. For example, compare results from C# versus Python:
 
 C#:
 
 ```cs
-> uint i = 0b10111011_11001100;
-> uint j = i << 20;
-> Convert.ToString(j, 2)
-"10111100110000000000000000000000"
+> Int16 x = -5;
+> Convert.ToString(x, 2)
+"1111111111111011"
 ```
 
 Python:
 
 ```python
->>> i = 0b10111011_11001100
->>> j = i << 20
->>> bin(j)
-'0b101110111100110000000000000000000000'
+>>> x = -5
+>>> bin(x)
+'-0b101'
 ```
 
-Here are the two results reformatted for easier comparison:
-
-| | |
-|--:|-:|
-|CS |0b_10111100_11000000_00000000_00000000|
-|Python|0b_1011_10111100_11000000_00000000_00000000|
-
-In a language with fixed-width integer data types, when bits overflow due to the left, one of three things can happen: bits can be dropped, they can wrap, or an error can be raised. In Python, non of these will happen.
-
-In some situations, you may need to add logic to match expectations of data or implementations involving other languages. For example, to match the C# behaviour in Python, apply the result after the left shift operation as a mask against ```2**N - 1``` for the required bit-width ```N```.
-
-```python
->>> i = 0b10111011_11001100
->>> j = (i << 20) & 0xffff_ffff
->>> bin(j)
-'0b10111100110000000000000000000000'
-```
-
-The fixed-width data types in other languages also impacts the way negative integer values are represented, and that also interacts with bitwise operations. This is most noticeable when using the bitwise complement operator, ```~```.
-
-The binary complement operator is usually defined as "flipping each bit", and the result from ```x | ~x``` or from ```x + ~x``` is that all the bits are set. This is illustrated in the following C# and Javascript examples:
-
-C#:
-
-```cs
-> Convert.ToString(105, 2)
-"1101001"
-> Convert.ToString(~105, 2)
-"11111111111111111111111110010110"
-> Convert.ToString(105 | ~105, 2)
-"11111111111111111111111111111111"
-```
-
-Javascript:
-
-```js
-> (105).toString(2)
-'1101001'
-> (~105 >>> 0).toString(2)
-'11111111111111111111111110010110'
-> ((105 | ~105) >>> 0).toString(2)
-'11111111111111111111111111111111'
-```
-
-(The ```>>> 0``` in Javascript coerces to an unsigned number.)
-
-But another way binary complement gets defined is that ```~x``` is equal to ```-(x + 1)```. An implication is that the result of ```x | ~x``` or ```x + ~x``` is -1. We see this also in C# and in Javascript:
-
-C#:
-
-```cs
-> ~105
--106
-> 105 | ~105
--1
-```
-
-Javascript:
-
-```js
-> ~105
--106
-> 105 | ~105
--1
-```
-
-In these other languages, the two definitions are equivalent because the integer values use a fixed-bit-width data type and because of the way that negative values are represented: as [_two's complements_](https://en.wikipedia.org/wiki/Two%27s_complement).
-
-C#:
-
-```cs
-> Convert.ToString(-105,2)
-"11111111111111111111111110010111"
-```
-
-Javascript:
-
-```js
-> (-105 >>> 0).toString(2)
-'11111111111111111111111110010111'
-```
-
-But in Python, because integers have unbounded bit width, negative values are represented differently.
-
-```python
->>> bin(105)
-'0b1101001'
->>> bin(-105)
-'-0b1101001'
-```
-
-Notice that individual bits are the same, and that the sign is separate from the cardinality.
-
-Because of this, the two potential ways of defining bitwise complement are not equivalent in Python. In particular, "flipping the bits" cannot be used because it would entail flipping an infinite number of bits. Thus, bitwise complement is [defined in Python](https://docs.python.org/3/reference/expressions.html#unary-arithmetic-and-bitwise-operations) using the other definition:
-
->The unary ```~``` (invert) operator yields the bitwise inversion of its integer argument. The bitwise inversion of ```x``` is defined as ```-(x+1)```."
-
-Therefore, when using the complement operator ```~``` in Python, it works the same as in other languages in terms of numeric integer values, but _not_ in terms of bit patterns.
-
-C#:
-
-```cs
-> 105 | ~105
--1
-> Convert.ToString((105 | ~105), 2)
-"11111111111111111111111111111111"
-```
-
-Javascript:
-
-```js
-> 105 | ~105
--1
-> ((105 | ~105) >>> 0).toString(2)
-'11111111111111111111111111111111'
-```
-
-Python:
-
-```python
->>> 105 | ~105
--1
->>> bin(105 | ~105)
-'-0b1'
-```
-
-If working with data or implementations involving other languages and need to match expectations in regard to bitwise patterns, you may need to add additional logic to accomplish that. For example, if you apply the complement of a number as a mask against ```2**N - 1``` for the required bit-width ```N```, you'll get the same bit pattern.
-
-C#:
-
-```cs
-> Convert.ToString(~105, 2)
-"11111111111111111111111110010110"
-```
-
-Javascript:
-
-```js
-> (~105 >>> 0).toString(2)
-'11111111111111111111111110010110'
-```
-
-Python:
-
-```python
->>> bin(0xffff_ffff & ~105)
-'0b11111111111111111111111110010110'
-```
+The Python string has the same binary representation as +5, but with "-" prefixed.
 
 ## Strings as Unicode character sequences
 
