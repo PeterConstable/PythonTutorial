@@ -125,7 +125,7 @@ To distinguish from ```set```, frozen sets are always represented using ```froze
 
 You can create an empty frozen set by calling the constructor function with no argument. Frozen sets being immutable, though, an empty frozen set is not very useful.
 
-### Set-like ```set``` operations
+### Set-like ```set```/```frozenset``` operations
 
 Various set operations are taught in mathematics: union, intersection, etc. Python has these operations for the ```set``` type. 
 
@@ -140,12 +140,14 @@ The following set operators are available. For each operator, there is an equiva
 | ```-```  | difference           | ```x - y``` | ```.difference()```   |
 | ```^```  | symmetric difference | ```x ^ y``` | ```.symmetric_difference()``` |
 
-Each of these operators creates a new set. The operators accept only ```set``` operands, while the corresponding methods work with any iterables.
+Each of these operators creates a new set. The operators accept only ```set``` or ```frozenset``` operands, while the corresponding methods work with any iterables.
 
 There are also set comparison operators that return ```True``` or ```False```.
 
 | Operator | Meaning            | Example      | Equivalent method   |
 |----------|--------------------|--------------|---------------------|
+| ```==``` | equal              | ```x == y``` |                     |
+| ```!=``` | not equal          | ```x != y``` |                     |
 | ```<=``` | is subset          | ```x <= y``` | ```.issubset()```   |
 | ```<```  | is proper subset   | ```x < y```  |                     |
 | ```>=``` | is superset        | ```x >= y``` | ```.issuperset()``` |
@@ -156,7 +158,7 @@ We'll explore each of these operations in detail.
 
 #### Union, intersection, difference
 
-The union operator ```|``` requires set operands. A union expression can have two operands, or can be chained with additional operands.
+The union operator ```|``` requires set or frozenset operands. The type of the result—```set``` or ```frozenset```—is determined by the first operand. A union expression can have two operands, or can be chained with additional operands.
 
 ```python
 >>> x = {1, 2, 3}
@@ -171,7 +173,7 @@ The union operator ```|``` requires set operands. A union expression can have tw
 
 (Note in the last result that sets are not ordered!)
 
-The ```.union()``` method on a set object can take one or more arguments. The arguments can be a set or any iterable.
+The ```.union()``` method on a set or frozenset object can take one or more arguments. The arguments can be a set or any iterable.
 
 ```python
 >>> x.union(y, {22, 23}, [42, 43], range(51, 54), 'abc')
@@ -190,28 +192,28 @@ Note in that result that a string as an iterable returns it member characters se
 {1, 2, 3, (41, 42)}
 ```
 
-The intersection operator ```&``` requires set operands. An intersection expression can have two operands, or can be chained with additional operands. The resulting set contains only elements that were contained in all of the operand sets.
+The intersection operator ```&``` requires set or frozenset operands. The type of the result is determined by the first operand. An intersection expression can have two operands, or can be chained with additional operands. The resulting set contains only elements that were contained in all of the operand sets.
 
 ```python
 >>> set(range(1,10)) & {2, 4, 7, 3} & {5, 7, 6, 2}
 {2, 7}
 ```
 
-The ```.intersection()``` method on a set object can take one or more iterable arguments.
+The ```.intersection()``` method on a set or frozenset object can take one or more iterable arguments.
 
 ```python
 >>> set(range(1,10)).intersection(range(3,8), {2, 6, 7}, [7, 8])
 {7}
 ```
 
-The set difference operator ```-``` requires set operands. A difference expression can have two operands, or can be chained with additional operands. The left-most operand is the reference set, and any items in the other sets are excluded from the result set.
+The set difference operator ```-``` requires set operands. The type of the result is determined by the first operand. A difference expression can have two operands, or can be chained with additional operands. The left-most operand is the reference set, and any items in the other sets are excluded from the result set.
 
 ```python
 >>> set(range(1, 10)) - {2, 4, 5} - {2, 7, 3}
 {8, 1, 6, 9}
 ```
 
-The ```.difference()``` method on a set object can take one or more iterable arguments. The set object is the reference set; the result set contains items in that set that are not contained in any of the argument sets.
+The ```.difference()``` method on a set or frozenset object can take one or more iterable arguments. The set object is the reference set; the result set contains items in that set that are not contained in any of the argument sets.
 
 ```python
 >>> set(range(1,10)).difference({2, 4, 5}, (2, 3), range(4, 7))
@@ -234,6 +236,55 @@ The ```.symmetric_difference()``` operator takes one iterable argument. The resu
 ```
 
 ### Set comparison operations
+
+Two sets or frozen sets are equal if all elements of one are contained in the other, symmetrically. (Or, each is a subset of the other.) The member elements are compared for equality of value, not identity.
+
+```python
+>>> x = {1, 2}
+>>> y = {1, 2}
+>>>
+>>> id(x)
+48252712
+>>> id(y)
+48254616
+>>>
+>>> x == y
+True
+```
+
+Note that a set and a frozen set can be compared and are equal if they have the same member elements.
+
+Two sets or frozen sets are unequal if either contains any elements not contained in the other. One may be a proper subset of the other; or they may intersect with neither being a subset of the other; or they may be disjoint (non-intersecting).
+
+```python
+>>> w = {1, 2, 3}
+>>> x = {1, 2}
+>>> y = {2, 3}
+>>> z = {3, 4}
+>>>
+>>> x != w
+True
+>>> x != y
+True
+>>> x != z
+True
+```
+
+A frozen set may be contained in a set or frozen set. When testing if a frozen set is an element ```in``` the other set, equality comparison is used, not identity.
+
+```python
+>>> x = frozenset([1, 2])
+>>> containing_set = {42, x}
+>>>
+>>> {1, 2} in containing_set
+True
+```
+
+subset, proper subset
+
+superset, proper superset
+
+disjoint
 
 ### Mutating set operations
 
