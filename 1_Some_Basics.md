@@ -44,6 +44,8 @@ Note that the line with the result does not have the ">>>" prompt.
 
 If you start entering a statement and want to clear that without entering, use the ```Esc``` key.
 
+[und_var]:/und_var
+
 ### The "\_" variable
 
 In interactive mode, the result of the last statement is stored in a special variable, ```_```. You can use that in the next statement.
