@@ -59,14 +59,14 @@
 
 ## A
 
-* [```abs()```](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
+* [```abs()``` (absolute value)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
 * [Assignment](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
   * [compound arithmetic assignment operators](4_More_Assignment_Numbers_Strings.md#using-compound-assigment-operators)
   * [multiple variable assigment](4_More_Assignment_Numbers_Strings.md#multiple-assignment)
 
 ## B
 
-* [```bin()```](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
+* [```bin()``` (format as binary)](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
 * Binary
   * [string formatting of integers using ```bin()```](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
   * [in integer literals](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
@@ -80,9 +80,9 @@
   * [conversion from Unicode scalar value using ```chr()```](4_More_Assignment_Numbers_Strings.md#strings-as-unicode-character-sequences)
   * [conversion to Unicode scalar value using ```ord()```](4_More_Assignment_Numbers_Strings.md#strings-as-unicode-character-sequences)
   * [Unicode characters, escape sequences](4_More_Assignment_Numbers_Strings.md#strings-as-unicode-character-sequences)
-* [```chr()```](4_More_Assignment_Numbers_Strings.md#strings-as-unicode-character-sequences)
+* [```chr()``` (character from code point)](4_More_Assignment_Numbers_Strings.md#strings-as-unicode-character-sequences)
 * [Comments](1_Some_Basics.md#comments)
-* [```complex()```](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
+* [```complex()``` (constructor)](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
 * [Complex numbers](2_Numbers_Expressions_Variables.md#complex-numbers)
   * [conversion to using ```complex()```](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
 * Compound assigment operators
@@ -93,8 +93,8 @@
 
 ## F
 
-* [```float()```](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
-* [floats (```float```)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
+* [```float()``` (constructor)](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
+* [Floats (```float```)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
   * [conversion to using ```float()```](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
   * [literals, decimal](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
   * [literals, exponent form](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
@@ -102,14 +102,14 @@
 
 ## H
 
-* [```hex()```](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
-* hexadecimal
+* [```hex()``` (format as hexadecimal)](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
+* Hexadecimal
   * [string formatting of integers using ```hex()```](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
   * [in integer literals](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
 
 ## I
 
-* [```int()```](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
+* [```int()``` (constructor)](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
 * [Integers (```int```)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
   * [```_``` as grouping separator in literals](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
   * [bitwise operators](4_More_Assignment_Numbers_Strings.md#bitwise-operations-on-integers)
@@ -127,34 +127,35 @@
 
 ## L
 
-* ```len()```
+* ```len()``` (get number of elements)
   * [with strings](3_Intro_Strings.md#strings-as-character-sequences)
 
 ## N
 
+* [Newline (\n)](3_Intro_Strings.md#string-basics)
 * Numbers
   * See _integers_, _floats_, _complex numbers_
 * [Numeric operators](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
 
 ## O
 
-* [```oct()```](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
-* octal
+* [```oct()``` (format as octal)](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
+* Octal
   * [string formatting of integers using ```oct()```](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
   * [in integer literals](4_More_Assignment_Numbers_Strings.md#different-formats-for-numeric-literals)
-* operators
+* Operators
   * [arithmetic](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
   * [bitwise, compound bitwise/assignment](4_More_Assignment_Numbers_Strings.md#bitwise-operations-on-integers)
-* [```ord()```](4_More_Assignment_Numbers_Strings.md#strings-as-unicode-character-sequences)
+* [```ord()``` (code point from character)](4_More_Assignment_Numbers_Strings.md#strings-as-unicode-character-sequences)
 
 ## P
 
-* ```print()```
+* ```print()``` (print to standard output)
   * [A very brief intro to ```print()```](1_Some_Basics.md#a-very-brief-intro-to-print)
 
 ## S
 
-* [```str()```](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
+* [```str()``` (constructor)](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
 * [Strings (```str```)](3_Intro_Strings.md#string-basics)
   * _see also: characters_
   * [as character sequences](3_Intro_Strings.md#strings-as-character-sequences)
@@ -179,6 +180,6 @@
 
 ## V
 
-* variables
+* Variables
   * [assignment](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
   * [multiple variable assignment](4_More_Assignment_Numbers_Strings.md#multiple-assignment)
