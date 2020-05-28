@@ -11,6 +11,7 @@
 [O](o)&nbsp;&nbsp;
 [P](p)&nbsp;&nbsp;
 [S](s)&nbsp;&nbsp;
+[T](t)&nbsp;&nbsp;
 [U](u)&nbsp;&nbsp;
 [V](v)&nbsp;&nbsp;
 
@@ -171,6 +172,11 @@
   * [representation as result versus ```print()``` output](3_Intro_Strings.md#string-basics)
   * [slicing](3_Intro_Strings.md#strings-as-character-sequences)
   * [Unicode characters, escape sequences](4_More_Assignment_Numbers_Strings.md#strings-as-unicode-character-sequences)
+
+## T
+
+* Two's complement
+  * [not used in representation of negative integers](4_More_Assignment_Numbers_Strings.md#representation-of-negative-integers-in-Python-versus-other-languages)
 
 ## U
 
