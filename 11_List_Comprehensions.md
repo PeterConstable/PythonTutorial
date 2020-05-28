@@ -1,7 +1,5 @@
 # List Comprehensions
 
-[sof]:/sof
-
 In [lesson 7](7_List_Tuple_Range.md#ranges), we saw that the ```range()``` function generates a sequence of numbers, and that we could use ```list(range(n))``` to create a ```list``` object with the sequence of numbers. In this lesson, we'll learn about _list comprehensions_ which are a more general and flexible way to generate lists.
 
 * [Basic list comprehensions](#basic-list-comprehensions)

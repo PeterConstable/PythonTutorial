@@ -1,7 +1,5 @@
 # Our First Program
 
-[sof]:/sof
-
 In the past few lessons, we've learned about a number of useful parts of Python:
 
 * Comparison and logical expressions

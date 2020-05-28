@@ -1,6 +1,5 @@
 # Working with Numbers, Expressions and Variables
 
-[sof]:/sof
 In this lesson, we'll start out by quickly covering some basics of working with numbers.
 
 * [Integer and floating values](#integer-and-floating-values)
@@ -300,4 +299,4 @@ One notable exception is the ```abs()``` function: when a complex number is pass
 
 ## What's next
 
-There's more to learn about numbers, and about variables. But we'll hold off to introduce some other useful things first. In the [next lesson](3_Intro_Strings.md#sof), we take a first look at strings.
+There's more to learn about numbers, and about variables. But we'll hold off to introduce some other useful things first. In the [next lesson](3_Intro_Strings.md), we take a first look at strings.

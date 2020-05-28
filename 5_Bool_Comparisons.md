@@ -1,6 +1,5 @@
 # Booleans, Comparisons and Logical Expressions
 
-[sof]:/sof
 Almost any program you create will need to have logic for program flow control, such as _branching_ (do certain things given one condition, but different things in other conditions). To get to that, we need to learn about comparison and logical expressions, and about another basic type, ```bool```.
 
 In this lesson, we'll go over all of those things. We'll introduce several additional operators used in comparison and logical expressions. We'll also cover a special built-in object, ```None```, and a special built-in function, ```isinstance()```, both of which are relevant for logical expressions.
@@ -514,4 +513,4 @@ def my_func(val):
 
 ## What's next
 
-In this lesson, we've started to show examples with custom functions and flow control logic. There's more to learn about the things we've introduced so far—numbers, variables and what not. But let's go for a bit more breadth before more depth. So, the [next lesson](6_Intro_Functions_Flow_Control.md#sof) will get us started on defining function and introduce statements for flow control.
+In this lesson, we've started to show examples with custom functions and flow control logic. There's more to learn about the things we've introduced so far—numbers, variables and what not. But let's go for a bit more breadth before more depth. So, the [next lesson](6_Intro_Functions_Flow_Control.md) will get us started on defining function and introduce statements for flow control.

@@ -1,7 +1,6 @@
 # Flow Control Using ```for```
 
-[sof]:/sof
-In [lesson 6](6_Intro_Functions_Flow_Control.md#sof) we learned about ways to control execution flow using ```if``` and ```while``` statements. In this lesson, we'll cover Python's ```for``` statement.
+In [lesson 6](6_Intro_Functions_Flow_Control.md) we learned about ways to control execution flow using ```if``` and ```while``` statements. In this lesson, we'll cover Python's ```for``` statement.
 
 * [```for``` is for sequences](#for-is-for-sequences)
 * [Changing a sequence within the loop](#changing-a-sequence-within-the-loop)
@@ -359,4 +358,4 @@ Our example has used a list of tuple elements, but any sequence type could be us
 
 ## What's next
 
-At this point, we've learned about a number of useful parts of Python. We're now ready to put some of these pieces together in a small program. We'll do just that in the [next lesson](9_Sample_Program.md#sof).
+At this point, we've learned about a number of useful parts of Python. We're now ready to put some of these pieces together in a small program. We'll do just that in the [next lesson](9_Sample_Program.md).

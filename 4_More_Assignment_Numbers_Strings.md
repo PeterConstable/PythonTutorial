@@ -1,6 +1,5 @@
 # More About Assignment, Numbers and Strings
 
-[sof]:/sof
 In lesson 2, we introduced the basics of working with numbers, expressions and variables: how to express numbers as literals, assign them to variables, and create numeric expressions using various operators. And in lesson 3 we got introduced to strings. In this lesson, we'll go into more detail on each of those topics.
 
 * [Multiple assignment](#multiple-assignment)
@@ -98,13 +97,22 @@ The other numeric operators also have corresponding compount assignment operator
 >```foo
 >>>> x = -5
 
-With strings, ```+=``` can be used as a compound concatenation-assignment operator.
+With strings, ```+=``` can be used as a compound concatenation/assignment operator.
 
 ```foo
 >>> x = "boo"
 >>> x += "hoo"
 >>> x
 'boohoo'
+```
+
+Similarly, ```*=``` can be used as a compound repeat-concatenation/assignment operator; the following operand is an integer.
+
+```foo
+>>> x = "boo"
+>>> x *= 5
+>>> x
+'boobooboobooboo'
 ```
 
 ## Range and precision of ```int``` and ```float```
@@ -371,6 +379,8 @@ To check whether a given flag is set, you'd use _bitwise and_ with the flag cons
         ...
 ```
 
+>Note: equality comparison will be covered in [lesson 5](5_Bool_Comparisons.md#comparison-expressions); ```if``` statements will be covered in [lesson 6](6_Intro_Functions_Flow_Control.md#the-if-statement).
+
 To set a particular flag, you'd use _bitwise or_ with the flag constant:
 
 ```python
@@ -451,7 +461,7 @@ When integer data types in other languages have specific, limited bit widths, ne
 
 Signed 8-bit integers:
 
-|Decimal value|Binary two's complement<br>representation|
+|Decimal value|Binary two's complement representation|
 |:-:|:-:|
 | -1  | 1111 1111 |
 | -2  | 1111 1110 |
@@ -680,4 +690,4 @@ You can even mix and match digits from different scripts—though this isn't rec
 
 ## What's next
 
-There's more we could cover on numbers and strings, but it's time for something else. In the [next lesson](5_Bool_Comparisons.md#sof), we'll learn about another booleans and logical expressions.
+There's more we could cover on numbers and strings, but it's time for something else. In the [next lesson](5_Bool_Comparisons.md), we'll learn about another booleans and logical expressions.

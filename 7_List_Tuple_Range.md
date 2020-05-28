@@ -1,6 +1,5 @@
 # Sequence Types: Lists, Tuples and Ranges
 
-[sof]:/sof
 We've learned about several basic types in Python: numbers, booleans and strings. There was one important way that strings differed from the others: strings are a container-like type, and specifically a _sequence type_. In this lesson, we'll learn about some other sequence types, ```list```, ```tuple``` and ```range```.
 
 There are several operations that can be performed on any sequence type. We'll introduce each type first, and the go over the common operations.
@@ -1338,4 +1337,4 @@ If you're coming from another language and the syntax seems odd, you might find 
 
 ## What's next
 
-In the previous lesson, we went over the traditional flow control statements ```if``` and ```while```. But we held off on discussing ```for``` because, in Python, the ```for``` statement and sequence types work closely together. There are still some other sequence types that we haven't yet covered, byte sequences; we'll get to those later. We've now got a solid start on sequences; the [next lesson](8_For.md#sof) will introduce Python's ```for``` statements.
+In the previous lesson, we went over the traditional flow control statements ```if``` and ```while```. But we held off on discussing ```for``` because, in Python, the ```for``` statement and sequence types work closely together. There are still some other sequence types that we haven't yet covered, byte sequences; we'll get to those later. We've now got a solid start on sequences; the [next lesson](8_For.md) will introduce Python's ```for``` statements.

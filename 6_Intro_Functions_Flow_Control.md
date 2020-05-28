@@ -1,9 +1,8 @@
 # Intro to Functions and Flow Control Statements
 
-[sof]:/sof
 Functions and flow control statements are key tools in Python that you'll use a lot. This lesson provide an initial introduction to get you started using them. There are many details we'll save for later.
 
-Python has three familiar flow control statements found in many languages: ```if```, ```while``` and ```for```. The ```if``` and ```while``` statements are similar to the corresponding statements in other languages. But the ```for``` statement in Python is somewhat different; we'll come back to it in [lesson 8](8_For.md#sof).
+Python has three familiar flow control statements found in many languages: ```if```, ```while``` and ```for```. The ```if``` and ```while``` statements are similar to the corresponding statements in other languages. But the ```for``` statement in Python is somewhat different; we'll come back to it in [lesson 8](8_For.md).
 
 Since we'll be covering the ```if``` flow control statement, this will also be a good time to introduce the ternary ```if```...```else``` operator construct, which is like a compact ```if``` block that's uses a single statement to return a value based on some condition.
 
@@ -457,4 +456,4 @@ Note that the ```else``` block gets executed: ```continue``` never causes that t
 
 ## What's next
 
-There's one more flow control statement we need to look at, the ```for``` statement. It's always used with sequences or other container-like types. So, in the [next lesson](7_List_Tuple_Range.md#sof), we'll learn more about sequence types, then we'll cover ```for``` in the lesson after that.
+There's one more flow control statement we need to look at, the ```for``` statement. It's always used with sequences or other container-like types. So, in the [next lesson](7_List_Tuple_Range.md), we'll learn more about sequence types, then we'll cover ```for``` in the lesson after that.

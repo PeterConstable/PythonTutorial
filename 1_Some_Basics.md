@@ -1,6 +1,5 @@
 # Some Basics
 
-[sof]:/sof
 There are a few basic things to know before we get started.
 
 * [Interactive mode](#interactive-mode)
@@ -187,4 +186,4 @@ Naturally, there's lots more to learn about ```print()```, but this is enough to
 
 ## What's next
 
-In the [next lesson](2_Numbers_Expressions_Variables.md#sof), we'll start learning about working with numbers.
+In the [next lesson](2_Numbers_Expressions_Variables.md), we'll start learning about working with numbers.

@@ -10,18 +10,19 @@ You might come looking for a specific detail because you need that for whatever 
 
 **Contents:**
 
-* [Some Basics](1_SomeBasics.md#sof)
-* [Working with Numbers, Expressions and Variables](2_Numbers_Expressions_Variables.md#sof)
-* [Introduction to Strings](3_Intro_Strings.md#sof)
-* [More About Assignment, Numbers and Strings](4_More_Assignment_Numbers_Strings.md#sof)
-* [Booleans, Comparisons and Logical Expressions](5_Bool_Comparisons.md#sof)
-* [Intro to Functions and Flow Control Statements](6_Intro_Functions_Flow_Control.md#sof)
-* [Sequence Types: Lists, Tuples and Ranges](7_List_Tuple_Range.md#sof)
-* [Flow Control Using ```for```](8_For.md#sof)
-* [Our First Program](9_Sample_Program.md#sof)
+* [Some Basics](1_SomeBasics.md)
+* [Working with Numbers, Expressions and Variables](2_Numbers_Expressions_Variables.md)
+* [Introduction to Strings](3_Intro_Strings.md)
+* [More About Assignment, Numbers and Strings](4_More_Assignment_Numbers_Strings.md)
+* [Booleans, Comparisons and Logical Expressions](5_Bool_Comparisons.md)
+* [Intro to Functions and Flow Control Statements](6_Intro_Functions_Flow_Control.md)
+* [Sequence Types: Lists, Tuples and Ranges](7_List_Tuple_Range.md)
+* [Flow Control Using ```for```](8_For.md)
+* [Our First Program](9_Sample_Program.md)
 * ... (more to come)
-* [List Comprehensions](11_List_Comprehensions.md#sof)
+* [List Comprehensions](11_List_Comprehensions.md)
 * ...
+* [Index](Index.md)
 
 ## Background: _Why another Python tutorial?_
 
