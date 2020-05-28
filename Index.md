@@ -27,7 +27,7 @@
 * [```-``` (numeric subtraction / additive inverse operator)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
 * [```/``` (division operator)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
 * [```//``` (integer division operator)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
-* [```_``` (interactive mode variable)](1_Some_Basics.md##underscore_variable)
+* [```_``` (interactive mode variable)](1_Some_Basics.md#underscore_variable)
 
 ## A
 
