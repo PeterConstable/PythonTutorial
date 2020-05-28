@@ -206,7 +206,7 @@ The ```.intersection()``` method on a set or frozenset object can take one or mo
 {7}
 ```
 
-The set difference operator ```-``` requires set operands. The type of the result is determined by the first operand. A difference expression can have two operands, or can be chained with additional operands. The left-most operand is the reference set, and any items in the other sets are excluded from the result set.
+The set difference operator ```-``` requires set or frozen set operands. The type of the result is determined by the first operand. A difference expression can have two operands, or can be chained with additional operands. The left-most operand is the reference set, and any items in the other sets are excluded from the result set.
 
 ```python
 >>> set(range(1, 10)) - {2, 4, 5} - {2, 7, 3}
@@ -220,14 +220,14 @@ The ```.difference()``` method on a set or frozenset object can take one or more
 {1, 7, 8, 9}
 ```
 
-The symmetric difference operator ```^``` takes exactly two set operands. The result set includes items contained in one operand or the other, but not in both.
+The symmetric difference operator ```^``` takes exactly two set or frozen set operands. The result set includes items contained in one operand or the other, but not in both.
 
 ```python
 >>> {1, 2, 8, 9} ^ {7, 8, 1, 3, 2}
 {3, 7, 9}
 ```
 
-The ```.symmetric_difference()``` operator takes one iterable argument. The result set includes items in the object set or in the operand but not in both.
+The ```.symmetric_difference()``` method on a set or frozen set object takes one iterable argument. The result set includes items in the object set or in the operand but not in both.
 
 ```python
 >>> x = {1, 2, 8, 9}
@@ -280,11 +280,72 @@ A frozen set may be contained in a set or frozen set. When testing if a frozen s
 True
 ```
 
-subset, proper subset
+The _is subset_ operator ```<=``` takes two set or frozen set operands. The first operand is a subset of the other if all its member elements are contained in the other.
 
-superset, proper superset
+```python
+>>> x = {1, 2, 3}
+>>> y = {1, 3}
+>>>
+>>> y <= x
+True
+>>> x <= y
+False
+```
 
-disjoint
+The ```.issubset()``` method on a set or frozen set object takes one iterable argument. The result is ```True``` if all the member elements of the object are contained in the set derived from the argument.
+
+```python
+>>> frozenset([1, 2, 3]).issubset(range(1,5))
+True
+```
+
+The _proper subset_ operator ```<``` takes two set or frozen set operands. It returns true of all member elements of the first operand are contained in the second, but the two are not equal—the second contains some elements not contained in the first.
+
+```python
+>>> {1, 2, 3} < {1, 2, 3, 4}
+True
+>>> {1, 2, 3} < {1, 2, 3}
+False
+```
+
+Note that there is no corresponding method.
+
+The _is superset_ operator ```>=``` takes two set or frozen set operands. The first operand is a superset of the other if all member elements of the second operand are contained in the first.
+
+```python
+>>> x = {1, 2, 3}
+>>> y = {1, 3}
+>>>
+>>> x >= y
+True
+>>> y >= x
+False
+```
+
+The ```.issuperset()``` method on a set or frozen set object takes one iterable argument. The result is ```True``` if all the member elements of the set derived from the argument are contained in the object set.
+
+```python
+>>> frozenset([1, 2, 3, 4, 5, 6]).issuperset(range(2,5))
+True
+```
+
+The _proper superset_ operator ```>``` takes two set or frozen set operands. It returns true of all member elements of the second operand are contained in the first, but the two are not equal—the first contains some elements not contained in the second.
+
+```python
+>>> {1, 2, 3, 4} > {1, 2, 3}
+True
+>>> {1, 2, 3} > {1, 2, 3}
+False
+```
+
+Note that there is no corresponding method.
+
+The ```.isdisjoint()``` method is available for set or frozen set objects; there is no corresponding operator. The method takes one iterable argument and returns ```True``` if no member element contained in the object is a member of the set derived from the argument, and vice versa—they have no elements in common (their intersection is empty).
+
+```python
+>>> {1, 2, 9, 10}.isdisjoint(range(6,9))
+True
+```
 
 ### Mutating set operations
 
