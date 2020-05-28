@@ -151,7 +151,7 @@ In a concatenation expression with string variables, the ```+``` operator must b
 "The main characters are Eliza Doolittle and 'Enry 'Iggins"
 ```
 
-Python also supports a second kind of string concatenation operator: the ```\*``` operator can be used to concatenate multiple instances of a string. The way to do this is to write an expression of the form _n_ * _str_, where _n_ is an integer. For example:
+Python also supports a second kind of string concatenation operator: the ```*``` operator can be used to concatenate multiple instances of a string. The way to do this is to write an expression of the form _n_ * _str_, where _n_ is an integer. For example:
 
 ```foo
 >>> 4 * "really " + "long"
@@ -253,7 +253,7 @@ Similarly, if you leave out the second index, that indicates that the ending pos
 'ittle'
 ```
 
-Leaving out the ending index is the same as specifying ```len(_expression_)``` as the ending index.
+Leaving out the ending index is the same as specifying ```len(her_name)``` as the ending index.
 
 ```foo
 >>> her_name[-5: len(her_name)]
