@@ -3,6 +3,7 @@
 [sof]:/sof
 
 [Symbols](symbols)&nbsp;&nbsp;
+[A](a)&nbsp;&nbsp;
 [C](c)&nbsp;&nbsp;
 [F](f)&nbsp;&nbsp;
 [I](i)&nbsp;&nbsp;
@@ -26,7 +27,7 @@
 * [```-``` (numeric subtraction / additive inverse operator)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
 * [```/``` (division operator)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
 * [```//``` (integer division operator)](2_Numbers_Expressions_Variables.md#integer-and-floating-values)
-* [```_``` (interactive mode variable)](1_Some_Basics.md#und_var)
+* [```_``` (interactive mode variable)](1_Some_Basics.md##the-_-variable)
 
 ## A
 
@@ -44,7 +45,7 @@
 ## I
 
 * [Interactive mode](1_Some_Basics.md#interactive-mode)
-  * ["\_" variable](1_Some_Basics.md#und_var)
+  * [```_``` variable](1_Some_Basics.md#und_var)
   * [Errors](1_Some_Basics.md#errors)
   * [History](1_Some_Basics.md#history)
   * [Multi-line statements](1_Some_Basics.md#multi-line-statements)
