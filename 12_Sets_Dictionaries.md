@@ -127,7 +127,7 @@ You can create an empty frozen set by calling the constructor function with no a
 
 ### Set-like ```set```/```frozenset``` operations
 
-Various set operations are taught in mathematics: union, intersection, etc. Python has these operations for the ```set``` type. 
+Various set operations are taught in mathematics: union, intersection, etc. Python has these operations for the ```set``` type.
 
 Some of these operations use the same operator symbols used for bitwise operations on integers. There is analogy here. For example, _bitwise or_ ```|``` returns a bit value 1 if that bit is set in either operand. Similarly ```|``` as a _set union_ operator returns an element if it is contained in either operand set.
 
@@ -349,16 +349,18 @@ True
 
 ### Mutating set operations
 
-There are ```set``` operations for adding and removing items that are similar to some of the [```list``` operations](7_List_Tuple_Range.md#mutating-list-operations), though they are not the same.
+Sets are mutable, and there are operations for changing the contents of an existing set without needing to create a new set. Frozen sets are immutable, and so these operations are not available for frozen sets.
+
+The ```set``` operations for adding and removing items are similar to some of the [```list``` operations](7_List_Tuple_Range.md#mutating-list-operations), though they are not the same. The following table provides a comparison.
 
 | ```set``` operation | Similar ```list``` operations | Comment |
 |--|--|--|
-| ```.add()``` | ```.append()```, ```insert()``` | Because lists are ordered, items must be added at some particular position |
+| ```.add()``` | ```.append()```, ```insert()``` | Because lists are ordered, items must be added at some particular position. |
 | ```.update()``` | ```.extend()``` ||
-| ```.pop()``` | ```.pop()``` | ```list.pop()``` removes an item from the end of the list; ```set.pop()``` removes an arbitrary item |
+| ```.pop()``` | ```.pop()``` | ```list.pop()``` removes an item from the end of the list; ```set.pop()``` removes an arbitrary item. |
 | ```.remove()``` | ```.remove()``` | |
 | ```.discard()``` || Similar to ```.remove()```, but no error if item is not contained. ```list``` has no similar method. |
 | ```.clear()``` | ```.clear()``` ||
 |```.copy()``` | ```.copy()``` ||
 
-
+>With lists, there is considerable flexibility for changing a list by assigning new elements to slices. Slices and indexing assume an order, however, and so are not available for sets.
