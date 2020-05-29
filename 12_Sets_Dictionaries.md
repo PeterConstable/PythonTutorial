@@ -15,7 +15,7 @@ In this lesson, we will learn about Python's other built-in, general-purpose con
 The ```set``` and ```frozenset``` types are similar to ```list``` and ```tuple```, the main difference being that the lists and tuples are ordered (sequences) while sets and frozen sets are not ordered. Taking order and mutability as binary attributes, these four types provide all four possibilities:
 
 |           | ordered      | un-ordered      |
-|----------:|:-------------|:----------------|
+|:----------|:-------------|:----------------|
 |   mutable |  ```list```  | ```set```       |
 | immutable |  ```tuple``` | ```frozenset``` |
 
@@ -363,4 +363,4 @@ The ```set``` operations for adding and removing items are similar to some of th
 | ```.clear()``` | ```.clear()``` ||
 |```.copy()``` | ```.copy()``` ||
 
->With lists, there is considerable flexibility for changing a list by assigning new elements to slices. Slices and indexing assume an order, however, and so are not available for sets.
+>With lists, there is considerable flexibility for changing a list by assigning new elements to slices. Slicing and indexing assume an order, however, and so are not available for sets.
