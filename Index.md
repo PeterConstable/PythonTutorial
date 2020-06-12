@@ -156,6 +156,15 @@
 
 ## S
 
+* Slices
+  * [slices create a new object](5_Bool_Comparisons.md#a-quick-intro-to-id)
+  * [slices as a general sequence operation](7_List_Tuple_Range.md#len-indexing-and-slices)
+  * [slices result in a copy](7_List_Tuple_Range.md#immutable-types-and-copying)
+  * [string slices](3_Intro_Strings.md#strings-as-character-sequences)
+  * [using a slice to assigning to elements in a list](7_List_Tuple_Range.md#changing-list-elements)
+  * [using a slice to add elements to the end of a list](7_List_Tuple_Range.md#adding-to-the-end-of-a-list)
+  * [using a slice to add elements within a list](7_List_Tuple_Range.md#adding-items-at-a-specific-position-in-the-list)
+  * [using a slice to delete elements from a list](7_List_Tuple_Range.md#removing-items)
 * [```str()``` (constructor)](4_More_Assignment_Numbers_Strings.md#converting-between-number-and-string-types)
 * [Strings (```str```)](3_Intro_Strings.md#string-basics)
   * _see also: characters_

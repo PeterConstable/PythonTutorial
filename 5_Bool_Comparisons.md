@@ -349,7 +349,7 @@ Strings are similar in this regard:
 2497399614192
 ```
 
-When we assign a string literal value to a variable, the ID of the variable is the same as the ID of the literal. But if we derive the same string value as a slice from another string, that ends up with a different ID.
+When we assign a string literal value to a variable, the ID of the variable is the same as the ID of the literal. But if we derive the same string value as a slice from another string, that ends up with a different ID: the slice is copied into a new string object.
 
 Now that we have a basic understanding of object IDs, let's look at identify comparison.
 
