@@ -364,3 +364,5 @@ The ```set``` operations for adding and removing items are similar to some of th
 |```.copy()``` | ```.copy()``` ||
 
 >With lists, there is considerable flexibility for changing a list by assigning new elements to slices. Slicing and indexing assume an order, however, and so are not available for sets.
+
+foo
