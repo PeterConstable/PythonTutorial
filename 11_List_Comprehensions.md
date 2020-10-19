@@ -397,7 +397,7 @@ Now consider the nested comprehension. Keep in mind that this is an inner loop, 
 
 ```[row[2] for row in matrix]```
 
-This is iterating over the row items in ```matrix```, taking the third element from each row. So, it will generate a list, ```[3, 7, 11]```.
+This is iterating over the row items in ```matrix```, taking the third element (index 2) from each row. So, it will generate a list, ```[3, 7, 11]```.
 
 When you want to write code using nested comprehensions, you'll probably find it helpful to reason from the outer layer inward. _What is needed at the outermost layer?_ Start by writing the (still incomplete) code for that, and include comments:
 
