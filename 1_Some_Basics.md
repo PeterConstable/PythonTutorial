@@ -97,7 +97,7 @@ Of course, you can also complete the statement and enter it.
 
 Interactive mode retains some history. You can use up or down arrow keys to find statements that were entered earlier, allowing you to repeat a statement without re-typing it. When you retrieve a statement from the history, you'll be able to make changes before entering; that will add the revised statement at the end of the history, but the earlier statement will still be in the history in its original form.
 
-With multi-line statements, the entire statement might be treated as a complete unit the history, or as separate lines. It will depend on your console or IDE. If handled as a unit, then the entire statement will appear at once as you arrow-key through the history. To make changes, press left arrow to enter edit mode; then you'll be able to use up and down arrow keys to get to other lines without scrolling in the history.
+With multi-line statements, the entire statement might be treated as a complete unit within the history, or as separate lines. It will depend on your console or IDE. If handled as a unit, then the entire statement will appear at once as you arrow-key through the history. To make changes, press left arrow to enter edit mode; then you'll be able to use up and down arrow keys to get to other lines without scrolling in the history.
 
 ### Errors
 
