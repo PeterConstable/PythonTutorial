@@ -10,7 +10,7 @@ You might come looking for a specific detail because you need that for whatever 
 
 **Contents:**
 
-* [Some Basics](1_SomeBasics.md)
+* [Some Basics](1_Some_Basics.md)
 * [Working with Numbers, Expressions and Variables](2_Numbers_Expressions_Variables.md)
 * [Introduction to Strings](3_Intro_Strings.md)
 * [More About Assignment, Numbers and Strings](4_More_Assignment_Numbers_Strings.md)
