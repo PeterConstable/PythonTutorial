@@ -236,7 +236,7 @@ Keep in mind that an ending position before the starting position will result in
 ''
 ```
 
-If both indices are positive or both indices are negative, the a generalization that holds is that you'll get an empty string _if the ending index is less than or equal to the starting index_. If you mix positive and negative indices, however, that doesn't work.
+If both indices are positive or both indices are negative, then a generalization that holds is that you'll get an empty string _if the ending index is less than or equal to the starting index_. If you mix positive and negative indices, however, that doesn't work.
 
 If you want to get a sub-string that starts at the beginning of a string, you can indicate 0 as the starting position. But an even easier way is just to leave out the first index: that means to start at the beginning:
 
