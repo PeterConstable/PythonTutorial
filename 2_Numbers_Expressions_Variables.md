@@ -215,8 +215,8 @@ Most of the above was shown with numeric literals so we can see the values. But 
 >>> x = 27
 >>> y = 8
 >>> z = 5
->>> x ## (1/(y-z))
-27
+>>> x ** (1/(y-z))
+3.0
 ```
 
 Two other common numeric operations are to get the additive or multiplicative inverse of something. To get the additive inverse of an expression, simply enclose it in parenthesis and add the "-" prefix:
