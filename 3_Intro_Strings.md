@@ -241,7 +241,7 @@ If you want to get a sub-string that starts at the beginning of a string, you ca
 'Eliza Do'
 ```
 
-Similarly, if you leave out the second index, that indicates that the ending position is the end of the string.
+Similarly, if you leave out the second index, that indicates that the ending position is after the end of the string.
 
 ```foo
 >>> her_name[-5 :]
