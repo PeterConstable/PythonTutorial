@@ -21,7 +21,7 @@ Strings in Python have the type ```str```. You can enter a string literal as a s
 
 When a string result is returned in the interactive mode console, it will be enclosed in quotation marks. (Usually, it will be single quotes, but in some cases double quotes will be used.)
 
-Results from the ```print()``` function are strings, but these are not enclosed in quotes when displayed in the console.
+Results from the `print()` function are strings, but these are not enclosed in quotes when displayed in the console.
 
 ```foo
 >>> print("eggs and spam")
@@ -79,7 +79,7 @@ Multi-line string literals are also supported. These are entered by enclosing th
 
 >Note the multi-line prompt, "...", indicating that the interpreter is awaiting additional lines to complete the statement.
 
-The evaluated result is presented on a single line, with the new-line shown as an escape sequence, "\n". But if a multi-line string is passed to the ```print()``` function, the output will be displayed on multiple lines, without escape sequences.
+The evaluated result is presented on a single line, with the new-line shown as an escape sequence, "\n". But if a multi-line string is passed to the `print()` function, the output will be displayed on multiple lines, without escape sequences.
 
 ```foo
 >>> print("""spam
@@ -113,11 +113,6 @@ A common operation for strings is concatenation. For string literals, you can co
 ```
 
 ```foo
->>> "a" "b"
-'ab'
-```
-
-```foo
 >>> "c"'d'
 'cd'
 ```
@@ -127,7 +122,7 @@ A common operation for strings is concatenation. For string literals, you can co
 'efghij'
 ```
 
-As expected, the strings are concatenated without any whitespace added. This is different from what happens in the ```print()``` function if multiple string arguments are passed: ```print()``` always separates the items passed to it with a space.
+As expected, the strings are concatenated without any whitespace added. This is different from what happens in the `print()` function if multiple string arguments are passed: `print()` always separates the items passed to it with a space.
 
 ```foo
 >>> "spam" "and" "eggs"
@@ -136,21 +131,21 @@ As expected, the strings are concatenated without any whitespace added. This is 
 spam and eggs
 ```
 
-Strings literals can also be concatenated by using the string concatenation operator, ```+```.
+Strings literals can also be concatenated by using the string concatenation operator, `+`.
 
 ```foo
 >>> "humming" + "bird"
 'hummingbird'
 ```
 
-In a concatenation expression with string variables, the ```+``` operator must be used between the variables and any literals:
+In a concatenation expression with string variables, the `+` operator must be used between the variables and any literals:
 
 ```foo
 >>> "The main characters are " + her_name + " and " + his_name
 "The main characters are Eliza Doolittle and 'Enry 'Iggins"
 ```
 
-Python also supports a second kind of string concatenation operator: the ```*``` operator can be used to concatenate multiple instances of a string. The way to do this is to write an expression of the form _n_ * _str_, where _n_ is an integer. For example:
+Python also supports a second kind of string concatenation operator: the `*` operator can be used to concatenate multiple instances of a string. The way to do this is to write an expression of the form _n_ * _str_, where _n_ is an integer. For example:
 
 ```foo
 >>> 4 * "really " + "long"
@@ -168,7 +163,7 @@ You can write the integer and string operands in either order: both work the sam
 
 As mentioned above, ```str``` is a sequence type: strings contain a sequence of zero or more character elements. There are various ways you can interact with the character elements of a string. (These mechanisms can also be used with other sequence types we'll learn about later.)
 
-One common thing you'll need to do is to find out about the length of a string. To do that, we use the ```len()``` function.
+One common thing you'll need to do is to find out about the length of a string. To do that, we use the `len()` function.
 
 ```foo
 >>> len("spam")
@@ -252,7 +247,7 @@ Similarly, if you leave out the second index, that indicates that the ending pos
 'ittle'
 ```
 
-Leaving out the ending index is the same as specifying ```len(her_name)``` as the ending index.
+Leaving out the ending index is the same as specifying `len(her_name)` as the ending index.
 
 ```foo
 >>> her_name[-5: len(her_name)]
@@ -286,7 +281,7 @@ TypeError: 'str' object does not support item assignment
 
 If you need to change a portion of a string, you have to do that by constructing a new string.
 
-For examply, consider the ```his_name``` string variable we created in an earlier example:
+For examply, consider the `his_name` string variable we created in an earlier example:
 
 ```foo
 >>> his_name
