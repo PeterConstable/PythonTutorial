@@ -397,7 +397,7 @@ To clear the _restricted flag_, you'd use bitwise and together with bitwise comp
 
 ### Matching fixed bit-width assumptions of other languages
 
-In most languages, integer data types have specific, limited bit widths, which affects how binary operations will work. But in Python, integers are not bound in bit width. This can lead to some differences in behaviour in certain situations, particularly when _left shift_ or _bitwise complement_ operations are involved.
+In most languages, integer data types have specific, limited bit widths, which affects how binary operations will work. But in Python, integers are not bounded in bit width. This can lead to some differences in behaviour in certain situations, particularly when _left shift_ or _bitwise complement_ operations are involved.
 
 For instance, in C, you could compare the result of a _left shift_ with a literal, as in the following:
 
