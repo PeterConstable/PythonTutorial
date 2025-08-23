@@ -307,7 +307,7 @@ In addition to arithmetic operators seen earlier, Python has a typical set of bi
 
 |Operator|Meaning|Example expression|
 |--------|-------|-------|
-|`|` |bitwise or           |`x | y` |
+|`\|` |bitwise or           |`x \| y` |
 |`&` |bitwise and          |`x & y` |
 |`^` |bitwise exclusive or |`x ^ y` |
 |`<<`|left shift           |`x << 3`|
@@ -318,7 +318,7 @@ There are also corresponding compound assignment operators for all but the bitwi
 
 |Operator |Example expression|Equivalent expression|
 |---------|------------------|---------------------|
-|`|=` |`x |= y`      |`x = x | y`      |
+|`\|=` |`x \|= y`      |`x = x \| y`      |
 |`&=` |`x &= y`      |`x = x & y`      |
 |`^=` |`x ^= y`      |`x = x ^ y`      |
 |`<<=`|`x <<= y`     |`x = x << y`     |
