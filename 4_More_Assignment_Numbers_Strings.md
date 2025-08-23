@@ -287,7 +287,7 @@ We've been talking about `int` literals. What about `floats`? Hex, binary or oct
 87234786.29
 ```
 
-Up to now, we've seen examples of floats represented normal, decimal representation. There is another representation that's also used for float literals, the exponent form:
+Up to now, we've seen examples of floats represented using common, decimal representation. There is another representation that's also used for float literals, the exponent form:
 
 ```foo
 >>> 2.34e5
