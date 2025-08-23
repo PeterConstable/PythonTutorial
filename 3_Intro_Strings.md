@@ -219,7 +219,7 @@ Another thing you can do with the sequence range specification is to indicate a 
 You can combine positive and negative indices in the range specification.
 
 ```foo
->>> her_name[-5: 13]
+>>> her_name[-5 : 13]
 'itt'
 ```
 
