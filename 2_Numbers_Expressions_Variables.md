@@ -49,6 +49,15 @@ A number literal without any decimal point is an ```int```; but a literal that h
 42.0
 ```
 
+When Python (or any computer language) processes numbers, they are represented internally using binary. For floating values, this means that values will usually be approximations. This can lead to rounding errors. For example:
+
+```foo
+>>> .1 + .1 + .1
+0.30000000000000004
+>>> .1 + .2 == .3
+False
+```
+
 Naturally, numbers can be assigned to variables, and variables can be used in expressions.
 
 ```foo
