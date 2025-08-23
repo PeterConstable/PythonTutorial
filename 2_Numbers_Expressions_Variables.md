@@ -40,16 +40,16 @@ Any function that can take a number as an argument can also take a numeric expre
 6
 ```
 
-Python has two basic numeric types that are frequently used: ```int```, for integers, and ```float```, for real numbers (in the math sense—integers, rationals or irrationals). There's a third basic numeric type, ```complex```, that we'll cover briefly at the end of this lesson.
+Python has two basic numeric types that are frequently used: `int`, for integers, and `float`, for real numbers (in the math sense—integers, rationals or irrationals). There's a third basic numeric type, `complex`, that we'll cover briefly at the end of this lesson.
 
-A number literal without any decimal point is an ```int```; but a literal that has a decimal point is a ```float```. You can enter a ```float``` literal without any decimal digits, but the evaluated results shown in interactive mode will always have at least one decimal digit.
+A number literal without any decimal point is an `int`; but a literal that has a decimal point is a `float`. You can enter a `float` literal without any decimal digits, but the evaluated results shown in interactive mode will always have at least one decimal digit.
 
 ```foo
 >>> 42.
 42.0
 ```
 
-When Python (or any computer language) processes numbers, they are represented internally using binary. For floating values, this means that values will usually be approximations. This can lead to rounding errors. For example:
+When Python (or any computer language) processes numbers, they are represented internally using binary and with limited precision. Just as some simple fractions (e.g., 1/3) have non-terminating representation in decimal (0.33333333...), the same applies when simple decimal values (e.g., 0.1) are converted to binary representation (0.0001100110011...). For floating values, this means that values will usually be approximations. This can lead to rounding errors. For example:
 
 ```foo
 >>> .1 + .1 + .1
@@ -73,13 +73,13 @@ Naturally, numbers can be assigned to variables, and variables can be used in ex
 
 Python has a typical set of numeric operators:
 
-* ```+```: addition
-* ```-```: subtraction
-* ```*```: multiplication
-* ```/```: real division
-* ```//```: integer division
-* ```%```: modulo (remainder)
-* ```**```: exponentiation
+* `+`: addition
+* `-`: subtraction
+* `*`: multiplication
+* `/`: real division
+* `//`: integer division
+* `%`: modulo (remainder)
+* `**`: exponentiation
 
 Complex expressions can be written using multiple numbers and operators. Of course, there is a precedence order for how things get evaluated.
 
@@ -99,7 +99,7 @@ If a different order of evaluation is needed, you can include parentheses to ind
 
 >To improve readability of expressions with multiple operators, spaces should be used around the operator with lower precedence, but not around the operators with higher precedence. For example, `3 + 4*2`. For detailed recommendations on Python coding style, see [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/).
 
-When an addition, subtraction or multiplication expression has two ```int``` operands, the result is an ```int```.
+When an addition, subtraction or multiplication expression has two `int` operands, the result is an `int`.
 
 ```foo
 >>> 6 + 2
@@ -110,7 +110,7 @@ When an addition, subtraction or multiplication expression has two ```int``` ope
 294
 ```
 
-But if either operand is a ```float```, the result will be a ```float```.
+But if either operand is a `float`, the result will be a `float`.
 
 ```foo
 >>> 6. + 2
@@ -119,14 +119,14 @@ But if either operand is a ```float```, the result will be a ```float```.
 15.0
 ```
 
-With the division operator, ```/```, the result is always a ```float```, even if the result in an integral value.
+With the division operator, `/`, the result is always a `float`, even if the result in an integral value.
 
 ```foo
 >>> 4 / 2
 2.0
 ```
 
-To do integer division—that is, division of two integers that returns an ```int``` (and discards any fractional portion)—use the ```//``` operator:
+To do integer division—that is, division of two integers that returns an `int` (and discards any fractional portion)—use the `//` operator:
 
 ```foo
 >>> 5/3  # normal division returns a float
@@ -143,35 +143,35 @@ Note that this is _floor_ division: the result is always rounded down toward neg
 -2
 ```
 
-To get an integer remainder from division of two ```int```s, the modulo operator is ```%```.
+To get an integer remainder from division of two `int`s, the modulo operator is `%`.
 
 ```foo
 >>> 5 % 3
 2
 ```
 
-Exponentiation of two ```int```s also returns an ```int```.
+Exponentiation of two `int`s also returns an `int`.
 
 ```foo
 >>> 2 ** 8
 256
 ```
 
-The ```//```, ```%``` and ```**``` operators can also be used with ```float```s. If either operand is a ```float```, the result will be a ```float```.
+The `//`, `%` and `**` operators can also be used with `float`s. If either operand is a `float`, the result will be a `float`.
 
 ```foo
 >>> 4. ** 2
 16.0
 ```
 
-Integer division always returns an integral value, though the result will be a ```float``` if either operand is a ```float```.
+Integer division always returns an integral value, though the result will be a `float` if either operand is a `float`.
 
 ```foo
 >>> 5.3 // 2
 2.0
 ```
 
-```float```s have a limited precision, and some operations will introduce rounding errors. You can do use the modulo operator with non-integral values, but the result may have some rounding error.
+As noted above, `float`s have a limited precision, and some operations will introduce rounding errors. You can do use the modulo operator with non-integral values, but the result may have some rounding error.
 
 ```foo
 >>> 5.3 % 2  # expecting 1.3
@@ -183,7 +183,7 @@ Integer division always returns an integral value, though the result will be a `
 2.1999999999999993
 ```
 
-Exponentiation can take a ```float``` as the base operand and will return a ```float```:
+Exponentiation can take a `float` as the base operand and will return a `float`:
 
 ```foo
 >>> 4. ** 2
@@ -192,7 +192,7 @@ Exponentiation can take a ```float``` as the base operand and will return a ```f
 548.7587353600004
 ```
 
-A ```float``` can also be used for the exponent operand. For example, this provides a way to get a square root:
+A `float` can also be used for the exponent operand. For example, this provides a way to get a square root:
 
 ```foo
 >>> 4 ** .5
@@ -255,7 +255,7 @@ Similarly, to get the multiplicative inverse of something, enclose an expression
 0.011764705882352941
 ```
 
-One other common numeric operation is to get an absolute value. Python has a built-in function for this, ```abs()```.
+One other common numeric operation is to get an absolute value. Python has a built-in function for this, `abs()`.
 
 ```foo
 >>> abs(13 - 27)
@@ -267,7 +267,7 @@ One other common numeric operation is to get an absolute value. Python has a bui
 
 ## Complex numbers
 
-Python has a third, basic numeric type, ```complex```. In math, the basic idea of complex numbers comes from inventing _imaginary_ numbers that are the square roots of negative numbers. Complex numbers have real and imaginary components, and are particularly useful in certain areas of science and engineering. We'll just give a quick overview.
+Python has a third, basic numeric type, `complex`. In math, the basic idea of complex numbers comes from inventing _imaginary_ numbers that are the square roots of negative numbers. Complex numbers have real and imaginary components, and are particularly useful in certain areas of science and engineering. We'll just give a quick overview.
 
 In complex literals, the imaginary component is represented using a suffix "j" or "J"; for example, "4+2j".
 
@@ -301,7 +301,7 @@ Numeric expressions that include a complex operand as well as numeric functions 
 (-1+0j)
 ```
 
-One notable exception is the ```abs()``` function: when a complex number is passed as an argument, it returns the _magnitude_ as a float.
+One notable exception is the `abs()` function: when a complex number is passed as an argument, it returns the _magnitude_ as a float.
 
 ```foo
 >>> abs(1j)
