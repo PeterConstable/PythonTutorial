@@ -97,6 +97,8 @@ If a different order of evaluation is needed, you can include parentheses to ind
 
 >For complete details on precedence order of operators, see [6.17 Operator precedence](https://docs.python.org/3.8/reference/expressions.html#operator-summary).
 
+>To improve readability of expressions with multiple operators, spaces should be used around the operator with lower precedence, but not around the operators with higher precedence. For example, `3 + 4*2`. For detailed recommendations on Python coding style, see [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/).
+
 When an addition, subtraction or multiplication expression has two ```int``` operands, the result is an ```int```.
 
 ```foo
