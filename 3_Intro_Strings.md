@@ -8,6 +8,7 @@ Some types in Python are _sequence types_, which means that they contain a seque
 * [String concatenation](#string-concatenation)
 * [Strings as character sequences](#strings-as-character-sequences)
 * [Strings are immutable](#strings-are-immutable)
+* [Python uses Unicode](#python-uses-nicode)
 * [What's next](#whats-next)
 
 ## String basics
@@ -296,7 +297,7 @@ Suppose we want to change the spelling to the way Professor Higgins would insist
 'Henry Higgins'
 ```
 
-## Python use Unicode
+## Python uses Unicode
 
 The examples provided up to now have all used characters supported in ASCII. Python supports any Unicode characters, however.
 
