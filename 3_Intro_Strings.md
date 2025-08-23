@@ -299,20 +299,22 @@ Suppose we want to change the spelling to the way Professor Higgins would insist
 
 ## Python uses Unicode
 
-The examples provided up to now have all used characters supported in ASCII. Python supports any Unicode characters, however.
+The examples provided up to now have all used characters supported in ASCII. Python strings use Unicode.
 
 ```foo
 >>> "สวัสดี"
 'สวัสดี'
 ```
 
-For anything that pertains to characters, such as slices or the `len()` function, characters will be Unicode characters, not UTF-8 or UTF-16 code units.
+For anything that pertains to characters, such as referencing character elements of a string, string slices or the `len()` function, characters will be Unicode characters, not UTF-8 or UTF-16 code units.
 
 ```foo
->>> len("สวัสดี")
-6
+>>> "สวัสดี"[4]
+'ด'
 >>> "สวัสดี"[0:3]
 'สวั'
+>>> len("สวัสดี")
+6
 ```
 
 ## What's next
