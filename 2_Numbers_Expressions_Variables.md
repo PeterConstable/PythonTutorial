@@ -251,7 +251,7 @@ Similarly, to get the multiplicative inverse of something, enclose an expression
 >>> x = 5
 >>> 1/x
 0.2
->>> 1/(17 * (2 + 3))
+>>> 1/(17 * (2+3))
 0.011764705882352941
 ```
 
@@ -306,6 +306,8 @@ One notable exception is the `abs()` function: when a complex number is passed a
 ```foo
 >>> abs(1j)
 1.0
+>>> abs(3+4j)
+5.0
 ```
 
 ## What's next
