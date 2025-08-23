@@ -696,6 +696,8 @@ You can even mix and match digits from different scripts—though this isn't rec
 42
 ```
 
+> The relevant information in Unicode that determines what characters are treated in Python as decimal digits is the _General_Category_ property value _Nd_ (decimal number). [This report](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3Agc%3DNd%3A%5D&g=&i=) lists the complete set of decimal digits in the current version of Unicode.
+
 ## What's next
 
 There's more we could cover on numbers and strings, but it's time for something else. In the [next lesson](5_Bool_Comparisons.md), we'll learn about another booleans and logical expressions.
