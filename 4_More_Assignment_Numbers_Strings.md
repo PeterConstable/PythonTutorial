@@ -51,7 +51,7 @@ The examples above have literals as values, but you can also use expressions or 
 
 ## Using compound assigment operators
 
-Like several other languages, Python supports compound (or _in-place_) assigment operators that evaluate an expression and assign the result. For example:
+Like several other languages, Python supports compound (or _augmented_ or _in-place_) assigment operators that evaluate an expression and assign the result. For example:
 
 ```foo
 >>> x = 6
