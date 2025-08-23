@@ -206,7 +206,7 @@ How about cube root?
 9.0
 ```
 
-Oops! We forgot about the order of operations: exponentiation takes precedence over division. Let's add some parenthesis; and just for the sake of it, add another sub-expression:
+Oops! We forgot about the order of operations: exponentiation takes precedence over division. (Note that this would have been clearer if the whitespace reflected the precedence: `27**1 / 3`.) Let's add some parentheses and, just for the sake of it, add another sub-expression:
 
 ```foo
 >>> 27 ** (1/(8-5))  # roundabout way to ask for cube root
@@ -233,7 +233,7 @@ Most of the above was shown with numeric literals so we can see the values. But 
 Two other common numeric operations are to get the additive or multiplicative inverse of something. To get the additive inverse of an expression, simply enclose it in parenthesis and add the "-" prefix:
 
 ```foo
->>> -(5 * 4 + 2 ** 3)
+>>> -(5*4 + 2**3)
 -28
 ```
 
