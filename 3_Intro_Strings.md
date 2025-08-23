@@ -296,6 +296,24 @@ Suppose we want to change the spelling to the way Professor Higgins would insist
 'Henry Higgins'
 ```
 
+## Python use Unicode
+
+The examples provided up to now have all used characters supported in ASCII. Python supports any Unicode characters, however.
+
+```foo
+>>> "สวัสดี"
+'สวัสดี'
+```
+
+For anything that pertains to characters, such as slices or the `len()` function, characters will be Unicode characters, not UTF-8 or UTF-16 code units.
+
+```foo
+>>> len("สวัสดี")
+6
+>>> "สวัสดี"[0:3]
+'สวั'
+```
+
 ## What's next
 
 Here's a closing thought for this lesson:
