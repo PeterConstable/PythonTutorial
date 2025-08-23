@@ -273,7 +273,7 @@ When writing long number literals in Python, an infix "\_" can be used as a grou
 Note that "\_" must be an infix and can't occur at the start or end of an integer literal; that would result in an error. The Python interpreter will ignore any infixed "\_", so any size grouping can be used. Be sure to stick to conventional groupings so that you don't get confused later:
 
 ```foo
->>> 0xffff_fff # not 4G!
+>>> 0xffff_fff # not 4 gig!
 268435455
 ```
 
