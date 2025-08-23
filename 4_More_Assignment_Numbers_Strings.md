@@ -601,6 +601,14 @@ Traceback (most recent call last):
 TypeError: can't convert complex to float
 ```
 
+> It is possible to get the real or imaginary parts of a complex number using the `.real` and `.imag` attributes of a `complex` object. (This is getting ahead—we haven’t yet covered that all values in Python are objects.) For example:
+> ```
+> >>> (4+1j).real
+> 4.0
+> >>> (4+1j).imag
+> 1.0
+> ```
+
 When working with strings, we may want to concatenate a number into a string. But Python doesn't allow an `int`, `float` or `complex` to be concatenated onto a string.
 
 ```foo
