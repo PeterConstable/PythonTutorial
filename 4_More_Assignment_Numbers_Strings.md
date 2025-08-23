@@ -4,7 +4,7 @@ In lesson 2, we introduced the basics of working with numbers, expressions and v
 
 * [Multiple assignment](#multiple-assignment)
 * [Using compound assignment operators](#using-compound-assignment-operators)
-* [Range and precision of ```int``` and ```float```](#range-and-precision-of-int-and-float)
+* [Range and precision of `int` and `float`](#range-and-precision-of-int-and-float)
 * [Different formats for numeric literals](#different-formats-for-numeric-literals)
 * [Bitwise operations on integers](#bitwise-operations-on-integers)
 * [Strings as Unicode character sequences](#strings-as-unicode-character-sequences)
@@ -13,7 +13,7 @@ In lesson 2, we introduced the basics of working with numbers, expressions and v
 
 ## Multiple assignment
 
-We've already seen the familiar assignment operator, ```=```, for assigning values to variables.
+We've already seen the familiar assignment operator, `=`, for assigning values to variables.
 
 ```foo
 >>> x = 42
@@ -60,7 +60,7 @@ Like several other languages, Python supports compound (or _augmented_ or _in-pl
 11
 ```
 
-In the second statement, ```+=``` is used to combine two steps into one. First, the expression ```x + 5``` is evaluated; then, the result is assigned back to ```x```. It's convenient shorthand for ```x = x + 5```.
+In the second statement, `+=` is used to combine two steps into one. First, the expression `x + 5` is evaluated; then, the result is assigned back to `x`. It's convenient shorthand for `x = x + 5`.
 
 The other numeric operators also have corresponding compount assignment operators. Follow along this sequence of statements:
 
@@ -86,7 +86,7 @@ The other numeric operators also have corresponding compount assignment operator
 2.0
 ```
 
->Note: some languages support ```=+``` and ```=-``` as well as ```+=``` and ```-=```, with slightly different effects in looping conditions. In Python, ```=+``` and ```=-``` are meaningul, but they're not compound assignment operators! They're simply the assignment operator ```=``` with the following ```+``` and ```-``` interpreted as prefixes to the following number. For example,
+>Note: some languages support `=+` and `=-` as well as `+=` and `-=`, with slightly different effects in looping conditions. In Python, `=+` and `=-` are meaningul, but they're not compound assignment operators! They're simply the assignment operator `=` with the following `+` and `-` interpreted as prefixes to the following number. For example,
 >
 >```foo
 >>>> x =- 5
@@ -97,7 +97,7 @@ The other numeric operators also have corresponding compount assignment operator
 >```foo
 >>>> x = -5
 
-With strings, ```+=``` can be used as a compound concatenation/assignment operator.
+With strings, `+=` can be used as a compound concatenation/assignment operator.
 
 ```foo
 >>> x = "boo"
@@ -106,7 +106,7 @@ With strings, ```+=``` can be used as a compound concatenation/assignment operat
 'boohoo'
 ```
 
-Similarly, ```*=``` can be used as a compound repeat-concatenation/assignment operator; the following operand is an integer.
+Similarly, `*=` can be used as a compound repeat-concatenation/assignment operator; the following operand is an integer.
 
 ```foo
 >>> x = "boo"
@@ -115,9 +115,9 @@ Similarly, ```*=``` can be used as a compound repeat-concatenation/assignment op
 'boobooboobooboo'
 ```
 
-## Range and precision of ```int``` and ```float```
+## Range and precision of `int` and `float`
 
-In Python, ```int```s are not limited to a particular range or machine representation. For example:
+In Python, `int`s are not limited to a particular range or machine representation. For example:
 
 ```foo
 >>> 1000000000000000000000000000000000000000000000000000000000000000 - 1
@@ -127,7 +127,7 @@ In Python, ```int```s are not limited to a particular range or machine represent
 -888888888888888888888888888888888888888888888888888888888888886
 ```
 
-The ```float``` type, however, however, has limited precision. The actual limitation will depend on the specific Python interpreter you're using and the architecture of the machine you're running on. You can enter a float literal with any number of decimal places, but the value will be constrained by the precision limitation of your setup.
+The `float` type, however, however, has limited precision. The actual limitation will depend on the specific Python interpreter you're using and the architecture of the machine you're running on. You can enter a float literal with any number of decimal places, but the value will be constrained by the precision limitation of your setup.
 
 ```foo
 >>> 1.2222222222222222222222222222222
@@ -146,16 +146,16 @@ Because of the precision limitation, rounding errors will occur, especially with
 3.9999999999999996
 ```
 
-There's a way you can get details about the supported precision of ```float``` on your system, but it involves using certain features we haven't explored yet (importing a module, ```sys```, that's included with your Python installation but not loaded by default). If you want to find out more, see the Python documentation for [sys.float_info](https://docs.python.org/3.8/library/sys.html#sys.float_info). Here's an example of what the detailed info looks like:
+There's a way you can get details about the supported precision of `float` on your system, but it involves using certain features we haven't explored yet (importing a module, `sys`, that's included with your Python installation but not loaded by default). If you want to find out more, see the Python documentation for [sys.float_info](https://docs.python.org/3.8/library/sys.html#sys.float_info). Here's an example of what the detailed info looks like:
 
 ```foo
 >>> sys.float_info
 sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)
 ```
 
-To get an idea of how this compares to floating value types in other languages, this is comparable to the [range for ```double``` in the Microsoft C++ compiler](https://docs.microsoft.com/en-us/cpp/cpp/data-type-ranges?view=vs-2019).
+To get an idea of how this compares to floating value types in other languages, this is comparable to the [range for `double` in the Microsoft C++ compiler](https://docs.microsoft.com/en-us/cpp/cpp/data-type-ranges?view=vs-2019).
 
-The ```float``` type in Python supports values for positive and negative infinity. These are obtained by passing certain strings to the ```float()``` function:
+The `float` type in Python supports values for positive and negative infinity. These are obtained by passing certain strings to the `float()` function:
 
 ```foo
 >>> x = float('inf')
@@ -181,7 +181,7 @@ Or course, most numeric calculations involving infinity result in infinity.
 -inf
 ```
 
-There are a few exceptions, but they involve another special ```float``` value, ```nan```, meaning _not a (well-defined) number_. So, for example:
+There are a few exceptions, but they involve another special `float` value, `nan`, meaning _not a (well-defined) number_. So, for example:
 
 ```foo
 >>> x + y
@@ -192,7 +192,7 @@ nan
 nan
 ```
 
-You can obtain the ```nan``` value directly as follows:
+You can obtain the `nan` value directly as follows:
 
 ```foo
 >>> x = float('nan')
@@ -200,9 +200,9 @@ You can obtain the ```nan``` value directly as follows:
 nan
 ```
 
->Note: ```nan``` is not the same as 0, null or ```None```.
+>Note: `nan` is not the same as 0, null or `None`.
 
-Because ```int```s aren't bounded, these concepts don't apply. (Happy counting galaxies, Buzz Lightyear! When you're done, come join us at Milliways.)
+Because `int`s aren't bounded, these concepts don't apply. (Happy counting galaxies, Buzz Lightyear! When you're done, come join us at Milliways.)
 
 ## Different formats for numeric literals
 
@@ -233,7 +233,7 @@ Expressions using numeric operators can take literal operands expressed in any o
 40530
 ```
 
-If you want to see integer values exprssed as hex, binary or octal strings, you can use the built-in ```hex()```, ```bin()``` or ```oct()``` functions.
+If you want to see integer values exprssed as hex, binary or octal strings, you can use the built-in `hex()`, `bin()` or `oct()` functions.
 
 ```foo
 >>> hex(142)
@@ -252,7 +252,7 @@ If you want to see integer values exprssed as hex, binary or octal strings, you 
 
 Note that these functions return strings, not integers!
 
-In the previous section, we saw that ```int`` values are unbounded, so it's possible to work with some really long number literals. (And if you need to write numbers as binary, those can quickly get long as well.) In daily life, we use grouping delimiters to make it clearer what the value is. For instance
+In the previous section, we saw that `int` values are unbounded, so it's possible to work with some really long number literals. (And if you need to write numbers as binary, those can quickly get long as well.) In daily life, we use grouping delimiters to make it clearer what the value is. For instance
 
 4,294,967,296
 
@@ -279,7 +279,7 @@ Note that "\_" must be an infix and can't occur at the start or end of an intege
 
 For decimal digits, stick to groupings of three. (Some cultures use other sized groupings, but three is universally familiar.), For hex, use groupings of four or eight; and use eight for binary.
 
-We've been talking about ```int``` literals. What about ```floats```? Hex, binary or octal representations are not supported for ```float```s. You can use the "\_" grouping delimiter, however.
+We've been talking about `int` literals. What about `floats`? Hex, binary or octal representations are not supported for `float`s. You can use the "\_" grouping delimiter, however.
 
 ```foo
 >>> x = 87_234_786.29
@@ -307,24 +307,24 @@ In addition to arithmetic operators seen earlier, Python has a typical set of bi
 
 |Operator|Meaning|Example expression|
 |--------|-------|-------|
-|```|``` |bitwise or           |```x | y``` |
-|```&``` |bitwise and          |```x & y``` |
-|```^``` |bitwise exclusive or |```x ^ y``` |
-|```<<```|left shift           |```x << 3```|
-|```>>```|right shift          |```x >> 3```|
-|```~``` |complement / invert  |```~x```    |
+|`|` |bitwise or           |`x | y` |
+|`&` |bitwise and          |`x & y` |
+|`^` |bitwise exclusive or |`x ^ y` |
+|`<<`|left shift           |`x << 3`|
+|`>>`|right shift          |`x >> 3`|
+|`~` |complement / invert  |`~x`    |
 
 There are also corresponding compound assignment operators for all but the bitwise complement.
 
 |Operator |Example expression|Equivalent expression|
 |---------|------------------|---------------------|
-|```|=``` |```x |= y```      |```x = x | y```      |
-|```&=``` |```x &= y```      |```x = x & y```      |
-|```^=``` |```x ^= y```      |```x = x ^ y```      |
-|```<<=```|```x <<= y```     |```x = x << y```     |
-|```>>=```|```x >>= y```     |```x = x >> y```     |
+|`|=` |`x |= y`      |`x = x | y`      |
+|`&=` |`x &= y`      |`x = x & y`      |
+|`^=` |`x ^= y`      |`x = x ^ y`      |
+|`<<=`|`x <<= y`     |`x = x << y`     |
+|`>>=`|`x >>= y`     |`x = x >> y`     |
 
-Note that bitwise operations are only meaningful and supported for integers (```int```). Also, for shift operations, the second operand cannot be negative.
+Note that bitwise operations are only meaningful and supported for integers (`int`). Also, for shift operations, the second operand cannot be negative.
 
 As in other languages, _bitwise or_, _and_ or _exclusive or_ set individual bits in a result value by comparing the corresponding bits in two operands:
 
@@ -350,11 +350,11 @@ _Left shift_ causes binary digits to be shifted left by a specified number of di
 
 _Left shift_ is equivalent to multiplication by powers of 2. As existing digits shift left, 0 digits are inserted on the right. Because integers in Python are unbounded, there are an infinite number of binary digits available, so digits on the left are never truncated or wrapped. This is a difference in behaviour compared to many other languages; we'll return to this below.
 
-Conceptually, the _bitwise complement_ operator ```~``` performs a _bitwise NOT_:
+Conceptually, the _bitwise complement_ operator `~` performs a _bitwise NOT_:
 
 * bitwise complement (_conceptually_): 1 if bit is 0, else 0
 
-In practice, ```~``` works this way in Python _so long as you don't inspect actual bit patterns or try to compare with binary or hex literals_. (That is a difference in behaviour compared to many other languages; we'll return to this difference below.) In most situations, that is not an issue.
+In practice, `~` works this way in Python _so long as you don't inspect actual bit patterns or try to compare with binary or hex literals_. (That is a difference in behaviour compared to many other languages; we'll return to this difference below.) In most situations, that is not an issue.
 
 A typical usage for bitwise operations is to manipulate bits in a flags bitfield. For example, consider the following flag definitions:
 
@@ -379,7 +379,7 @@ To check whether a given flag is set, you'd use _bitwise and_ with the flag cons
         ...
 ```
 
->Note: equality comparison will be covered in [lesson 5](5_Bool_Comparisons.md#comparison-expressions); ```if``` statements will be covered in [lesson 6](6_Intro_Functions_Flow_Control.md#the-if-statement).
+>Note: equality comparison will be covered in [lesson 5](5_Bool_Comparisons.md#comparison-expressions); `if` statements will be covered in [lesson 6](6_Intro_Functions_Flow_Control.md#the-if-statement).
 
 To set a particular flag, you'd use _bitwise or_ with the flag constant:
 
@@ -437,7 +437,7 @@ False
 
 In Python, if you need to closely match bit-width assumptions in other languages, you may need to add logic that provides fixed-bit-width assumptions.
 
-When doing a _left shift_ operation, you can match the fixed-width assumptions of another language by applying ```2**N - 1``` as a mask to the result of the shift operation (where ```N``` is the assumed bit width).
+When doing a _left shift_ operation, you can match the fixed-width assumptions of another language by applying `2**N - 1` as a mask to the result of the shift operation (where `N` is the assumed bit width).
 
 ```python
 >>> x = 0b1011_1100
@@ -446,7 +446,7 @@ When doing a _left shift_ operation, you can match the fixed-width assumptions o
 True
 ```
 
-When using a _bitwise complement_ operation, you can match the fixed-width assumptions of another language by applying the result of the _bitwise complement_ as a mask to ```2**N - 1``` (where ```N``` is the assumed bit width).
+When using a _bitwise complement_ operation, you can match the fixed-width assumptions of another language by applying the result of the _bitwise complement_ as a mask to `2**N - 1` (where `N` is the assumed bit width).
 
 ```python
 >>> x = 4
@@ -473,7 +473,7 @@ Signed 8-bit integers:
 |-127 | 1000 0001 |
 |-128 | 1000 0000 |
 
-Because of this, the _bitwise complement_ operation is equivalent to computing ```-(n + 1)```, for an integer data type of a particular bit width.
+Because of this, the _bitwise complement_ operation is equivalent to computing `-(n + 1)`, for an integer data type of a particular bit width.
 
 For unbounded negative integers, the two's complement representation can't be assumed in practice, as it would require an infinite number of bits.
 
@@ -486,7 +486,7 @@ int x = -2;
 if unchecked(x == (int)0xffff_fffe)  // true
 ```
 
-In Python, to make a similar comparison of a negative value ```x``` to a literal, add ```x``` to ```2**N```, where ```N``` is the assumed bit width.
+In Python, to make a similar comparison of a negative value `x` to a literal, add `x` to `2**N`, where `N` is the assumed bit width.
 
 ```python
 >>> x = -2
@@ -494,7 +494,7 @@ In Python, to make a similar comparison of a negative value ```x``` to a literal
 True
 ```
 
-Also, when the ```bin()``` function is used to convert a negative number to a binary string representation, do not expect to see the two's complement representation as you would get for similar operations in other languages. For example, compare results from C# versus Python:
+Also, when the `bin()` function is used to convert a negative number to a binary string representation, do not expect to see the two's complement representation as you would get for similar operations in other languages. For example, compare results from C# versus Python:
 
 C#:
 
@@ -534,34 +534,34 @@ The "\\u" prefix is used for Unicode characters from U+0000 to U+FFFF, and exact
 
 >If you learned about Unicode in the past, you might have heard about _surrogate pairs_: two code units in the range 0xDC00 to 0xDFFF that are combined to represent Unicode characters U+10000 and above. Forget about surrogate pairs! To specify a character from U+10000 or above in an escape sequece, you must specify the Unicode code point directly with an eight-digit \\U sequence.
 
-Python has useful built-in functions to go between a Unicode character and the integer value for its code point. The ```ord()``` function takes any single Unicode character and returns its code point as an ```int```.
+Python has useful built-in functions to go between a Unicode character and the integer value for its code point. The `ord()` function takes any single Unicode character and returns its code point as an `int`.
 
 ```foo
 >>> ord('€')
 8364
 ```
 
->As always, numeric results in interactive mode are presented in decimal. But Unicode code points are normally cited in hex. You can use the ```hex()``` function to get a hex string representation:
+>As always, numeric results in interactive mode are presented in decimal. But Unicode code points are normally cited in hex. You can use the `hex()` function to get a hex string representation:
 >
 >```foo
 >>>> hex(ord('€'))
 >'0x20ac'
 >```
 
-The ```chr()``` function is the inverse of ```ord()```: it takes a number and returns a string with the Unicode character for that code point.
+The `chr()` function is the inverse of `ord()`: it takes a number and returns a string with the Unicode character for that code point.
 
-```foo
+`foo
 >>> chr(8364)
 '€'
-```
+`
 
->Note: The ```ord()``` function only takes a single character, not a sequence of multiple characters. Similarly, the ```chr()``` function only takes a single numeric value.
+>Note: The `ord()` function only takes a single character, not a sequence of multiple characters. Similarly, the `chr()` function only takes a single numeric value.
 
 ## Converting between number and string types
 
-In lesson 2, we learned about the basic numeric types, ```int```, ```float``` and ```complex```. We also saw that numeric expressions that have a ```float``` as one of the operands always result in a ```float```. But sometimes, you may need to get an ```int``` variable for a subsequent step. Each of the basic built-in types has a corresponding constructor function that can be used to convert between types.
+In lesson 2, we learned about the basic numeric types, `int`, `float` and `complex`. We also saw that numeric expressions that have a `float` as one of the operands always result in a `float`. But sometimes, you may need to get an `int` variable for a subsequent step. Each of the basic built-in types has a corresponding constructor function that can be used to convert between types.
 
-The following examples show an ```int``` literal being converted to a ```float``` value using the ```float()``` constructor fuction; and ```float``` being converted to ```int``` using the ```int()``` constructor function:
+The following examples show an `int` literal being converted to a `float` value using the `float()` constructor fuction; and `float` being converted to `int` using the `int()` constructor function:
 
 ```foo
 >>> float(2)  # converts int to float
@@ -570,7 +570,7 @@ The following examples show an ```int``` literal being converted to a ```float``
 2
 ```
 
-Note that ```int()``` truncates the ```float``` value:
+Note that `int()` truncates the `float` value:
 
 ```foo
 >>> int(4.2)
@@ -583,7 +583,7 @@ Note that ```int()``` truncates the ```float``` value:
 -4
 ```
 
-Integer and float values can be converted to complex using the ```complex()``` constructor function.
+Integer and float values can be converted to complex using the `complex()` constructor function.
 
 ```foo
 >>> complex(2)
@@ -601,7 +601,7 @@ Traceback (most recent call last):
 TypeError: can't convert complex to float
 ```
 
-When working with strings, we may want to concatenate a number into a string. But Python doesn't allow an ```int```, ```float``` or ```complex``` to be concatenated onto a string.
+When working with strings, we may want to concatenate a number into a string. But Python doesn't allow an `int`, `float` or `complex` to be concatenated onto a string.
 
 ```foo
 >>> x = 42
@@ -611,7 +611,7 @@ Traceback (most recent call last):
 TypeError: can only concatenate str (not "int") to str
 ```
 
-But we can use the built-in ```str()``` constructor function to convert numbers into strings. This works for any of the numeric types:
+But we can use the built-in `str()` constructor function to convert numbers into strings. This works for any of the numeric types:
 
 ```foo
 >>> x = 42
@@ -631,7 +631,7 @@ But we can use the built-in ```str()``` constructor function to convert numbers 
 
 >Note: Integrating numbers into strings, or _string formatting_, is a bigger topic, and there are other ways to do that with more and better options. We'll save that for a later lesson.
 
-We can use ```int()``` and ```float()``` to convert strings to numbers, so long as the strings are string expressions of decimal numbers:
+We can use `int()` and `float()` to convert strings to numbers, so long as the strings are string expressions of decimal numbers:
 
 ```foo
 >>> int("42")
@@ -658,7 +658,7 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: '22 birds'
 ```
 
-Earlier, we saw that integer literals can be expressed in hex, binary or octal as well as in decimal. When using ```int()``` to convert from a string, however, the number string can only be in decimal form.
+Earlier, we saw that integer literals can be expressed in hex, binary or octal as well as in decimal. When using `int()` to convert from a string, however, the number string can only be in decimal form.
 
 ```foo
 >>> int("0x42")
@@ -674,7 +674,7 @@ The "\_" grouping delimiter can be included in the string:
 12345678
 ```
 
-We've already seen that strings in Python 3.x use Unicode. Unicode supports many scripts that have their own decimal digit characters. In Python, conversion from number strings is supported for any characters that Unicode defines as decimal digits. In the following example, a number string using Arabic-script digits is converted to an ```int```:
+We've already seen that strings in Python 3.x use Unicode. Unicode supports many scripts that have their own decimal digit characters. In Python, conversion from number strings is supported for any characters that Unicode defines as decimal digits. In the following example, a number string using Arabic-script digits is converted to an `int`:
 
 ```foo
 >>> int("٤٢")
