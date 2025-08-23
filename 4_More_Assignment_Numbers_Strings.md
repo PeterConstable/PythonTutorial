@@ -550,10 +550,10 @@ Python has useful built-in functions to go between a Unicode character and the i
 
 The `chr()` function is the inverse of `ord()`: it takes a number and returns a string with the Unicode character for that code point.
 
-`foo
+```foo
 >>> chr(8364)
 '€'
-`
+```
 
 >Note: The `ord()` function only takes a single character, not a sequence of multiple characters. Similarly, the `chr()` function only takes a single numeric value.
 
