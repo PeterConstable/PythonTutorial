@@ -237,14 +237,14 @@ If both indices are positive or both indices are negative, then a generalization
 If you want to get a sub-string that starts at the beginning of a string, you can indicate 0 as the starting position. But an even easier way is just to leave out the first index: that means to start at the beginning:
 
 ```foo
->>> her_name[ : 8]
+>>> her_name[: 8]
 'Eliza Do'
 ```
 
 Similarly, if you leave out the second index, that indicates that the ending position is the end of the string.
 
 ```foo
->>> her_name[-5 : ]
+>>> her_name[-5 :]
 'ittle'
 ```
 
