@@ -14,7 +14,7 @@ You might come looking for a specific detail because you need that for whatever 
 * [Working with Numbers, Expressions and Variables](2_Numbers_Expressions_Variables.md)
 * [Introduction to Strings](3_Intro_Strings.md)
 * [More About Assignment, Numbers and Strings](4_More_Assignment_Numbers_Strings.md)
-* [Introduction to Objects](5_Intro_Objects.md)
+* [Intro to Objects](5_Intro_Objects.md)
 * [Booleans, Comparisons and Logical Expressions](6_Bool_Comparisons.md)
 * [Intro to Functions and Flow Control Statements](7_Intro_Functions_Flow_Control.md)
 * [Sequence Types: Lists, Tuples and Ranges](8_List_Tuple_Range.md)
