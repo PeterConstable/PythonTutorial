@@ -57,7 +57,7 @@ How about floating values and strings?
 What about a single-character element from a string?
 
 ```foo
->>> type("Henry"[0)
+>>> type("Henry"[0])
 <class 'str'>
 ```
 
