@@ -666,7 +666,19 @@ If you have a list or tuple of numbers (```int``` or ```float```, but not ```com
 40.8
 ```
 
-With these functions, all of the elements in the sequence must be either ```int``` or ```float```; if there's an object of any other type, you'll get an error.
+These functions will work when the elements in the sequence are all `int`, `float`, or a combination of the two. If the list has `int`s or `float`s but also an object of any other type, you'll get an error.
+
+These functions will also work on a tuple object that contains only `int`s or `float`:
+
+```foo
+>>> x = (3, 5.7, 2)
+>>> max(x)
+5.7
+>>> min(x)
+2
+>>> sum(x)
+10.7
+```
 
 You can also use these functions with a range object. For example, you can easily add integers from 1 to 99 as follows:
 
@@ -675,7 +687,14 @@ You can also use these functions with a range object. For example, you can easil
 4950
 ```
 
-These functions don't work with strings, however.
+The `sum()` function doesn't work with strings. The `min()` and `max()` functions will work on strings, assuming an ordering of the strings in the sequence. However, keep in mind that strings in Python can be have Unicode characters sorting of strings. The `min()` and `max()` functions order strings based on the Unicode code points values for each character. This won’t be the right behaviour for many situations.
+
+```foo
+>>> min('Zoo', 'cab')
+'Zoo'
+```
+
+Linguistic string ordering following the rules for a particular language needs to be handled by other means, such as using the PyICU library.
 
 ### Immutable types and copying
 
