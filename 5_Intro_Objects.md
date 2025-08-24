@@ -13,7 +13,7 @@ The aim of this section is introduce key concepts related to objects in Python, 
 
 In object-oriented programming, _objects_ are a mechanism that combines certain kinds of data with code that is applicable to that data. An object could hold one piece of data, such as a number; or it could combine multiple pieces of related data, such as the street, city, etc., that comprise a postal address. Every object has a _class_, which is like a template that specifies the pieces of data and the associated code. An individual object is said to be an _instance_ of that class.
 
-Many programming languages make a distinction between simple data types, such as integers, versus classes and objects. But in Python, everything is an object. (_Really, everything!_) This includes all variables and literal values. All values have a type, but very type is, in fact, a class name. 
+Many programming languages make a distinction between simple data types, such as integers, versus classes and objects. But in Python, everything is an object. (_Really, everything!_) This includes all variables and literal values. All values have a type, but every type is, in fact, a class name. 
 
 Python has a built-in function, `type()`, that tells you the type of whatever variable or value gets passed into it. Let’s review some of the types introduced in previous lessons, starting with integer literals:
 
