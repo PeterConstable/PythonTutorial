@@ -96,7 +96,7 @@ Strings have a number of methods for different string operations that can be per
 'AB'
 ```
 
-Notice the different syntax used for attributes versus methods: methods always have parentheses after the method name, `(...)`, while attributes do not. The parentheses can be used to pass in additional values (or _arguments_) to the method; the arguments that can be accepted will depend on the particular method and object type. Every method has one implicit argument: the object itself.
+Notice the different syntax used for attributes versus methods: methods always have parentheses after the member name, `(...)`, while attributes do not. The parentheses can be used to pass in additional values (or _arguments_) to the method; the arguments that can be accepted will depend on the particular method and object type. Every method has one implicit argument: the object itself.
 
 In the `.upper()` method example, the value returned required some computational operation to be performed using the data contained in the object. Attributes, on the other hand, are obtained directly from the data items contained in the object.
 
