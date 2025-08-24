@@ -2,9 +2,9 @@
 
 Almost any program you create will need to have logic for program flow control, such as _branching_ (do certain things given one condition, but different things in other conditions). To get to that, we need to learn about comparison and logical expressions, and about another basic type, `bool`.
 
-In this lesson, we'll go over all of those things. We'll introduce several additional operators used in comparison and logical expressions. We'll also explore use of built-in object, `None`, introduced in the previous lesson, and a special built-in function, `isinstance()`, both of which are relevant for logical expressions.
+In this lesson, we'll go over all of those things. We'll introduce several additional operators used in comparison and logical expressions. We'll also explore use of the built-in object, `None`, that was introduced in the previous lesson, as well as a special built-in function, `isinstance()`, both of which are relevant for logical expressions.
 
-In the previous lesson, we learned about the built-in function, `id()`, which tells us about identity of objects. In this lesson, we’ll consider how to determine whether two things are the very same object.
+In the previous lesson, we learned about the built-in function, `id()`, which returns an object’s ID. In this lesson, we’ll consider how to determine whether two things are the very same object.
 
 Discussions of comparison operators for other languages often cover a _ternary_ operator construct that evaluates a condition and returns a value in a single statement. This isn't limited to boolean results and is more like a compact `if`...`else`. We'll cover that in the next lesson.
 
