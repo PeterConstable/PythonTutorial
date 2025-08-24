@@ -519,6 +519,13 @@ True
 True
 ```
 
+Since `in` is a comparison operator, it returns a `bool`. You can combine that with the `not` boolean operator (`not in`) to check that a value is not in the sequence.
+
+```foo
+>>> 'z' not in her_name
+True
+```
+
 ### Counting occurrences
 
 The built-in sequence types have a ```.count()``` method that can be used to count the number of occurrences of something within a sequence.
