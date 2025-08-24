@@ -9,7 +9,6 @@ In lesson 2, we introduced the basics of working with numbers, expressions and v
 * [Bitwise operations on integers](#bitwise-operations-on-integers)
 * [Strings as Unicode character sequences](#strings-as-unicode-character-sequences)
 * [Converting between number and string types](#converting-between-number-and-string-types)
-* [They’re all Objects!](#theyre-all-objects)
 * [What's next](#whats-next)
 
 ## Multiple assignment
