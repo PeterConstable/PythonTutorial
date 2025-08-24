@@ -370,7 +370,7 @@ So, summarizing:
 
 ## Conversion to ```bool```
 
-While talking about conversions, we should cover conversions to ```bool```. Recall from [lesson 5](5_Bool_Comparisons.md#booleans—the-bool-type) that any object can be explicitly converted to a boolean value using the ```bool()``` function, or converted implicitly if used in a context where a ```bool``` is expected. And in [lesson 6](6_Intro_Functions_Flow_Control.md#objects-as-if-conditions) we saw that applied by using objects alone as conditions in ```if``` statements. This works for sequence objects as well.
+While talking about conversions, we should cover conversions to ```bool```. Recall from [lesson 6](6_Bool_Comparisons.md#booleans—the-bool-type) that any object can be explicitly converted to a boolean value using the ```bool()``` function, or converted implicitly if used in a context where a ```bool``` is expected. And in [lesson 7](7_Intro_Functions_Flow_Control.md#objects-as-if-conditions) we saw that applied by using objects alone as conditions in ```if``` statements. This works for sequence objects as well.
 
 The following example is taken from lesson 6, but shows a `list` object getting used as a condition:
 
