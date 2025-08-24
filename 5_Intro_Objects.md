@@ -1,4 +1,4 @@
-# Introduction to Objects
+# Intro to Objects
 
 The aim of this section is introduce key concepts related to objects in Python, building on what we’ve learned in the previous lessons regarding numbers and strings. There will be other data types introduced in later lessons, including more on objects as a custom data type. But before exploring other data types, it will be helpful to be know some basics about objects. We’ll be making use of this in the very next lesson, on boolean values and comparisons. 
 
