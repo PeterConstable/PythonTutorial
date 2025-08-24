@@ -699,49 +699,6 @@ You can even mix and match digits from different scripts—though this isn't rec
 
 > The relevant information in Unicode that determines what characters are treated in Python as decimal digits is the _General_Category_ property value _Nd_ (decimal number). [This report](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3Agc%3DNd%3A%5D&g=&i=) lists the complete set of decimal digits in the current version of Unicode.
 
-## They’re all objects!
-
-In object-oriented programming, _objects_ are a mechanism that combines certain kinds of data with code that is applicable to that data. An object could hold one piece of data, such as a number; or it could combine multiple pieces of related data, such as the street, city, etc., that comprise a postal address. Every object has a _class_, which is like a template that specifies the pieces of data and the associated code; and an individual object is said to be an _instance_ of that class.
-
-Many programming languages make a distinction between simple data types, such as integers, and objects. But in Python, everything is an object, including all variables and also literal values.
-
-Python has a built-in function, `type()`, that tells you the type of a variable or value. Every type is, in fact, a class name:
-
-```python
->>> n = 3
->>> type(n)
-<class 'int'>
->>> type("abc")
-<class 'str'>
-```
-
-Objects can have many _members_, which are pieces of information (data) that can be obtained from them, or operations (functions) that can be performed on the object or using the object. The data members are referred to as _attributes_; the functions bound to the object are referred to as _methods_. The members available for an object will depend on its type.
-
-Earlier in this section, we saw an example of an attribute: for a `complex` value, the real and imaginary components can be obtained using the `.real` and `.imag` attributes:
-
-```python
->>> c = (3+4j)
->>> type(n)
-<class 'complex'>
->>> c.real
-3.0
->>> c.imag
-4.0
-```
-
-Strings have a number of methods for different string operations that can be performed. For example, the `.upper()` method produces a new string in which characters are mapped to their uppercase equivalent.
-
-```python
->>> "ab".upper()
-'AB'
-```
-
-Notice the different syntax used for attributes versus methods: methods always have parentheses after the method name, `(...)`, while attributes do not. The parentheses can be used to pass in additional values (or _arguments_) to the method; the arguments that can be accepted will depend on the particular method. Every method has one implicit argument: the object itself.
-
-In the `.upper()` method example, the value returned required some computational operation to be performed using the data contained in the object. Attributes, on the other hand, are obtained directly from the data items contained in the object. An object can also have other kinds of members—but that’s a more advanced topic.
-
-The aim here has not been to give an in-depth overview of objects in Python. Thus far, we've only covered numbers and strings. But before we explore other data types, it could be helpful to understand that all of the data types we’ll encounter, including the numeric and string types we’ve already seen, are _object_ types, each of which has its own specific members.
-
 ## What's next
 
-There's more we could cover on numbers and strings, but it's time for something else. In the [next lesson](5_Bool_Comparisons.md), we'll learn about another booleans and logical expressions.
+There's more we could cover on numbers and strings, but it's time for something else. In the [next lesson](5_Intro_Objects.md), we'll introduce some key concepts related to objects in Python before we introduce other data types and how to work with them.
