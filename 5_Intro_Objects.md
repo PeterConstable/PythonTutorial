@@ -167,7 +167,7 @@ In this case, when the literal value was assigned to `x`, the variable ended up 
 
 ```float```s with the same value will often have different IDs.
 
-Strings are similar in this regard:
+Strings frequently behave this way:
 
 ```foo
 >>> id("hi")
@@ -181,9 +181,22 @@ Strings are similar in this regard:
 2497399614192
 ```
 
-When we assign a string literal value to the variable `x`, the ID of the variable is the same as the ID of the literal. But if we derive the same string value as a slice from another string, that ends up with a different ID. Note that we started with a distinct string literal, `"phish"`, then took a slice from that value which was copied into a new string object. The variable `y` happens to end up with the same value as the variable `x`, but the objects have distinct IDs.
+When we assign a string literal value to the variable `x`, the ID of the variable is the same as the ID of the literal. However, if we derive the same string value as a slice from another string, that ends up with a different ID. Note that we started with a distinct string literal, `"phish"`, then took a slice from that value which was copied into a new string object. The variable `y` happens to end up with the same value as the variable `x`, but the objects have distinct IDs.
 
-We've seen that objects with the same values don’t always have the same object ID. This is a bit abstract! In the next lesson, things will get even a bit _more_ abstract when we consider whether things that return the same ID are, in fact, the very same object. (Not necessarily!)
+Generalizing, string values can be derived in many different ways, but string objects will usually have different IDs, even if they have the same values derived in the very same way:
+
+```foo
+>>> x = "tab"[1:3]
+>>> y = "tab"[1:3]
+>>> id(x)
+129773122959760
+>>> id(y)
+129773122959712
+```
+
+One exception appears to be string literal values (without any derivational operation, such as slicing), and variables assigned with those values.
+
+We've seen that objects with the same values don’t always have the same object ID. A similar question is whether objects with the same ID are, in fact, the very same object. Not necessarily! Object IDs are unique within objects of a given type. But two different objects could potentially have the same ID if they are of different types. Determining whether two things are the same object is a special type of comparison; in the next section, we’ll see how that is done.
 
 ## `None`
 
