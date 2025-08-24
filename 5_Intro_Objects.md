@@ -148,7 +148,7 @@ If we introduce other variables that get the same `int` value assigned to them, 
 140704550147904
 ```
 
-`int` objects are somewhat special in this regard: any occurrence or reference to an `int` of a particular value will always involve a single object. With other types, that’s often not the case: two things of the same type with the same value _might or might not_ have the same ID. Consider these examples:
+`int` objects are somewhat special in this regard: any occurrence or reference to an `int` of a particular value will always involve a single object. (Programmers refer to objects that behave this way as _singletons_.) With other types, that’s often not the case: two things of the same type with the same value _might or might not_ have the same ID. Consider these examples:
 
 ```foo
 >>> id(6.0)
