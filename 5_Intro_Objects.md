@@ -110,7 +110,7 @@ Object sub-classes are a more advanced topic, and we won’t go into more detail
 
 Every object has an ID—a _hash_ value that (when combined with its type) uniquely identifies it. You probably won't often need to work directly with object IDs (though it can sometimes be helpful in debugging). But it’s important to understand that the identity of an object and the value of an object are distinct concepts.
 
-You can get the ID of an object using the build-in `id()` function.
+You can get the ID of an object using the built-in `id()` function.
 
 Let's start by looking at an integer literal, such as "6": this evaluates to an object of type `int` with the value 6, and that object has its own ID:
 
