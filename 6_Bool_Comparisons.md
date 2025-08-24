@@ -12,7 +12,6 @@ Discussions of comparison operators for other languages often cover a _ternary_ 
 * [Comparison expressions](#comparison-expressions)
 * [Membership](#membership)
 * [Logical expressions](#logical-expressions)
-* [A quick intro to `id()`](#a-quick-intro-to-id)
 * [Identity comparison](#identity-comparison)
 * [`isinstance()`](#isinstance)
 * [What's next](#whats-next)
