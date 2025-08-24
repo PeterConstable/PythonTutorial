@@ -358,7 +358,7 @@ The resulting string includes all the brackets, quote marks and commas, as well 
 
 Keep in mind that lists and tuples can be sequences of _any types of objects_. But elements of a string can only be Unicode characters. Converting a list or tuple to a string requires coercing any kind of object to a sequence of characters. In the general case, we can't expect something useful.
 
-We run into exactly that limitation if we try to convert a range to a string you just get something like "range(0, 5)".
+We run into exactly that limitation if we try to convert a range to a string: you just get something like "range(0, 5)".
 
 So, summarizing:
 
