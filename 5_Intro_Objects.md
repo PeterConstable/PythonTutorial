@@ -4,7 +4,7 @@ The aim of this section is introduce key concepts related to objects in Python, 
 
 * [Object types](#object_types)
 * [Object members](#object_members)
-* [Sub-classes](#subclasses)
+* [Sub-classes](#sub-classes)
 * [A quick intro to `id()`](#a-quick-intro-to-id)
 * [`None`](#none)
 * [What’s next](#whats-next)
