@@ -121,7 +121,7 @@ Tuples can be constructed in a few different ways. We've seen examples above usi
 <class 'tuple'>
 ```
 
-Singleton tuples need some special consideration. If you simply write a single value inside parentheses or on it's own, it will be interpreted as that object, not as a tuple containing that object.
+Single-element tuples need some special consideration. If you simply write a single value inside parentheses or on it's own, it will be interpreted as that object, not as a tuple containing that object.
 
 ```foo
 >>> x = (5)
@@ -129,7 +129,7 @@ Singleton tuples need some special consideration. If you simply write a single v
 <class 'int'>
 ```
 
-If you need something to be interpreted as a singleton tuple, then you need to add a comma after:
+If you need something to be interpreted as a tuple with one element, then you need to add a comma after:
 
 ```foo
 >>> x = 5,
