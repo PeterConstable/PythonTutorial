@@ -1,6 +1,8 @@
 # Sequence Types: Lists, Tuples and Ranges
 
-We've learned about several basic types in Python: numbers, booleans and strings. There was one important way that strings differed from the others: strings are a container-like type, and specifically a _sequence type_. In this lesson, we'll learn about some other sequence types, ```list```, ```tuple``` and ```range```.
+We've learned about several basic types in Python: numbers, booleans and strings. There was one important way that strings differed from the others: strings are a container-like type, and specifically a _sequence type_. In this lesson, we'll learn about some other sequence types, `list`, `tuple` and `range`.
+
+While strings and lists are both sequences, they differ in an important way: a `list` object is _mutable_, meaning that the elements in the object can be changed. In contrast, a `string` object is _immutable_: once the object is created, its value cannot be changed: if you want to modify a string, you’ll need to create a new `string` object with the new value. Tuples and ranges are also immutable; of the sequence types covered up through this lesson, only `list` is mutable. There are other mutable and immutable sequence types that we’ll leave for later.
 
 There are several operations that can be performed on any sequence type. We'll introduce each type first, and then go over the common operations.
 
@@ -18,14 +20,14 @@ There are also other operations that are specific to strings, or specific to lis
 
 ## Lists
 
-A ```list``` is a mutable sequence (or _ordered set_) of objects. The objects can be of any type, and can be a mix different types. Lists are represented using square brackets, ```[...]```, with zero or more elements delimited by commas.
+A `list` is a mutable sequence (or _ordered set_) of objects. The objects can be of any type, and can be a mix different types. Lists are represented using square brackets, ```[...]```, with zero or more elements delimited by commas.
 
 ```foo
 >>> [1, 29, 13]
 [1, 29, 13]
 ```
 
-You can assign a list to a variable, and the variable will become an instance of the ```list``` type.
+You can assign a list to a variable, and the variable will become an instance of the `list` type.
 
 ```foo
 >>> x = [3.14, "spam"]
@@ -84,7 +86,7 @@ There are a number of ways that list objects can be changed—adding, removing o
 
 ## Tuples
 
-A ```tuple``` is an immutable sequence of objects. As with a list, a tuple can have zero or more objects of any type, including a mix of different types. Tuples are represented using parentheses, ```(...)```, with commas separating the elements.
+A `tuple` is an immutable sequence of objects. As with a list, a tuple can have zero or more objects of any type, including a mix of different types. Tuples are represented using parentheses, ```(...)```, with commas separating the elements.
 
 ```foo
 >>> (1, 29, 13)
@@ -140,7 +142,7 @@ If you need something to be interpreted as a singleton tuple, then you need to a
 
 ## Ranges
 
-The ```range``` type is a special sequence type. Range objects produce sequences of integers. They are immutable (elements can't be changed) and can only be constructed using the ```range()``` constructor function. For example, ```range(5)``` returns a range with a sequence of five numbers, 0 to 4.
+The `range` type is a special sequence type. Range objects produce sequences of integers. They are immutable (elements can't be changed) and can only be constructed using the ```range()``` constructor function. For example, ```range(5)``` returns a range with a sequence of five numbers, 0 to 4.
 
 Ranges behave like lists in many ways, but not in every way. One difference is in how they're represented as a result.
 
@@ -226,9 +228,9 @@ Note that _step_ must not be 0; if it's 0, you'll get an error.
 
 Later in this lesson, we'll need to mention objects that are _iterables_. An iterable object is capable of producing a sequence. It can be a sequence itself, in the sense of containing elements; but it might not be. To qualify as an iterable, it just needs to be able to _provide a sequence_ when used in contexts that expect a sequence.
 
-The ```str```, ```list``` and ```tuple``` types are iterable types that are also sequences.
+The ```str```, `list` and `tuple` types are iterable types that are also sequences.
 
-On the other hand, a ```range``` is not actually a sequence: it doesn't contain elements. But it is an iterable and can produce a sequence. This accounts for why it behaves like a sequence in some contexts but not in others, such as how a range object is represented as a result:
+On the other hand, a `range` is not actually a sequence: it doesn't contain elements. But it is an iterable and can produce a sequence. This accounts for why it behaves like a sequence in some contexts but not in others, such as how a range object is represented as a result:
 
 ```foo
 >>> y = range(4)
@@ -302,7 +304,7 @@ This also works with any other sequence types, including strings or ranges.
 
 In discussing ranges, we've made use of the ```list()``` function to convert ranges to lists. Conversions between the different sequence types is possible in some directions, but not others. And of the conversions that _are_ possible, only some are particularly useful.
 
-```list``` and ```tuple``` are really very similar to one another, the key difference being that lists are mutuble while tuples are immutable. You can convert between ```list``` and ```tuple``` in either direction, and get sequences with the same elements.
+`list` and `tuple` are really very similar to one another, the key difference being that lists are mutuble while tuples are immutable. You can convert between `list` and `tuple` in either direction, and get sequences with the same elements.
 
 ```foo
 >>> list((1,2,3))
@@ -360,9 +362,9 @@ We run into exactly that limitation if we try to convert a range to a string you
 
 So, summarizing:
 
-* conversion between ```list``` and ```tuple``` is useful and can round-trip
-* conversion _from_ ```range``` _to_ ```list``` or ```tuple``` is possible and _may sometimes_ be useful
-* other conversions between ```str```, ```range```, ```list```, ```tuple``` are either not possible or rarely useful
+* conversion between `list` and `tuple` is useful and can round-trip
+* conversion _from_ `range` _to_ `list` or `tuple` is possible and _may sometimes_ be useful
+* other conversions between ```str```, `range`, `list`, `tuple` are either not possible or rarely useful
 
 >Note: Later in this lesson we will learn about a way that _is useful_ for getting a string from a list or tuple of characters/strings.
 
@@ -370,7 +372,7 @@ So, summarizing:
 
 While talking about conversions, we should cover conversions to ```bool```. Recall from [lesson 5](5_Bool_Comparisons.md#booleans—the-bool-type) that any object can be explicitly converted to a boolean value using the ```bool()``` function, or converted implicitly if used in a context where a ```bool``` is expected. And in [lesson 6](6_Intro_Functions_Flow_Control.md#objects-as-if-conditions) we saw that applied by using objects alone as conditions in ```if``` statements. This works for sequence objects as well.
 
-The following example is taken from lesson 6, but shows a ```list``` object getting used as a condition:
+The following example is taken from lesson 6, but shows a `list` object getting used as a condition:
 
 ```python
 >>> def my_func(val):
@@ -383,7 +385,7 @@ The following example is taken from lesson 6, but shows a ```list``` object gett
 true
 ```
 
-For all sequence types, including ```str```, ```list```, ```tuple``` and ```range```, an object ```x``` converts to ```True``` if the object has content—i.e., it's a non-empty sequence. But empty sequences (length is 0) convert to ```False```.
+For all sequence types, including ```str```, `list`, `tuple` and `range`, an object ```x``` converts to ```True``` if the object has content—i.e., it's a non-empty sequence. But empty sequences (length is 0) convert to ```False```.
 
 ```python
 >>> my_func("")
@@ -502,7 +504,7 @@ You can also use ```*``` concatenation to repeat a list or tuple sequence:
 
 You can't concatenate ranges, but you can convert ranges using ```list()``` or ```tuple()``` and then concatenate using either of those types.
 
->Note: When concatenating immutable sequence types, a new object is always created. If you build up a string or tuple sequence with many repeated concatenations, that could have a noticeable performance impact. For ```str``` or ```tuple``` objects, you can avoid that using a list. We'll return to this later in this lesson.
+>Note: When concatenating immutable sequence types, a new object is always created. If you build up a string or tuple sequence with many repeated concatenations, that could have a noticeable performance impact. For ```str``` or `tuple` objects, you can avoid that using a list. We'll return to this later in this lesson.
 
 ### Membership
 
@@ -786,7 +788,7 @@ For several immutable types, including tuples and ranges, nearly all of the avai
 
 ## Mutating list operations
 
-Because ```list``` is a mutable sequence type, there are several other operations to know about.
+Because `list` is a mutable sequence type, there are several other operations to know about.
 
 >These operations are also relevant for the mutable byte sequence type, ```bytearray```, which we'll cover in later lesson.
 
@@ -1198,7 +1200,7 @@ The ```.sort()``` method will sort items in the list.
 [5, 6, 12, 17, 42]
 ```
 
->Note: The ```.sort()``` method is available for ```list```, but isn't available for all mutable sequence types.
+>Note: The ```.sort()``` method is available for `list`, but isn't available for all mutable sequence types.
 
 You can sort in descending order by adding ```reverse=True``` as an argument.
 
