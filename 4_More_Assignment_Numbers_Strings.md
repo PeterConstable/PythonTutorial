@@ -717,7 +717,7 @@ Python has a built-in function, `type()`, that tells you the type of a variable 
 
 Objects can have many _members_, which are pieces of information (data) that can be obtained from them, or operations (functions) that can be performed on the object or using the object. The data members are referred to as _attributes_; the functions bound to the object are referred to as _methods_. The members available for an object will depend on its type.
 
-In section 2, we saw an example of an attribute: for a `complex` value, the real and imaginary components can be obtained using the `.real` and `.imag` attributes:
+Earlier in this section, we saw an example of an attribute: for a `complex` value, the real and imaginary components can be obtained using the `.real` and `.imag` attributes:
 
 ```python
 >>> c = (3+4j)
