@@ -314,7 +314,26 @@ But `None` can be converted to a `bool`: `None` is one of the few things that co
 False
 ```
 
-Since there are situations in which `None` may get assigned to a variable or returned from a function, we want a way to evaluate if that's the case. We can do an identity comparison or, because `None` is the only value of its type, we can also do an equality comparison. Either will work:
+Since there are situations in which `None` may get assigned to a variable or returned from a function, we want a way to evaluate if that's the case. 
+
+Here’s an example: A dictionary is a data structure that stores key-value pairs, and that allows you to look up a value by its key. (We’ll look at dictionaries in a future lesson.) 
+
+```foo
+>>> my_dict = {'Tucson': 2, 'Seattle': 20}
+>>> my_dict.get('Tucson')
+```
+
+But if you try to look up an entry that isn't in the dictionary, the `.get()` method will return `None`.
+
+```foo
+>>> x = my_dict.get('Waterloo')
+>>> x is None
+True
+```
+
+Before you start acting on the object retrieved from the dictionary, you might want to check whether it is `None`.
+
+We can do an identity comparison or an equality comparison—either will work:
 
 ```foo
 >>> x = None
