@@ -13,6 +13,7 @@ Discussions of comparison operators for other languages often cover a _ternary_ 
 * [Membership](#membership)
 * [Logical expressions](#logical-expressions)
 * [Identity comparison](#identity-comparison)
+* [Comparison with `None`](#comparison-with-none)
 * [`isinstance()`](#isinstance)
 * [What's next](#whats-next)
 
