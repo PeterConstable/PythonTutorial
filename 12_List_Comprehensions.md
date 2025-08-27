@@ -76,7 +76,7 @@ Similarly, we can add an `if` conditional expression in the list comprehension t
 [2, 9, 16, 23, 37]
 ```
 
-In these examples, we have used `range()` as the starting source for the sequence values. But we could use anything that can provide sequential values (technically, an _iterator_). For example, we could use a string:
+In these examples, we have used `range()` as the starting source for the sequence values. But we could use anything that can provide sequential values (an _iterator_). For example, we could use a string:
 
 ```foo
 >>> ['f' + c for c in "aeiou"]
