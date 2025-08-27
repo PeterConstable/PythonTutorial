@@ -31,7 +31,7 @@ We could use a ```while``` or `for` loop with any kind of expression to compute 
 ```foo
 >>> my_list = []
 >>> for x in range(6):
-...     my_list.append(x * 7 + 2)
+...     my_list.append(x*7 + 2)
 ...
 >>> my_list
 [2, 9, 16, 23, 30, 37]
@@ -40,7 +40,7 @@ We could use a ```while``` or `for` loop with any kind of expression to compute 
 A list comprehension provides a more concise way to achieve this kind of result:
 
 ```foo
->>> my_list = [x * 7 + 2 for x in range(6)]
+>>> my_list = [x*7 + 2 for x in range(6)]
 >>>
 >>> my_list
 [2, 9, 16, 23, 30, 37]
