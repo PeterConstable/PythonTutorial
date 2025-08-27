@@ -50,7 +50,7 @@ The basic components in this list comprehension are:
 
 * brackets ```[...]```
 * an expression for the generated list elements, ```x*7 + 2```
-* a `for` expression that produces the starter values using an _iterable_ (something that can provide a sequence), ```for x in range(6)```
+* a `for` expression that provides the parameter values using an _iterable_ (something that can provide a sequence), ```for x in range(6)```
 
 These elements were all present in the earlier approach. As we work on more complex list comprehensions, it will be helpful to think of the components if we had used a for loop.
 
