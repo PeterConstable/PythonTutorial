@@ -36,7 +36,7 @@ The function takes in two strings, compares their length, and then branches the 
 First, at a higher level, there are elements that make up the function:
 
 * A function definition statement that gives the function a name
-* Parameters that the function take as input and that impact what it does
+* Parameters taken as input into the function and that impact what it does
 * A block of statements that comprise what the function does
 * Results that it returns to the caller
 
@@ -56,7 +56,9 @@ Python uses indentiation as a means of determining groupings of statements into 
 
 Some other languages use braces ```{...}``` or similar means to indicate grouping of statement. Python doesn't use braces; it only uses indentation. Each increase in indentation starts a new level of embedding, like a ```{```, and each decrease in indentation indicates the end of the grouping at that level, like a ```}```.
 
-If you don't do proper indentation, you'll either have syntactic errors or end up with Python interpreting things in a way you didn't intend. You can indent using either tabs or spaces, it doesn't matter. And the amount of indendation to indicate a grouping level doesn't matter: you could use two spaces, four spaces... however many you want. What _does_ matter, though, is that you need to use the same number of spaces or tabs consistently to indicate a given level of grouping.
+If you don't do proper indentation, you'll either have syntactic errors or end up with Python interpreting things in a way you didn't intend.
+
+You can indent using either tabs or spaces, it doesn't strictly matter, though spaces are recommended (see [PEP8](https://peps.python.org/pep-0008/#tabs-or-spaces)). The amount of indendation to indicate a grouping level also doesn't strictly matter: you could use two spaces, four spaces... however many you want (four spaces is recommended—see [PEP8](https://peps.python.org/pep-0008/#indentation)). What _does_ matter, though, is that you need to use the same number of spaces or tabs consistently to indicate a given level of grouping.
 
 Another thing to note from the example above is the terminating ```:``` on statements that precede a new grouping level.
 
@@ -134,7 +136,7 @@ def print_temp(temp):
     return
 ```
 
-Whether you include the ```return``` statement like this or omit it, your function will do the same thing: return ```None```.
+Whether you include the ```return``` statement like this or omit it, your function will do the same thing: it will return ```None```.
 
 When the function is called, the calling code can either capture the returned value and do something with it, or it can simply ignore any returned value.
 
@@ -233,10 +235,10 @@ def max_length(string1, string2):
         return len(string1)
     elif len(string1) < len(string 2):
         return len(string2)
-    # no else: only called for strings wtih differentlength
+    # no else: only to be called for strings wtih differentlength (else returns None)
 ```
 
-In some situations, one of the possible conditions might not require any action. You could just ignore the condition, but you might want to list it explicitly to make the intent clear for later reference. But ever ```if```, ```elif``` or ```else``` requires a following execution block; otherwise, you'll get a syntax error. This is one of those situations in which a ```pass``` statement can be useful.
+In some situations, one of the possible conditions might not require any action. You could just ignore the condition, but you might want to list it explicitly to make the intent clear for later reference. But every ```if```, ```elif``` or ```else``` requires a following execution block; otherwise, you'll get a syntax error. This is one of those situations in which a ```pass``` statement can be useful.
 
 ```python
     if temp > 38.5:
@@ -269,7 +271,7 @@ false
 false
 ```
 
-The parameter variable ```val``` is used on its own as a condition. Arguments that are passed in will be coverted implicitly to ```True``` or ```False```. As we learned in lesson 5, very few objects convert to ```False```; empty strings and ```None``` happen to be two that do.
+The parameter variable ```val``` is used on its own as a condition. Arguments that are passed in will be coverted implicitly to ```True``` or ```False```. As we learned in lesson 6, very few objects convert to ```False```; empty strings and ```None``` happen to be two that do.
 
 We can also have conditions involving logical expressions with objects as operands:
 
