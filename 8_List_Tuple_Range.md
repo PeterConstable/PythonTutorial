@@ -11,6 +11,7 @@ There are also other operations that are specific to strings, or specific to lis
 * [Lists](#lists)
 * [Tuples](#tuples)
 * [Ranges](#ranges)
+* [A brief intro to iterables](#a-brief-intro-to-iterables)
 * [Multiple assignment of sequence elements](#multiple-assignment-of-sequence-elements)
 * [Converting between sequence types](#converting-between-sequence-types)
 * [Common sequence operations](#common-sequence-operations)
