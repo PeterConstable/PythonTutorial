@@ -208,6 +208,8 @@ t
 42
 ```
 
+> This allows for the sequence types `list`, `tuple` and `str`, but not other iterable types. There is a way to generalize this to any iterable object, but in some Python versions (3.3 and later) it requires using a library module, [collections.abc](https://docs.python.org/3/library/collections.abc.html). Importing from other modules will be covered in a future lesson.
+
 ## ```for```... ```else```
 
 In Python, a ```for``` statement can have a following ```else```. The ```else``` block is executed after the ```for``` loop has completed.
