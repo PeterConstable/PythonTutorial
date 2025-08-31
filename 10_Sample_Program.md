@@ -27,7 +27,7 @@ We'll represent our drawing as a sequence of graphic-element groups, each of whi
 
 We're assuming you're still working in interactive mode. Several things, like defining the functions will require multi-line entry. The longest multi-line statement will be 10 lines, if you omit comments or blank lines that we'll show to provide better clarity. We've provided a file with the sample code, [drawing.py](LessonSamples\Lesson9\drawing.py). If you want, you can copy fragments from there and paste them into your interactive mode session.
 
-You can enter fragments in interactive mode in the order presented below. In some sections in this page, we may describe a function step by-step. If you copy from this page and paste, you should copy the complete function definition that will be provided at the end of that section.
+You can also enter fragments in interactive mode in the order presented below. In some sections in this page, we may describe a function step by-step. If you copy from this page and paste, you should copy the complete function definition that will be provided at the end of that section.
 
 When you enter a multi-line statement (e.g., a function definition), make sure to press ```Enter``` at the end to get out of multi-line-edit mode and complete the statement (you want to get back to the ```>>>``` prompt).
 
