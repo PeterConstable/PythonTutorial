@@ -12,6 +12,7 @@ Discussions of comparison operators for other languages often cover a _ternary_ 
 * [Comparison expressions](#comparison-expressions)
 * [Membership](#membership)
 * [Logical expressions](#logical-expressions)
+* [Chained comparisons](#chained-comparisons)
 * [Identity comparison](#identity-comparison)
 * [Comparison with `None`](#comparison-with-none)
 * [`isinstance()`](#isinstance)
@@ -174,7 +175,12 @@ Here's an example:
 True
 ```
 
-More generally, the `in` operator can be used with any container-like types to determine whether an object is contained in a container-like object. There are also some other important ways that it can be used. We'll cover more in later lessons. For now, we'll stick to this simple usage of determining if a single character is contained in a string.
+More generally, the `in` operator can be used with any container-like types to determine whether an object is contained in a container-like object. We'll cover more in later lessons. For now, we'll mention just one more way it can be used with strings: it can be used to tell of a string is a *substring* of another string. For example:
+
+```foo
+>>> "cat" in "scatter"
+True
+```
 
 ## Logical expressions
 
@@ -235,6 +241,36 @@ Python doesn't have a built-in exclusive-or boolean operator. It's not commonly 
 
 
 Now that we have a basic understanding of object IDs, let's look at identify comparison.
+
+## Chained comparisons
+
+In Python, you can combine multiple comparisons into a single expression. For example:
+
+```foo
+>>> 1 < 5 <= 12
+True
+```
+
+The chained comparison expression in this example is equivalent to simple comparisons combined with a logical `and` operator:
+
+```foo
+>>> (1 < 5) and (5 <= 12)
+True
+```
+
+Multiple comparison expressions can be chained together, with the operands on either side of a comparison operator compared. Each comparison is evaluated, and if any fails, then the chained comparison expression is false.
+
+```foo
+>>> 1 < 5 <= 5 != 12 < 17
+True
+```
+
+The above examples used ordering comparison of numbers, but chained comparison expressions aren't limited to that. Other types of comparison can be used so long as each *<operand> <operator> <operand>* portion is a valid comparison. For example:
+
+```foo
+>>> "bar" != "foosball"[:3] in "foot"
+True
+```
 
 ## Identity comparison
 
