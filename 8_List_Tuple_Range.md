@@ -231,7 +231,7 @@ Later in this lesson, we'll need to mention objects that are _iterables_. An ite
 
 The ```str```, `list` and `tuple` types are iterable types that are also sequences.
 
-On the other hand, a `range` is not actually a sequence: it doesn't contain elements. But it is an iterable and can produce a sequence. This accounts for why it behaves like a sequence in some contexts but not in others, such as how a range object is represented as a result:
+On the other hand, strictly speaking, a `range` is not a sequence: it doesn't contain elements. But it is an iterable and can produce a sequence. This accounts for why it behaves like a sequence in some contexts but not in others, such as how a range object is represented as a result:
 
 ```foo
 >>> y = range(4)
