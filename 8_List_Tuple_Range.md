@@ -509,7 +509,7 @@ You can't concatenate ranges, but you can convert ranges using ```list()``` or `
 
 ### Membership
 
-In [lesson 5](5_Bool_Comparisons.md#membership), we introduced the ```in``` comparison operator for checking if a given character was contained in a string. We can use ```in``` to test for membership with any sequence type.
+In [lesson 6](6_Bool_Comparisons.md#membership), we introduced the ```in``` comparison operator for checking if a given character was contained in a string. We can use ```in``` to test for membership with any sequence type.
 
 ```foo
 >>> 'o' in her_name
@@ -1244,7 +1244,7 @@ The items in the ```.sort()``` examples have been numbers, but other types that 
 ['eggs', 'juice', 'spam', 'toast']
 ```
 
-**Note:** As mentioned in [lesson 5](5_Bool_Comparisons.md#comparison-expressions), string comparison is complex. When using ```.sort()``` on a list of strings as in the previous example, sort will compare strings like comparing lists of the numeric values of Unicode code points. Thus, uppercase letters will sort differently than the corresponding lowercase letters.
+**Note:** As mentioned in [lesson 6](6_Bool_Comparisons.md#comparison-expressions), string comparison is complex. When using ```.sort()``` on a list of strings as in the previous example, sort will compare strings like comparing lists of the numeric values of Unicode code points. Thus, uppercase letters will sort differently than the corresponding lowercase letters.
 
 ```python
 >>> my_list = ['juice', 'toast', 'Spam', 'eggs']
