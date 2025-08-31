@@ -1366,4 +1366,4 @@ If you're coming from another language and the syntax seems odd, you might find 
 
 ## What's next
 
-In the previous lesson, we went over the traditional flow control statements ```if``` and ```while```. But we held off on discussing ```for``` because, in Python, the ```for``` statement and sequence types work closely together. There are still some other sequence types that we haven't yet covered, byte sequences; we'll get to those later. We've now got a solid start on sequences; the [next lesson](8_For.md) will introduce Python's ```for``` statements.
+In the previous lesson, we went over the traditional flow control statements ```if``` and ```while```. But we held off on discussing ```for``` because, in Python, the ```for``` statement and sequence types work closely together. There are still some other sequence types that we haven't yet covered, byte sequences; we'll get to those later. We've now got a solid start on sequences; the [next lesson](9_For.md) will introduce Python's ```for``` statements.
