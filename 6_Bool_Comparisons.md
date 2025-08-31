@@ -457,4 +457,4 @@ This will apply to any other situations in which a type is defined as a sub-clas
 
 ## What's next
 
-In this lesson, we've started to introduce some examples that look ahead to new topics, such as custom functions and flow control logic. There's more to learn about the things we've introduced so far—numbers, variables and what not. But let's go for a bit more breadth before more depth. So, the [next lesson](6_Intro_Functions_Flow_Control.md) will get us started on defining functions and will introduce statements for flow control.
+In this lesson, we've started to introduce some examples that look ahead to new topics, such as custom functions and flow control logic. There's more to learn about the things we've introduced so far—numbers, variables and what not. But let's go for a bit more breadth before more depth. So, the [next lesson](7_Intro_Functions_Flow_Control.md) will get us started on defining functions and will introduce statements for flow control.
