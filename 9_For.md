@@ -28,12 +28,14 @@ Note that the same thing could also be done easily using a ```while``` loop.
 
 Also note that the pattern above uses _two_ variables in the loop: the counter, ```i```, and ```item```. ```item``` is what you want to manipulate in each loop; ```i``` is only used to access the item. What if there was a way to achieve the same thing with just one variable?
 
-Welcome to Python's ```for``` statement! In Python, ```for``` is designed specifically to work with sequences, and allows you to loop through items in a sequence without needing a separate variable just to index the items.
+Welcome to Python's ```for``` statement! In Python, ```for``` is designed specifically to work with iterable objects such as sequences, and allows you to loop through items sequentially without needing a separate variable just to index the items.
 
+> Iterables were introduced briefly in the previous lesson: any object that can return its members one at a type. Strings, lists, tuples and ranges are all iterables. There are other built-in types that we haven't looked at yet that are also interables, including dictionaries and file objects.
+> 
 A ```for``` statement is structured like this:
 
 ```python
-    for <vars> in <sequence_object>:
+    for <var> in <iterable_object>:
         <execution block>
     else:
         <execution block>
@@ -42,13 +44,13 @@ A ```for``` statement is structured like this:
 We'll start with the simplest form:
 
 ```python
-    for <var> in <sequence_object>:
+    for <var> in <iterable_object>:
         <execution block>
 ```
 
 Earlier we learned about ```in``` as a comparison operator for testing if something is contained in a sequence. This is another use for ```in```: to access the elements of a sequence within a ```for``` loop.
 
-The sequence object can be any sequence-type object, or container-like object that supports iterating through contained items sequentially. You can use whatever variable name you want. On each loop, an element from the sequence is assigned to the variable, and execution block is executed.
+The `iterable_object` can be any sequence-type object or other iterable object. You can use whatever variable name you want. On each loop, an element from the sequence is assigned to the variable, and the execution block is executed.
 
 The following example steps through the characters in a string:
 
@@ -111,9 +113,9 @@ A ```for``` loop must have a non-empty execution block; otherwise, you'll get an
 
 ## Changing a sequence within the loop
 
-In some situations, you may need to step through a list but then make changes to it without the loop. In any programming language, doing this kind of thing is bug prone and can be tricky to get right. In particular, as you step through a sequence, if you add or remove an item, then your counter gets out of sync with the sequence contents.
+In some situations, you may need to step through a list but then make changes to it within the execution loop. In any programming language, doing this kind of thing is bug prone and can be tricky to get right. In particular, as you step through a sequence, if you add or remove an item, then your counter gets out of sync with the sequence contents.
 
-In Python, the sequence reference in the ```for``` statement is evaluated only once, before the first iteration. But it's identifying the sequence object at that point, not all the elements in the sequence. The implementation is stepping through elements by position. So, if the elements change while a loop is executed, the implementation know what position it's at, but not that the elements are changing. If an element is added within the loop, the runtime can get end up operating on the same element repeatedly. Or if an element is removed, then a following element in the sequence may be skipped.
+In Python, the sequence reference in the ```for``` statement is evaluated only once, before the first iteration. But it's identifying the sequence object at that point, not all the elements in the sequence. The implementation is stepping through elements by position. So, if the elements change while a loop is executed, the implementation knows what position it's at, but not that the elements are changing. If an element is added within the loop, the runtime can end up operating on the same element repeatedly. Or if an element is removed, then a following element in the sequence may be skipped.
 
 Consider this example:
 
@@ -127,9 +129,11 @@ Consider this example:
 [2, 4]
 ```
 
-On the first iteration, ```1``` is removed. Right at that point, the current position within the sequence is pointing at the following element, ```2```. Then, for the next iteration, the runtime advances to the next element, which is ```3```. So, ```2``` gets skipped.
+When the `for` statement is executed, `my_list` is evaluated as an iterator. On the first iteration, the iterator index is 0, so it points at `1`. When the block is executed, ```1``` is removed. Right at that point, the iterator index is still 0, which is now pointing at the  ```2```. Then, for the next iteration, the runtime advances to the next element (at index 1), which is ```3```. So, ```2``` gets skipped. On the third iteration, it gets the third element from the modified list, which is `5`, and removes that; `4` is skipped. 
 
-To avoid these kinds of problems, use a copy of the sequence in the ```for``` statement.
+> Note: The runtime implementation recognizes when the iterator has run out of elements, so it doesn't attempt to execute the loop a fourth time.
+
+To avoid these kinds of problems, you can create a copy of the sequence in the ```for``` statement.
 
 ```foo
 >>> my_list = [1,2,3,4,5]
@@ -141,9 +145,11 @@ To avoid these kinds of problems, use a copy of the sequence in the ```for``` st
 []
 ```
 
->_Q: Why did that work?_
+Instead of `list(my_list)`, you could also request a _slice_ comprised of the whole list, `my_list[:]`.
+
+>_Q: Why did using a copy of the list work?_
 >
-> The ```.remove()``` method takes an _object reference_, not a _position_ in the sequence. But the runtime implementation of ```for``` is stepping through elements by position. In the original case, after ```1``` was removed, the objects referred to at each position changed. But in the second case, removing ```1``` from my_list doesn't affect the object references at each position of the copy. So the loop will execute once for all five elements. In each pass, ```.remove()``` will get an object reference and will look for that object within ```my_list```, regardless of what position it's in at that point.
+> The ```.remove()``` method takes an _object reference_, not a _position_ in the sequence. But the runtime implementation of ```for``` is stepping through elements by position. In the original case without creating a copy, after ```1``` was removed, the objects referred to at each position changed. But in the second case, using a copy, removing ```1``` from my_list doesn't affect the object references at each position of the copy. So the loop will execute once for all five elements. In each pass, ```.remove()``` will get an object reference and will look for that object within ```my_list```, regardless of what position it's in at that point.
 
 ## Nested loops
 
