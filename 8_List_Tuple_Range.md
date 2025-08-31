@@ -227,7 +227,7 @@ Note that _step_ must not be 0; if it's 0, you'll get an error.
 
 ## A brief intro to iterables
 
-Later in this lesson, we'll need to mention objects that are _iterables_. An iterable object is capable of producing a sequence. It can be a sequence itself, in the sense of containing elements; but it might not be. To qualify as an iterable, it just needs to be able to _provide a sequence_ when used in contexts that expect a sequence.
+Later in this lesson, we'll need to mention objects that are _iterables_. An iterable object is capable of producing a sequence (or, more precisely, is capable of returning its members one at a time). It can be a sequence itself, in the sense of containing elements; but it might not be. To qualify as an iterable, it just needs to be able to _provide a sequence_ when used in contexts that expect a sequence.
 
 The ```str```, `list` and `tuple` types are iterable types that are also sequences.
 
