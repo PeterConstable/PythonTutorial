@@ -458,4 +458,4 @@ Note that the ```else``` block gets executed: ```continue``` never causes that t
 
 ## What's next
 
-There's one more flow control statement we need to look at, the ```for``` statement. It's always used with sequences or objects with a certain sequence-like quality. So, in the [next lesson](7_List_Tuple_Range.md), we'll learn more about sequence types, then we'll cover ```for``` in the lesson after that.
+There's one more flow control statement we need to look at, the ```for``` statement. It's always used with sequences or objects with a certain sequence-like quality. So, in the [next lesson](8_List_Tuple_Range.md), we'll learn more about sequence types, then we'll cover ```for``` in the lesson after that.
