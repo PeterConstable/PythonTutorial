@@ -263,6 +263,8 @@ Multiple comparison expressions can be chained together, with the operands on ei
 ```foo
 >>> 1 < 5 <= 5 != 12 < 17
 True
+>>> 1 < 5 <= 5 == 12 < 17
+False
 ```
 
 The above examples used ordering comparison of numbers, but chained comparison expressions aren't limited to that. Other types of comparison can be used so long as each *<operand> <operator> <operand>* portion is a valid comparison. For example:
