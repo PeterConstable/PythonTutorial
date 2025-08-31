@@ -14,7 +14,11 @@ There are also other operations that are specific to strings, or specific to lis
 * [A brief intro to iterables](#a-brief-intro-to-iterables)
 * [Multiple assignment of sequence elements](#multiple-assignment-of-sequence-elements)
 * [Converting between sequence types](#converting-between-sequence-types)
+* [Conversion to `bool`](#conversion-to-bool)
 * [Common sequence operations](#common-sequence-operations)
+* [Other immutable sequence operations](#other-immutable-sequence-operations)
+* [Immutable types and copying](#immutable-types-and-copying)
+  * [Efficient string concatenation](#efficient-string-concatenation)
 * [Mutating list operations](#mutating-list-operations)
 * [Tuples as returned values](#tuples-as-returned-values)
 * [What's next](#whats-next)
@@ -697,7 +701,13 @@ The `sum()` function doesn't work with strings. The `min()` and `max()` function
 
 Linguistic string ordering following the rules for a particular language needs to be handled by other means, such as using the PyICU library.
 
-### Immutable types and copying
+## Other immutable sequence operations
+
+For several immutable types, including tuples and ranges, nearly all of the available sequence operations have been covered. The only thing we haven't covered is the ```hash()``` function, which you may need to know about when defining your own custom types; that will be in a later lesson.
+
+```str``` is another immutable type, and has a number of additional, string-specific methods. We'll save those for another lesson that goes into more detail on working with strings. We will say more about string concatenation in the next section, however, including how to build up strings in a memory-efficient manner.
+
+## Immutable types and copying
 
 Operations that result in copying objects can have performance impacts, so it's good to be aware when copying will occur. All of the sequence operations we've gone over in this section do not involve changing the sequence contained in a sequence object. Even so, some of them do result in copying and new memory allocation.
 
@@ -777,6 +787,8 @@ After concatenation, we still have the same list object.
 
 As noted earlier, if you build up a string or tuple through many repeated concatenation, that can have noticeable performance impacts. For tuples, you can avoid any perf impact simply by using a list instead. If you really need to end up with a tuple, then you can wait until the final sequence is assembled and then convert the list to a tuple.
 
+### Efficient string concatenation
+
 To build up a string from many string fragments in a memory-efficient way, you can assemble the pieces in order as a list, and then create the final string from that list. Now, earlier we saw that converting a list to a string using ```str()``` didn't provide the kind of result we'd want.
 
 ```foo
@@ -799,12 +811,6 @@ The separator string could be any string, including an empty string.
 >>> x.join(y)
 'Eliza Doolittle'
 ```
-
-### Other immutable sequence operations
-
-For several immutable types, including tuples and ranges, nearly all of the avaialble sequence operations have been covered. The only thing we haven't covered is the ```hash()``` function, which you may need to know about when defining your own custom types; that will be in a later lesson.
-
-```str``` in another immutable type, and has a number of additional, string-specific methods. We'll save those for another lesson that goes into more detail on working with strings.
 
 ## Mutating list operations
 
