@@ -366,4 +366,4 @@ Our example has used a list of tuple elements, but any sequence type could be us
 
 ## What's next
 
-At this point, we've learned about a number of useful parts of Python. We're now ready to put some of these pieces together in a small program. We'll do just that in the [next lesson](9_Sample_Program.md).
+At this point, we've learned about a number of useful parts of Python. We're now ready to put some of these pieces together in a small program. We'll do just that in the [next lesson](10_Sample_Program.md).
