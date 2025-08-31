@@ -107,6 +107,8 @@ Next, we'll do a bit of validation for the ```position``` parameter to make sure
         return
 ```
 
+> To be more complete, we'd also validate that the `spec` parameter matched the `kind` of primitive to be drawn. That's left as an exercise for the reader!
+
 Then we need to call ```set_drawing_position()``` to set the drawing position. To set up for that, we'll assign the tuple elements to separate variables for the function arguments.
 
 ```python
