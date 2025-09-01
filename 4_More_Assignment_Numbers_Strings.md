@@ -379,7 +379,7 @@ To check whether a given flag is set, you'd use _bitwise and_ with the flag cons
         ...
 ```
 
->Note: equality comparison will be covered in [lesson 5](5_Bool_Comparisons.md#comparison-expressions); `if` statements will be covered in [lesson 6](6_Intro_Functions_Flow_Control.md#the-if-statement).
+>Note: equality comparison will be covered in [lesson 6](6_Bool_Comparisons.md#comparison-expressions); `if` statements will be covered in [lesson 7](7_Intro_Flow_Control.md#the-if-statement).
 
 To set a particular flag, you'd use _bitwise or_ with the flag constant:
 

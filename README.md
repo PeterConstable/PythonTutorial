@@ -16,12 +16,14 @@ You might come looking for a specific detail because you need that for whatever 
 * [More About Assignment, Numbers and Strings](4_More_Assignment_Numbers_Strings.md)
 * [Intro to Objects](5_Intro_Objects.md)
 * [Booleans, Comparisons and Logical Expressions](6_Bool_Comparisons.md)
-* [Intro to Functions and Flow Control Statements](7_Intro_Functions_Flow_Control.md)
+* [Intro to Flow Control Statements](7_Intro_Flow_Control.md)
 * [Sequence Types: Lists, Tuples and Ranges](8_List_Tuple_Range.md)
-* [Flow Control Using ```for```](9_For.md)
-* [Our First Program](10_Sample_Program.md)
+* [Flow Control Using `for`](9_For.md)
+* [Intro to Functions](10_Intro_Functions.md)
+* [Our First Program](11_Sample_Program.md)
 * ... (more to come)
-* [List Comprehensions](12_List_Comprehensions.md)
+* [List Comprehensions](13_List_Comprehensions.md)
+* [Sets and Dictionaries](14_Sets_Dictionaries.md)
 * ...
 * [Index](Index.md)
 

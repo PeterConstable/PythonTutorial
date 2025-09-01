@@ -26,10 +26,13 @@ In this example, `my_func` is a function that takes an argument, `val`, tests wh
 
 ## Structure of a function definition
 
-At a minimum, a function is comprised of
+You start a function with a definition statement that defines the function name and any parameters it takes.
 
-* A `def` statement that specifies a function name and parameter list, and 
-* an execution block. 
+```python
+def longest(string1, string2):
+```
+
+At a minimum, a function is comprised of a `def` and an execution block. 
 
 It's also recommended to include a _docstring_ that describe what the function does.
 
@@ -39,9 +42,9 @@ def <function name>(<argument_list_>):
     <execution block>
 ```
 
-As described for other flow control statements (`if`, etc.), indentation is used to demarcate the execution block of a function. Four spaces are recommended.
+As described for other flow control statements (`if`, etc.), [indentation](7_Intro_Flow_Control.md#indentation) is used to demarcate the execution block of a function. Four spaces are recommended.
 
-In this example, `my_func` is the function name, and `val` is an parameter:
+In this example, `my_func` is the function name, `val` is a parameter, and the execution block has a single `print` statement:
 
 ```python
 def my_func(val):
