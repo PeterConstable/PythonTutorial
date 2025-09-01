@@ -1,6 +1,6 @@
 # Sets and Dictionaries
 
-In earlier lessons we learned about various sequence types: ```str``` (in [lesson 3](3_Intro_Strings.md)), ```list``` and ```tuple``` (in [lesson 7](7_List_Tuple_Range.md). Sequence types are all ordered containers: they contain zero or more member elements, and the elements are in some particular order. Strings are specialized containers: they can only contain characters. But list and tuple are general containers: they can contain objects of any type.
+In earlier lessons we learned about various sequence types: ```str``` (in [lesson 3](3_Intro_Strings.md)), ```list``` and ```tuple``` (in [lesson 8](8_List_Tuple_Range.md). Sequence types are all ordered containers: they contain zero or more member elements, and the elements are in some particular order. Strings are specialized containers: they can only contain characters. But list and tuple are general containers: they can contain objects of any type.
 
 In this lesson, we will learn about Python's other built-in, general-purpose container types: ```set```, ```frozenset``` and ```dict```.
 
