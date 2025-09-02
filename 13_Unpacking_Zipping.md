@@ -42,7 +42,7 @@ But a simpler way would be to unpack the tuple. This is done using the `*` opera
 range(0, 3)
 ```
 
-> Note: `*` is also used as an arithmetic operator. The arithmetic operators works only with two numeric operands. The unpacking operator works only on a single, iterable operable, and numbers are not iterable. Thus, the two usage contexts for the `*` symbol are distinct.
+> Note: `*` is also used as an arithmetic operator. The arithmetic operators works only with two numeric operands. The unpacking operator works only on a single, iterable operand, and numbers are not iterable. Thus, the two usage contexts for the `*` symbol are distinct.
 
 The effect of unpacking can be clearly illustrated using the `print()` function. We've seen that the `print()` function can take multiple arguments, in which case it prints them in order with a space in between.
 
@@ -116,7 +116,7 @@ In [lesson 8](8_List_Tuple_Range.md#tuples), we saw that a tuple, list or string
 't'
 ```
 
-Also, in [lesson 10](10_Intro_Functions.md#returning-multiple-values), we saw that a function can return multiple values with a single `return` statement:
+Also, in [lesson 10](10_Intro_Functions.md#returning-multiple-values) (and again in the [previous lesson](12_List_Comprehensions.md#for-expression-with-multiple-element-variables)), we saw that a function can return multiple values with a single `return` statement:
 
 ```python
 def return_pair():
