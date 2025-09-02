@@ -116,7 +116,7 @@ In [lesson 8](8_List_Tuple_Range.md#tuples), we saw that a tuple, list or string
 't'
 ```
 
-Also, in [lesson 10](10_Intro_Functions.md#returning-multiple-values) (and again in the [previous lesson](12_List_Comprehensions.md#for-expression-with-multiple-element-variables)), we saw that a function can return multiple values with a single `return` statement:
+Also, in [lesson 10](10_Intro_Functions.md#returning-multiple-values), we saw that a function can return multiple values with a single `return` statement:
 
 ```python
 def return_pair():
@@ -130,7 +130,7 @@ def return_pair():
 24
 ```
 
-We also saw something similar in [lesson 9](9_For.md#using-multiple-element-variables), with multiple variables referenced in a `for` loop:
+We also saw something similar in [lesson 9](9_For.md#using-multiple-element-variables) (and again in the [previous lesson](12_List_Comprehensions.md#for-expression-with-multiple-element-variables)), with multiple variables referenced in a `for` loop:
 
 ```foo
 >>> a = [(1, 'cat'), (2, 'toad'), (3, 'mouse')]
