@@ -21,9 +21,10 @@ You might come looking for a specific detail because you need that for whatever 
 * [Flow Control Using `for`](9_For.md)
 * [Intro to Functions](10_Intro_Functions.md)
 * [Our First Program](11_Sample_Program.md)
-* ... (more to come)
-* [List Comprehensions](13_List_Comprehensions.md)
+* [List Comprehensions](12_List_Comprehensions.md)
+* [Unpacking and Zipping Sequences](13_Unpacking.md)
 * [Sets and Dictionaries](14_Sets_Dictionaries.md)
+* ... (more to come)
 * ...
 * [Index](Index.md)
 

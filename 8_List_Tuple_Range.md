@@ -305,6 +305,8 @@ This also works with any other sequence types, including strings or ranges.
 
 **Note!** When assigning sequence elements to a tuple of variables, the number of variables must be the same as the number of sequence elements. Otherwise, you'll get an error.
 
+We'll look a little deeper at multiple assignment using sequence types in [lesson 13](13_Unpacking_Zipping.md#implicit-sequence-unpacking).
+
 ## Converting between sequence types
 
 In discussing ranges, we've made use of the ```list()``` function to convert ranges to lists. Conversions between the different sequence types is possible in some directions, but not others. And of the conversions that _are_ possible, only some are particularly useful.

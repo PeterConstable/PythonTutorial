@@ -7,6 +7,7 @@ In lessons 7 and 9, we were introduced to flow control using `if`, `while` and `
 * [Invoking a function](#invoking-a-function)
 * [Optional parameters](#optional-parameters)
 * [Returning a value](#returning-a-value)
+* [Returning multiple values](#returning-multiple-values)
 * [Using the `pass` statement](#using-the-pass-statement)
 * [What's next](#whats-next)
 
@@ -230,9 +231,27 @@ def get_longest(string1, string2):
         print("v1" if longest == v1 else "v2")
 ```
 
+## Returning multiple values
+
+A `return` statement in a function isn't limited to returning a single value. You can return multiple values at the same time just by listing them after the `return` keyword, separated by commas. In the calling code, you can use this in a multiple assignment statement:
+
+```python
+def return_pair():
+    return 17, 24
+```
+```foo
+>>> x, y = return_pair()
+>>> x
+17
+>>> y
+24
+```
+
+We'll look a little deeper at how this works in [lesson 13](13_Unpacking_Zipping.md#implicit-sequence-unpacking).
+
 ## Using the `pass` statement
 
-In [lesson 7][7_Intro_Functions_Flow_Control.md#the-pass-statement], we were introduced to the `pass` statement, which is a no-op. This can be used in a function execution block if you've decided to create a function but aren't ready to create its implementation. If you write a `def` statement but don't have an indented statement block after it, that's considered a syntax error. You could comments out the `def` statement to avoid an error, but then you can't write other code to call that function. You can temporarily add a `pass` statement as the execution block to get around the syntax error:
+In [lesson 7](7_Intro_Functions_Flow_Control.md#the-pass-statement), we were introduced to the `pass` statement, which is a no-op. This can be used in a function execution block if you've decided to create a function but aren't ready to create its implementation. If you write a `def` statement but don't have an indented statement block after it, that's considered a syntax error. You could comments out the `def` statement to avoid an error, but then you can't write other code to call that function. You can temporarily add a `pass` statement as the execution block to get around the syntax error:
 
 ```python
 def calculate_planck_constant():

@@ -355,12 +355,11 @@ it's a toad
 
 got item 3
 it's a mouse
-
 ```
 
 On each iteration of the loop, a tuple element is obtained from ```a``` and the elements are assigned to the tuple of variables ```t1, t2```.
 
-Our example has used a list of tuple elements, but any sequence type could be used.
+Our example has used a list of tuple elements, but any sequence type could be used. We'll return to this in [lesson 13](13_Unpacking_Zipping.md#implicit-sequence-unpacking).
 
 **Note, however:** the number of variables and the length of each sequence object within the top-level sequence must always be the same. Otherwise, you'll get an error.
 

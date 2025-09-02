@@ -2,6 +2,8 @@
 
 In [lesson 8](8_List_Tuple_Range.md#ranges), we saw that the `range()` function generates a sequence of numbers, and that we could use ```list(range(n))``` to create a ```list``` object with the sequence of numbers. In this lesson, we'll learn about _list comprehensions_ which are a more general and flexible way to generate lists.
 
+When comparing different programming, we can find that each has particular ways of doing things that are very convenient and, therefore, are often used when coding in that language. List comprehensions are one of the features of Python that are considered very _"Pythonic"_!
+
 * [Basic list comprehensions](#basic-list-comprehensions)
 * [`for` expression with multiple element variables](#for-expression-with-multiple-element-variables)
 * [Using multiple `for` expressions](#using-multiple-for-expressions)
@@ -370,7 +372,9 @@ Nesting of comprehensions can be very useful, but watch out you don't make code 
 
 The data in our example imposed a level of nesting we had to work with. By writing the code across multiple lines and indented, it shouldn't be hard for someone to read the code later if they're familiar with list comprehensions _and they know the data is a list of lists of lists_. Adding comments to explain that would help.
 
-Let's consider one more example of a nested list comprehension. This is taken from [The Python tutorial](https://docs.python.org/3.8/tutorial/datastructures.html#nested-list-comprehensions). Suppose we have an object representing a 3 × 4 matrix:
+Let's consider one more example of a nested list comprehension: transposing a matrix. (This is taken from [The Python tutorial](https://docs.python.org/3.8/tutorial/datastructures.html#nested-list-comprehensions).) 
+
+Suppose we have an object representing a 3 × 4 matrix:
 
 ```python
 >>> matrix = [
@@ -428,6 +432,12 @@ transposed = [
 ]
 ```
 
+This may not be very intuitive, but it helps us to think through how we can work out the logic to produce powerful effects with comprehensions.
+
+> For transposing data like this, in the [next lesson](13_Unpacking_Zipping.md) we'll learn about other built-in Python features that will make this much easier!
+
 When massaging data in a multi-level hierarchy, as we did for the HTML table data example, work in steps: start with the top (outer) layer, figuring out what's needed for that. Then work through subsequent layers down (inward).
 
 ## What's next
+
+List comprehensions are a powerful way of working with sequential data in Python. In the [next lesson](13_Unpacking_Zipping.md), we'll learn about two other Python features that are often used with sequences: _unpacking_ and _zipping_.
