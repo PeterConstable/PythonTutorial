@@ -25,7 +25,7 @@ Our program will similate drawing an illustration with different graphic primiti
 
 We'll represent our drawing as a sequence of graphic-element groups, each of which can have several graphic primitives. And we'll define different functions for different levels of processing: from the complete drawing down to the individual kind of graphic primitive. It might sound complex, but we'll see it's actually fairly simple using the mechanisms we've learned.
 
-We're assuming you're still working in interactive mode. Several things, like defining the functions will require multi-line entry. The longest multi-line statement will be 10 lines, if you omit comments or blank lines that we'll show to provide better clarity. We've provided a file with the sample code, [drawing.py](LessonSamples\Lesson9\drawing.py). If you want, you can copy fragments from there and paste them into your interactive mode session.
+We're assuming you're still working in interactive mode. Several things, like defining the functions will require multi-line entry. The longest multi-line statement will be 10 lines, if you omit comments or blank lines that we'll show to provide better clarity. We've provided a file with the sample code, [drawing.py](LessonSamples\Lesson11\drawing.py). If you want, you can copy fragments from there and paste them into your interactive mode session.
 
 You can also enter fragments in interactive mode in the order presented below. In some sections in this page, we may describe a function step by-step. If you copy from this page and paste, you should copy the complete function definition that will be provided at the end of that section.
 
