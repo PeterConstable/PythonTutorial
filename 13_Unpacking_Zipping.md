@@ -11,6 +11,7 @@ In this lesson, we'll learn how to use each of these features of Python. In this
 * [Zipping sequences](#zipping-sequences)
 * ["Unzipping"](#unzipping)
 * ["Using `zip()` and `*` to transpose a matrix](#using-zip-and--to-transpose-a-matrix)
+* [What's next](#whats-next)
 
 ## Unpacking function arguments
 
@@ -422,3 +423,6 @@ Now let's see the result:
 
 The result is a list with four elements, each of which is a 3-tuple, and represents 4 &#xd7; 3 matrix that is the transpose of the original matrix.
 
+## What's next
+
+We've gone into detail working with sequences and sequence types. In the [next lesson](14_Sets_Dictionaries.md), we'll start learning about two important _non-ordered_ data structures, _sets_ and _dictionaries_.
