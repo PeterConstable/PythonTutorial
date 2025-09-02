@@ -4,7 +4,13 @@ Sometimes you might have a sequence object, such as a list, but need to use it i
 
 There can also be situations in which you'd like a convenient way to group sequential things together to use in a context where that grouping is expected. For example, you might have two separate lists, `['a','b']` and `[1,2]`, but it would be convenient to have them combined into a list of pairs, `[('a',1), ('b',2)]`. The built-in `Zip()` function makes that easy.
 
-Unpacking and zipping have been mentioned in relation to sequences but, more generally, they can be used with any iterable types.
+In this lesson, we'll learn how to use each of these features of Python. In this introdocument, they were each described in relation to sequences. We'll see that each can be applied more generally, with any iterable types.
+
+* [Unpacking function arguments](#unpacking-function-arguments)
+* [Implicit sequence unpacking](#implicit-sequence-unpacking)
+* [Zipping sequences](#zipping-sequences)
+* ["Unzipping"](#unzipping)
+* ["Using `zip()` and `*` to transpose a matrix](#using-zip-and--to-transpose-a-matrix)
 
 ## Unpacking function arguments
 
@@ -351,7 +357,7 @@ If you want to use zipped data more than once, you can recreate it where needed,
 [(1, 'a'), (2, 'b'), (3, 'c')]
 ```
 
-## Unzipping
+## "Unzipping"
 
 One way to think about what `zip()` does is that it turns rows into columns and columns into rows. Because of this, just as you can use `zip()` to combine two sequences, you can also use it on the combined sequences to get back the original—_"unzipping"_, as it were. Let's see how this works.
 
@@ -385,7 +391,7 @@ Note that the sequences are always returned as tuples, regardless of what type o
 [(0, 1, 2), ('a', 'b', 'c')]
 ```
 
-## Using `zip()` to transpose a matrix
+## Using `zip()` and `*` to transpose a matrix
 
 Since we can think of `zip()` as turning rows into columns, we see that it provides an easy way to transpose a matrix. This was seen implicitly in the previous section, but let's look at it more specifically as performing a matrix operation.
 
