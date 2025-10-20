@@ -268,8 +268,8 @@ This doesn't work, however:
 ```python
 Traceback (most recent call last):
   File "<python-input-47>", line 1, in <module>
-    [(int(docID),s) for docID,s in line.split('\t')]
-                        ^^^^^^^
+    [(int(docID),s) for line in lines for docID,s in line.split('\t')]
+                                          ^^^^^^^
 ValueError: not enough values to unpack (expected 2, got 1)
 ```
 
