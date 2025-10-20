@@ -7,6 +7,7 @@ When comparing different programming, we can find that each has particular ways 
 * [Basic list comprehensions](#basic-list-comprehensions)
 * [`for` expression with multiple element variables](#for-expression-with-multiple-element-variables)
 * [Using multiple `for` expressions](#using-multiple-for-expressions)
+* [Unpacking elements with an expression that returns a list](#unpacking-elements-with-an-expression-that-returns-a-list)
 * [Nested comprehensions](#nested-comprehensions)
 * [What's next](#whats-next)
 
@@ -118,7 +119,7 @@ it's a mouse
 
 A list comprehension can also have multiple element variables in the `for` expression when iterating over a sequence with multi-element sequence elements. But, they must be merged or reduced into a single object for the generated list. Let's consider a few examples.
 
-```foo
+```python
 >>> list_in = [(1, 'cat'), (2, 'toad'), (3, 'mouse')]
 >>>
 >>> [ (t2, 'a', t1) for t1, t2 in list_in if len(t2) == 4]
@@ -127,7 +128,7 @@ A list comprehension can also have multiple element variables in the `for` expre
 
 In this example, ```t1``` and ```t2``` come from the members of each of the tuple pairs in ```list_in```. For the generated list, ```t1``` and ```t2``` are combined in a different way with a third, static element into three-element lists.
 
-```foo
+```python
 >>> list_in = [(1, 'cat'), (2, 'toad'), (3, 'mouse')]
 >>>
 >>> [ t2 + str(t1) for t1, t2 in list_in]
@@ -221,6 +222,124 @@ However, in the inner-loop `if` expression, both ```x``` and ```y``` can be used
 >>>
 >>> my_list
 [(0, 0), (0, 2), (0, 4), (1, 1), (1, 3), (1, 5), (2, 0), (2, 2), (2, 4), (3, 1), (3, 3), (3, 5), (4, 0), (4, 2), (4, 4)]
+```
+
+## Unpacking elements with an expression that returns a list
+Here's a scenario that combines the previous two sections: a comprehension with inner and outer `for` loops, and working with two variables. What will be special in this case is iterating over an expression that returns a list: it will be important to understand what `for` is iterating over.
+
+Suppose we have a list of strings from a corpus with each string having two tab-delimited fields: a document ID, and a sentence.
+
+```python
+>>> lines = [
+...     "0\tfirst sentence from doc 0",
+...     "0\tsecond sentence from doc 0",
+...     "1\tfirst sentence from doc 1",
+...     "1\tsecond sentence from doc 1"
+... ]
+```
+Now suppose we want to transform this into a list of tuples, `[(int,str), (int,str),...]`. We know that: 
+
+* the comprehension has to produce tuples with two elements, `(int(docID),s)`
+* the outer `for` loop will iterate over the elements in `lines`
+
+So, we need at least the following:
+
+```python
+    result = [(int(docID),s) for line in lines ... ]
+```
+Within each pass of that outer loop, we're going to use `str.split()` to segment the two fields in a line: `line.split('\t')` will return a list with two string elements. In the earlier section, we saw that we could implicitly unpack multiple elements from a list into two variables. Here's the earlier example, simplified by removing the condition:
+
+```python
+>>> list_in = [(1, 'cat'), (2, 'toad'), (3, 'mouse')]
+>>> [ (t2, 'a', t1) for t1, t2 in list_in]
+[('cat', 'a', 1), ('toad', 'a', 2), ('mouse', 'a', 3)]
+```
+
+`for t1, t2 in list_in` iterates over the elements in `list_in`, and for each of those elements unpacks the members to variables `t1, t2`.
+
+Applying this to the current situation—the `.split()` function returning a object with two elements—, we might think to try the following:
+
+```python
+>>> result = [(int(docID,s) for line in lines for docID,s in line.split('\t')]
+```
+
+This doesn't work, however:
+
+```python
+Traceback (most recent call last):
+  File "<python-input-47>", line 1, in <module>
+    [(int(docID),s) for docID,s in line.split('\t')]
+                        ^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+```
+
+Why isn't this working?
+
+The key is in understanding what the inner loop, `for ... in line.split(...)` is iterating over. The expression `line.split(...)` returns a list, which is an iterable, and the `for` loop is iterating over *the elements in that* list, not over successive calls to `line.split(...)`. So, in the first pass of the outer loop, `line.split(...)` will return this list:
+
+```
+['0', 'first sentence from doc 0']
+```
+The inner loop will interate over the elements in that list, each a string. `for docID,s` is attempting to unpack to two variables, but the strings can't be unpacked like that. Hence the error, "not enough values to unpack (expected 2, got 1)".
+
+So, how to fix this? We want a pass of the inner `for` loop to operate on the result from `line.split(...)` as a unit, so that needs to be iterated by an iterable object. 
+
+To achieve that, we can  create a `list` that contains that result: `[line.split(...)]`. The inner loop `for ... in [line.split(...)]` will iterate over the elements of that list, with the element in the first pass being what we saw above:
+
+```
+['0', 'first sentence from doc 0']
+```
+
+That has two elements that can be unpacked to two variables. Let's see this altogether:
+
+```python
+>>> lines = [
+...     "0\tfirst sentence from doc 0",
+...     "0\tsecond sentence from doc 0",
+...     "1\tfirst sentence from doc 1",
+...     "1\tsecond sentence from doc 1"
+... ]
+>>> result = [(int(docID),s) for line in lines for docID,s in [line.split('\t')]]
+>>>
+>>> for r in result: print(r)
+...
+(0, 'first sentence from doc 0')
+(0, 'second sentence from doc 0')
+(1, 'first sentence from doc 1')
+(1, 'second sentence from doc 1')
+```
+
+To deepen understandig, let's consider again what was happening with this inner loop expression:
+
+```python
+   ... for docID,s in line.split(...)
+```
+
+It was iterating over the elements of the list returned by `line.split(...)`, each of which was a string, and attempting to unpack the string to two variables. That should work... if each string had exactly two characters. Indeed, it does:
+
+```python
+>>> lines = ["0a\t1b","3c\t4d"]
+>>> [(int(docID),s) for line in lines for docID,s in line.split('\t')]
+[(0, 'a'), (1, 'b'), (3, 'c'), (4, 'd')]
+```
+
+Summarizing the main lesson here: If you have a comprehension question with a `for` loop iterating on an expression that produces a list—a pattern like the following...
+
+```python
+    [ ... for x,y in <expression that returns a sequence> ...]
+```
+... then that `for` loop will iterate over the *elements in the sequence returned by that expression*. That can only work if each element in that sequence is a sequence with the same number of members as the number of unpacking variables.
+
+But if what you want is to iterate over a sequence (`lines` in the example), and in each pass to use the instance variable (`line`) in an expression that returns a list or tuple that can be unpacked to multiple variables, then the expression will need to be embedded into an iterable type (a list or tuple) that will return on each iteration the list/tuple to be unpacked, as in the following pattern:
+
+```python
+    [ ... for x,y in [<expression that returns a sequence of two elements>] ...]
+```
+
+It's easy to embed it into a list, but a tuple would also work:
+
+```python
+    [ ... for x,y in (<expression that returns a sequence of two elements>,) ...]
 ```
 
 ## Nested comprehensions
